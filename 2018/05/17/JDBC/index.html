@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="" />
+  
+  <title>Hexo</title>
+  <meta name="author" content="John Doe">
+  <meta name="description" content="JDBC高级[TOC]
+内容回顾
+什么是JDBC  为什么使用JDBC
+使用JDBC开发的步骤
+JDBC中的三个对象
+
+今日重点
+==JDBC操作事务==
+==装饰者模式==
+==C3P0连接池的使用==
+==DBUtils的使用==
+
+今日目标01-JDBC的事务环境准备.avi   什么是事务:">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Hexo"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;
+      </div>
+    </div>
+    <div class="main-ctnr">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2018-05-16T16:10:14.040Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2018-05-17
+</time>
+
+
+
+
+
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDBC高级"><span class="toc-text">JDBC高级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内容回顾"><span class="toc-text">内容回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今日重点"><span class="toc-text">今日重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今日目标"><span class="toc-text">今日目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-JDBC的事务环境准备-avi"><span class="toc-text">01-JDBC的事务环境准备.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-JDBC的事务管理-avi"><span class="toc-text">02-JDBC的事务管理.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-连接池的概述-avi"><span class="toc-text">03-连接池的概述.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-自定义连接池（选放）-avi"><span class="toc-text">04-自定义连接池（选放）.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-自定义连接池的问题及解决分析（选放）-avi"><span class="toc-text">05-自定义连接池的问题及解决分析（选放）.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#06-自定义连接池的问题解决代码实现（选放）-avi"><span class="toc-text">06-自定义连接池的问题解决代码实现（选放）.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#07-Druid开源连接池的使用-avi"><span class="toc-text">07-Druid开源连接池的使用.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#08-Druid开源连接池的使用二-avi"><span class="toc-text">08-Druid开源连接池的使用二.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#09-C3P0开源连接池的使用-avi"><span class="toc-text">09-C3P0开源连接池的使用.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-C3P0开源连接池的使用二-avi"><span class="toc-text">10-C3P0开源连接池的使用二.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-改写工具类-avi"><span class="toc-text">11-改写工具类.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-DBUtils的概述-avi"><span class="toc-text">12-DBUtils的概述.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-DBUtils的API-avi"><span class="toc-text">13-DBUtils的API.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-DBUtils的使用之增删改的操作-avi"><span class="toc-text">14-DBUtils的使用之增删改的操作.avi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-DBUtils的使用之查询的操作-avi"><span class="toc-text">15-DBUtils的使用之查询的操作.avi</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今日总结"><span class="toc-text">今日总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作业"><span class="toc-text">作业</span></a></li></ol></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <h1 id="JDBC高级"><a href="#JDBC高级" class="headerlink" title="JDBC高级"></a>JDBC高级</h1><p>[TOC]</p>
+<h2 id="内容回顾"><a href="#内容回顾" class="headerlink" title="内容回顾"></a>内容回顾</h2><ol>
+<li>什么是JDBC  为什么使用JDBC</li>
+<li>使用JDBC开发的步骤</li>
+<li>JDBC中的三个对象</li>
+</ol>
+<h2 id="今日重点"><a href="#今日重点" class="headerlink" title="今日重点"></a>今日重点</h2><ol>
+<li>==JDBC操作事务==</li>
+<li>==装饰者模式==</li>
+<li>==C3P0连接池的使用==</li>
+<li>==DBUtils的使用==</li>
+</ol>
+<h2 id="今日目标"><a href="#今日目标" class="headerlink" title="今日目标"></a>今日目标</h2><h3 id="01-JDBC的事务环境准备-avi"><a href="#01-JDBC的事务环境准备-avi" class="headerlink" title="01-JDBC的事务环境准备.avi"></a>01-JDBC的事务环境准备.avi</h3><p>   什么是事务:<br>   事务指的是逻辑上的一组操作,组成这组操作的各个逻辑单元要么一起成功,要么一起失败.<br>   事务特性（ACID）</p>
+<ul>
+<li>==原子性==：强调事务的不可分割.</li>
+<li>==一致性==：强调的是事务的执行的前后，数据的完整性要保持一致.</li>
+<li>==隔离性==：一个事务的执行不应该受到其他事务的干扰.</li>
+<li><p>==持久性==：事务一旦结束(提交/回滚)数据就持久保持到了数据库.</p>
+<p>事务隔离级别</p>
+</li>
+<li><p>脏读: 一个事务读到另一个事务还没有提交的数据.</p>
+</li>
+<li>不可重复读: 一个事务读到了另一个事务已经提交的update的数据,导致在当前的事务中多次 查询结果不一致.</li>
+<li><p>虚读/幻读: 一个事务读到另一个事务已经提交的insert的数据,导致在当前的事务中多次的查询结果不一致.</p>
+<p>设置事务的隔离级别</p>
+</li>
+<li><p>==<code>read uncommitted</code>==: 未提交读.脏读，不可重复读，虚读都可能发生.</p>
+</li>
+<li>==<code>read committed</code>==: 已提交读.避免脏读.但是不可重复读和虚读有可能发生.(Oracle默认级别)</li>
+<li>==<code>repeatable read</code>==: 可重复读.避免脏读,不可重复读.但是虚读有可能发生.(MYSQL默认级别)</li>
+<li><p>==<code>serializable</code>==: 串行化的.避免脏读，不可重复读，虚读的发生.</p>
+<p>MYSQL的事务管理的两种方式:(MYSQL数据库事务默认是自动提交的.Oracle数据库事务默认是不自动提交.)</p>
+</li>
+</ul>
+<ol>
+<li>手动开启事务<br><code>start transaction;</code> – 开启事务<br>多条sql;<br><code>commit/rollback;</code></li>
+<li>设置一个自动提交参数<br><code>show variables like &#39;%commit%&#39;;</code> – 查看与commit相关参数.<br><code>set autocommit = 0;</code> – 将autocommit参数设置为OFF.</li>
+</ol>
+<h3 id="02-JDBC的事务管理-avi"><a href="#02-JDBC的事务管理-avi" class="headerlink" title="02-JDBC的事务管理.avi"></a>02-JDBC的事务管理.avi</h3><p>   使用Connection的三个方法进行JDBC的事务管理<br>   <code>setAutoCommit()</code> 设置是否自动提交<br>   <code>commit()</code> 提交事务<br>   <code>rollback()</code> 回滚事务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 完成转账的案例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Connection conn = <span class="keyword">null</span>;</span><br><span class="line">    PreparedStatement pstmt  = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 完成转账代码：</span></span><br><span class="line"><span class="comment">         * * 扣除某个账号的钱</span></span><br><span class="line"><span class="comment">         * * 给另外一个账号加钱</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">// 获得连接：</span></span><br><span class="line">        conn = JDBCUtils.getConnection();</span><br><span class="line">        <span class="comment">// 开启事务</span></span><br><span class="line">        conn.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 编写SQL语句：</span></span><br><span class="line">        String sql = <span class="string">"update account set money = money + ? where name = ?"</span>;</span><br><span class="line">        <span class="comment">// 预编译SQL:</span></span><br><span class="line">        pstmt = conn.prepareStatement(sql);</span><br><span class="line">        <span class="comment">// 设置参数:</span></span><br><span class="line">        <span class="comment">// 用aaa账号给bbb账号转1000元</span></span><br><span class="line">        pstmt.setDouble(<span class="number">1</span>, -<span class="number">1000</span>);</span><br><span class="line">        pstmt.setString(<span class="number">2</span>, <span class="string">"aaa"</span>);</span><br><span class="line">        <span class="comment">// 执行SQL：扣除aaa账号1000元</span></span><br><span class="line">        pstmt.executeUpdate();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span> / <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 给bbb账号加1000</span></span><br><span class="line">        pstmt.setDouble(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">        pstmt.setString(<span class="number">2</span>, <span class="string">"bbb"</span>);</span><br><span class="line">        pstmt.executeUpdate();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 提交事务:</span></span><br><span class="line">        conn.commit();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">// 回滚事务:</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn.rollback();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e1) &#123;</span><br><span class="line">            e1.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">        JDBCUtils.release(pstmt, conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="03-连接池的概述-avi"><a href="#03-连接池的概述-avi" class="headerlink" title="03-连接池的概述.avi"></a>03-连接池的概述.avi</h3><p>   什么是连接池<br>   连接池是装有连接的容器，使用连接的话，可以从连接池中进行获取，使用完成之后将连接归还给连接池。<br>   为什么使用连接池<br>   因为获取数据库连接需要消耗比较多的资源，而每次操作都要重新获取新的连接对象，执行一次操作就把连接关闭，而数据库创建连接通常需要消耗相对较多的资源，创建时间也较长。而数据库连接对象的使用率低。<br>   不使用连接池<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515230716.png" alt=""><br>   使用连接池<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515231114.png" alt=""><br>   生活中的连接池举例<br>   普通电话<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515230931.png" alt=""><br>   使用连接池<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515230953.png" alt=""></p>
+<p>   使用连接池解决方案<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515231225.png" alt=""></p>
+<h3 id="04-自定义连接池（选放）-avi"><a href="#04-自定义连接池（选放）-avi" class="headerlink" title="04-自定义连接池（选放）.avi"></a>04-自定义连接池（选放）.avi</h3><p>   自定义连接池的实现步骤</p>
+<ol>
+<li>编写一个类实现<code>DataSource</code>接口</li>
+<li>重写<code>getConnection</code>方法</li>
+<li>初始化多个连接在内存中</li>
+<li><p>编写归还连接的方法</p>
+<p><img src="http://os4z8t7lb.bkt.clouddn.com/201805152319_331.png" alt=""></p>
+</li>
+</ol>
+<h3 id="05-自定义连接池的问题及解决分析（选放）-avi"><a href="#05-自定义连接池的问题及解决分析（选放）-avi" class="headerlink" title="05-自定义连接池的问题及解决分析（选放）.avi"></a>05-自定义连接池的问题及解决分析（选放）.avi</h3><p>   使用自定义连接池的时候有用到我们自己定义的归还的方法, 这个其实不是特别好, 需要额外定义API, 那可不可以直接调用<code>close</code>方法实现归还呢<br>   增强一个方法的三种方式</p>
+<ol>
+<li>继承<br>条件: 必须能够控制这个类的构造！！！</li>
+<li>装饰者模式<ul>
+<li>增强的类和被增强的类实现相同的接口</li>
+<li>在增强的类中获得被增强的类的引用</li>
+</ul>
+</li>
+<li>动态代理<br>被增强的类必须要实现接口</li>
+</ol>
+<h3 id="06-自定义连接池的问题解决代码实现（选放）-avi"><a href="#06-自定义连接池的问题解决代码实现（选放）-avi" class="headerlink" title="06-自定义连接池的问题解决代码实现（选放）.avi"></a>06-自定义连接池的问题解决代码实现（选放）.avi</h3><p>   为了简化编程，提供一个模板类（模板类原封不动的将接口中的所有方法都实现，但是都没有增强）。编写一个装饰类继承模板类。在装饰类中只需要增强某一个方法即可。<br>   代码实现</p>
+<h3 id="07-Druid开源连接池的使用-avi"><a href="#07-Druid开源连接池的使用-avi" class="headerlink" title="07-Druid开源连接池的使用.avi"></a>07-Druid开源连接池的使用.avi</h3><p>   Druid是阿里巴巴开发的号称为监控而生的数据库连接池，Druid是目前最好的数据库连接池。在功能、性能、扩展性方面，都超过其他数据库连接池。Druid已经在阿里巴巴部署了超过600个应用，经过一年多生产环境大规模部署的严苛考验。如：一年一度的双十一活动，每年春运的抢火车票。  德鲁伊<br>   Druid的下载地址：<a href="https://github.com/alibaba/druid" target="_blank" rel="noopener">https://github.com/alibaba/druid</a><br>   DRUID连接池使用的jar包：druid-1.0.9.jar<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515233144.png" alt=""><br>   DRUID常用的配置参数<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515233337.png" alt=""><br>   API介绍<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/20180515233421.png" alt=""><br>   使用步骤</p>
+<ul>
+<li>在src目录下创建一个properties文件，文件名随意，设置对应参数</li>
+<li>加载properties文件的内容到Properties对象中</li>
+<li>创建DRUID连接池，使用配置文件中的参数</li>
+<li>从DRUID连接池中取出连接</li>
+<li>执行SQL语句</li>
+<li>关闭资源<br> 手动设置参数的方式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Druid的使用:</span></span><br><span class="line"><span class="comment">     * * 手动设置参数的方式</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	Connection conn = <span class="keyword">null</span>;</span><br><span class="line">    	PreparedStatement pstmt = <span class="keyword">null</span>;</span><br><span class="line">    	ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    	<span class="keyword">try</span>&#123;</span><br><span class="line">    		<span class="comment">// 使用连接池：</span></span><br><span class="line">    		DruidDataSource dataSource = <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    		<span class="comment">// 手动设置数据库连接的参数:</span></span><br><span class="line">    		dataSource.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">    		dataSource.setUrl(<span class="string">"jdbc:mysql:///web_test4"</span>);</span><br><span class="line">    		dataSource.setUsername(<span class="string">"root"</span>);</span><br><span class="line">    		dataSource.setPassword(<span class="string">"abc"</span>);</span><br><span class="line">    		<span class="comment">// 获得连接：</span></span><br><span class="line"><span class="comment">//			conn = JDBCUtils.getConnection();</span></span><br><span class="line">			conn = dataSource.getConnection();</span><br><span class="line">			<span class="comment">// 编写SQL:</span></span><br><span class="line">			String sql = <span class="string">"select * from account"</span>;</span><br><span class="line">			<span class="comment">// 预编译SQL:</span></span><br><span class="line">			pstmt = conn.prepareStatement(sql);</span><br><span class="line">			<span class="comment">// 设置参数:</span></span><br><span class="line">			<span class="comment">// 执行SQL:</span></span><br><span class="line">			rs = pstmt.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				System.out.println(rs.getInt(<span class="string">"id"</span>)+<span class="string">" "</span>+rs.getString(<span class="string">"name"</span>)+<span class="string">" "</span>+rs.getDouble(<span class="string">"money"</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtils.release(rs, pstmt, conn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="08-Druid开源连接池的使用二-avi"><a href="#08-Druid开源连接池的使用二-avi" class="headerlink" title="08-Druid开源连接池的使用二.avi"></a>08-Druid开源连接池的使用二.avi</h3><p>   DRUID连接池根据Properties对象中的数据作为连接池参数去创建连接池，我们自己定义properties类型的配置文件，名称自己取，也可以放到其他路径，建议放到src目录下方便加载。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Druid的使用:</span></span><br><span class="line"><span class="comment">     * * 配置方式设置参数</span></span><br><span class="line"><span class="comment">     * Druid配置方式可以使用属性文件配置的。</span></span><br><span class="line"><span class="comment">     * * 文件名称没有规定但是属性文件中的key要一定的。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	Connection conn = <span class="keyword">null</span>;</span><br><span class="line">    	PreparedStatement pstmt = <span class="keyword">null</span>;</span><br><span class="line">    	ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    	<span class="keyword">try</span>&#123;</span><br><span class="line">    		<span class="comment">// 使用连接池：</span></span><br><span class="line">    		<span class="comment">// 从属性文件中获取：</span></span><br><span class="line">    		Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">    		properties.load(<span class="keyword">new</span> FileInputStream(<span class="string">"src/druid.properties"</span>));</span><br><span class="line">    		DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);</span><br><span class="line">    		<span class="comment">// 获得连接：</span></span><br><span class="line"><span class="comment">//			conn = JDBCUtils.getConnection();</span></span><br><span class="line">			conn = dataSource.getConnection();</span><br><span class="line">			<span class="comment">// 编写SQL:</span></span><br><span class="line">			String sql = <span class="string">"select * from account"</span>;</span><br><span class="line">			<span class="comment">// 预编译SQL:</span></span><br><span class="line">			pstmt = conn.prepareStatement(sql);</span><br><span class="line">			<span class="comment">// 设置参数:</span></span><br><span class="line">			<span class="comment">// 执行SQL:</span></span><br><span class="line">			rs = pstmt.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				System.out.println(rs.getInt(<span class="string">"id"</span>)+<span class="string">" "</span>+rs.getString(<span class="string">"name"</span>)+<span class="string">" "</span>+rs.getDouble(<span class="string">"money"</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtils.release(rs, pstmt, conn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="09-C3P0开源连接池的使用-avi"><a href="#09-C3P0开源连接池的使用-avi" class="headerlink" title="09-C3P0开源连接池的使用.avi"></a>09-C3P0开源连接池的使用.avi</h3><p>   C3P0是一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。C3P0是异步操作的，所以一些操作时间过长的JDBC通过其它的辅助线程完成。目前使用它的开源项目有Hibernate，Spring等。<br>   手动方式配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手动设置参数的方式:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Connection conn = <span class="keyword">null</span>;</span><br><span class="line">	PreparedStatement pstmt = <span class="keyword">null</span>;</span><br><span class="line">	ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="comment">// 获得连接：从连接池中获取：</span></span><br><span class="line">		<span class="comment">// 创建连接池：</span></span><br><span class="line">		ComboPooledDataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">		<span class="comment">// 设置连接参数:</span></span><br><span class="line">		dataSource.setDriverClass(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">		dataSource.setJdbcUrl(<span class="string">"jdbc:mysql:///web_test4"</span>);</span><br><span class="line">		dataSource.setUser(<span class="string">"root"</span>);</span><br><span class="line">		dataSource.setPassword(<span class="string">"abc"</span>);</span><br><span class="line">		<span class="comment">// 从连接池中获得连接:</span></span><br><span class="line">		conn = dataSource.getConnection();</span><br><span class="line">		<span class="comment">// 编写SQL：</span></span><br><span class="line">		String sql = <span class="string">"select * from account"</span>;</span><br><span class="line">		<span class="comment">// 预编译SQL:</span></span><br><span class="line">		pstmt = conn.prepareStatement(sql);</span><br><span class="line">		<span class="comment">// 执行SQL：</span></span><br><span class="line">		rs = pstmt.executeQuery();</span><br><span class="line">		<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">			System.out.println(rs.getInt(<span class="string">"id"</span>)+<span class="string">" "</span>+rs.getString(<span class="string">"name"</span>)+<span class="string">" "</span>+rs.getDouble(<span class="string">"money"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">		JDBCUtils.release(rs, pstmt, conn);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-C3P0开源连接池的使用二-avi"><a href="#10-C3P0开源连接池的使用二-avi" class="headerlink" title="10-C3P0开源连接池的使用二.avi"></a>10-C3P0开源连接池的使用二.avi</h3><p>   使用配置文件的方式来使用C3P0<br>   实现步骤</p>
+<ol>
+<li>导入jar包</li>
+<li>在src目录下创建配置文件<code>c3p0-config.xml</code>，配置对应参数</li>
+<li>修改配置文件设置数据库的连接参数：用户名、密码、URL、驱动名等</li>
+<li>创建数据源的实现类<code>ComboPooledDataSource</code>，使用默认配置或命名配置</li>
+<li><p>从连接池中得到连接对象</p>
+<p>配置文件的要求：</p>
+</li>
+<li>文件名：一定叫<code>c3p0-config.xml</code></li>
+<li>路径：放在src目录下    </li>
+<li>默认配置：<code>&lt;default-config&gt;</code><br>如果是使用无参的构造方法实例化连接池对象的时候，使用的是默认配置</li>
+<li>命名配置： <code>named-config</code><br>可以指定多个命名配置，可以选择其中的任何一个配置。</li>
+<li><p>多个配置方案的好处：</p>
+<ul>
+<li>可以连接不同的数据库，如：day25,day23      </li>
+<li>可以连接不同厂商的数据库，如：mysql，oracle</li>
+<li>可以指定不同的连接池参数</li>
+</ul>
+<p><img src="http://os4z8t7lb.bkt.clouddn.com/201805161825_885.png" alt=""><br><img src="http://os4z8t7lb.bkt.clouddn.com/201805161825_784.png" alt=""></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">c3p0-config</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 使用默认的配置读取连接池对象 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">default-config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  1. 数据库的连接参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span>&gt;</span>jdbc:mysql://localhost:3306/day25<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">&lt;!-- 2. 连接池参数 --&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--初始连接数--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--最大连接数--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--等待多久以后抛出异常--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"checkoutTimeout"</span>&gt;</span>2000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">default-config</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 命名配置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">named-config</span> <span class="attr">name</span>=<span class="string">"otherc3p0"</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!--  连接参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span>&gt;</span>jdbc:mysql://localhost:3306/day23<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 连接池参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"checkoutTimeout"</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">named-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">c3p0-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="11-改写工具类-avi"><a href="#11-改写工具类-avi" class="headerlink" title="11-改写工具类.avi"></a>11-改写工具类.avi</h3><p>   连接池对象应该是一个应用只创建一次就可以的，不需要每次使用都创建一个新的连接池。<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805161804_241.png" alt=""></p>
+<h3 id="12-DBUtils的概述-avi"><a href="#12-DBUtils的概述-avi" class="headerlink" title="12-DBUtils的概述.avi"></a>12-DBUtils的概述.avi</h3><p>   Commons DbUtils是Apache组织提供的一个对JDBC进行简单封装的开源工具类库，使用它能够简化JDBC应用程序的开发，同时也不会影响程序的性能。<br>   因为JDBC手写比较麻烦，而且有非常多的代码是类似的。比如获得连接，预编译SQL，释放资源等..那么可以将这些代码抽取出来放到工具类中。将类似的代码进行抽取。大大简化JDBC的编程。</p>
+<h3 id="13-DBUtils的API-avi"><a href="#13-DBUtils的API-avi" class="headerlink" title="13-DBUtils的API.avi"></a>13-DBUtils的API.avi</h3><p>   构造方法和常用方法<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805160013_985.png" alt=""><br>   执行事务操作<br>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805160015_16.png" alt=""><br>   在一般情况下如果执行CRUD的操作：<br>   构造：<br>   <code>QueryRunner(DataSource ds);</code><br>   方法：<br>   <code>int update(String sql,Object… args);</code><br>   <code>T query(String sql,ResultSetHandler rsh,Object… args);</code><br>   如果有事务管理的话使用另一套完成CRUD的操作<br>   构造：<br>   <code>QueryRunner();</code><br>   方法:<br>   <code>int update(Connection conn,String sql,Object… args);</code><br>   <code>T query(Connection conn,String sql,ResultSetHandler rsh,Object… args);</code></p>
+<h3 id="14-DBUtils的使用之增删改的操作-avi"><a href="#14-DBUtils的使用之增删改的操作-avi" class="headerlink" title="14-DBUtils的使用之增删改的操作.avi"></a>14-DBUtils的使用之增删改的操作.avi</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</span><br><span class="line">	<span class="comment">// 创建核心类：QueryRunner:</span></span><br><span class="line">	QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(JDBCUtils2.getDataSource());</span><br><span class="line">	queryRunner.update(<span class="string">"insert into account values (null,?,?)"</span>, <span class="string">"ddd"</span>,<span class="number">10000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo2</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</span><br><span class="line">	<span class="comment">// 创建核心类:</span></span><br><span class="line">	QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(JDBCUtils2.getDataSource());</span><br><span class="line">	queryRunner.update(<span class="string">"update account set name=?,money=? where id =?"</span>, <span class="string">"eee"</span>,<span class="number">20000</span>,<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 删除操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo3</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</span><br><span class="line">	<span class="comment">// 创建核心类:</span></span><br><span class="line">	QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(JDBCUtils2.getDataSource());</span><br><span class="line">	queryRunner.update(<span class="string">"delete from account where id = ?"</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="15-DBUtils的使用之查询的操作-avi"><a href="#15-DBUtils的使用之查询的操作-avi" class="headerlink" title="15-DBUtils的使用之查询的操作.avi"></a>15-DBUtils的使用之查询的操作.avi</h3><p>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805160020_77.png" alt=""><br>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805160021_935.png" alt=""><br>   <img src="http://os4z8t7lb.bkt.clouddn.com/201805160021_767.png" alt=""></p>
+<h2 id="今日总结"><a href="#今日总结" class="headerlink" title="今日总结"></a>今日总结</h2><ol>
+<li>JDBC操作事务(重点掌握)<br><code>conn.setAutoCommit(false);</code>   开启事务<br><code>conn.commit();</code>      提交事务<br><code>conn.rollback();</code>  回滚事务</li>
+<li>自定义连接池(了解)</li>
+<li>装饰者模式(理解)</li>
+<li>Druid连接池使用<br>导包–&gt;创建配置文件<br><code>DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);</code><br><code>conn = dataSource.getConnection();</code></li>
+<li>C3P0连接池使用<br>导包–&gt;创建配置文件(<code>c3p0-config.xml</code>)<br><code>ComboPooledDataSource dataSource = new ComboPooledDataSource();</code><br><code>conn = dataSource.getConnection();</code></li>
+<li>DBUtils工具类使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(JDBCUtils2.getDataSource());</span><br><span class="line">    queryRunner.update(<span class="string">"insert into account values (null,?,?)"</span>,<span class="string">"ddd"</span>,<span class="number">10000</span>);</span><br><span class="line">    Account account = queryRunner.query(<span class="string">"select * from account where id = ?"</span>, <span class="keyword">new</span> ResultSetHandler&lt;Account&gt;()&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Account <span class="title">handle</span><span class="params">(ResultSet rs)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		Account account = <span class="keyword">new</span> Account();</span><br><span class="line">		<span class="keyword">if</span>(rs.next())&#123;</span><br><span class="line">			account.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">			account.setName(rs.getString(<span class="string">"name"</span>));</span><br><span class="line">			account.setMoney(rs.getDouble(<span class="string">"money"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> account;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p>   创建图书表, 字段如下<br>   图书编号<br>   图书名称<br>   图书价格<br>   图书数量<br>   图书分类<br>   使用C3P0+DBUtils完成对图书的增删改</p>
+
+
+  </article>
+  </script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+    
+
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © XXX 20xx-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>
