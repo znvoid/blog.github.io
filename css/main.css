@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #13c412;
+  background: #a4b4ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2944,4 +2944,13 @@ hr {
   background-color: rgba(74,75,77,0.8);
   z-index: -1;
   position: absolute;
+}
+.site-pv,
+.site-uv {
+  display: inline-block;
+}
+.busuanzi-value,
+.site-pv .busuanzi-value,
+.site-uv .busuanzi-value {
+  margin: 0 5px;
 }
