@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,Next," />
+  <meta name="keywords" content="xml,javaWeb," />
 
 
 
@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="Hexo next 主题设置">
-<meta name="keywords" content="Hexo,Next">
+<meta name="description" content="什么是xml可扩展标记语言 功能传输和存储数据 软件的配置文件 使用xml语法基本语法:- XML必须有关闭标签 - 区分大小写 - 属性需要有引号 - 标签必须正确嵌套.  文档声明 注释 元素 属性 特殊字符和CDATA区 文档声明通常出现在xml 文档的第一行第一列12345&amp;lt;?xml 属性名=&amp;quot;值&amp;quot; ... ?&amp;gt;&amp;lt;?xml version=&amp;quot;">
+<meta name="keywords" content="xml,javaWeb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网站主题设置">
-<meta property="og:url" content="znvoid.tk/网站搭建/主题设置/index.html">
+<meta property="og:title" content="xml">
+<meta property="og:url" content="znvoid.tk/javaWeb/xml/index.html">
 <meta property="og:site_name" content="znBlog 个人博客">
-<meta property="og:description" content="Hexo next 主题设置">
+<meta property="og:description" content="什么是xml可扩展标记语言 功能传输和存储数据 软件的配置文件 使用xml语法基本语法:- XML必须有关闭标签 - 区分大小写 - 属性需要有引号 - 标签必须正确嵌套.  文档声明 注释 元素 属性 特殊字符和CDATA区 文档声明通常出现在xml 文档的第一行第一列12345&amp;lt;?xml 属性名=&amp;quot;值&amp;quot; ... ?&amp;gt;&amp;lt;?xml version=&amp;quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T11:35:41.788Z">
+<meta property="og:updated_time" content="2018-05-18T13:20:14.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网站主题设置">
-<meta name="twitter:description" content="Hexo next 主题设置">
+<meta name="twitter:title" content="xml">
+<meta name="twitter:description" content="什么是xml可扩展标记语言 功能传输和存储数据 软件的配置文件 使用xml语法基本语法:- XML必须有关闭标签 - 区分大小写 - 属性需要有引号 - 标签必须正确嵌套.  文档声明 注释 元素 属性 特殊字符和CDATA区 文档声明通常出现在xml 文档的第一行第一列12345&amp;lt;?xml 属性名=&amp;quot;值&amp;quot; ... ?&amp;gt;&amp;lt;?xml version=&amp;quot;">
 
 
 
@@ -114,13 +114,13 @@
 
 
 
-  <link rel="canonical" href="znvoid.tk/网站搭建/主题设置/"/>
+  <link rel="canonical" href="znvoid.tk/javaWeb/xml/"/>
 
 
 
 
 
-  <title>网站主题设置 | znBlog 个人博客</title>
+  <title>xml | znBlog 个人博客</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="znvoid.tk/网站搭建/主题设置/">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/javaWeb/xml/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zn">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网站主题设置</h1>
+          <h1 class="post-title" itemprop="name headline">xml</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T19:32:57+08:00">
-                2018-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T09:03:41+08:00">
+                2018-05-18
               </time>
             
 
@@ -326,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">网站搭建</span>
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
                   </a>
                 </span>
 
@@ -349,10 +349,6 @@
           
 
           
-              <div class="post-description">
-                  Hexo next 主题设置
-              </div>
-          
 
         </div>
       </header>
@@ -367,57 +363,134 @@
       
 
       
-        <h3 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h3><ol>
-<li>修改 <code>_layout.swig</code><br> 主题文件下/layout/_layout.swig<br> 在 &lt;\/body&gt;之前添加代码(注意不要放在&lt; /head&gt;的后面)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.canvas_nest %&#125;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">color=&quot;0,0,255&quot; opacity=&apos;0.7&apos; zIndex=&quot;-2&quot; count=&quot;99&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>修改主题配置文件<br> 打开 主题下的_config.yml,在里面添加如下代码：(可以放在最后面)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># --------------------------------------------------------------</span><br><span class="line"># background settings</span><br><span class="line"># --------------------------------------------------------------</span><br><span class="line"># add canvas-nest effect</span><br><span class="line"># see detail from https://github.com/hustcc/canvas-nest.js</span><br><span class="line">canvas_nest: true</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="主页文章阴影效果"><a href="#主页文章阴影效果" class="headerlink" title="主页文章阴影效果"></a>主页文章阴影效果</h3><pre><code>打开\themes\next\source\css\_custom\custom.styl,向里面加入：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> .post &#123;</span><br><span class="line">   margin-top: 60px;</span><br><span class="line">   margin-bottom: 60px;</span><br><span class="line">   padding: 25px;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在网站底部加上访问量"><a href="#在网站底部加上访问量" class="headerlink" title="在网站底部加上访问量"></a>在网站底部加上访问量</h3><p>编辑 主题配置文件 中的busuanzi_count的配置项。</p>
-<p>当enable: true时，代表开启全局开关。若site_uv、site_pv、page_pv的值均为false时，不蒜子仅作记录而不会在页面上显示。</p>
-<p>\themes\next\layout_partials\footer.swig文件,在copyright前加上画红线这句话：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>然后添加显示统计的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 放在&lt;div class=&quot;powered-by&quot;&gt; 前--&gt;</span><br><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="首页只显示文章部分"><a href="#首页只显示文章部分" class="headerlink" title="首页只显示文章部分"></a>首页只显示文章部分</h2><p>   修改 _config.yml文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">    enable: true</span><br><span class="line">    length: 150</span><br></pre></td></tr></table></figure></p>
-<h2 id="页脚元素居中"><a href="#页脚元素居中" class="headerlink" title="页脚元素居中"></a>页脚元素居中</h2><pre><code>修改your blog\themes\next\source\css\schemes\Mist\index.styl文件，将.footer-inner中的text-align: left;修改为text-align: center;即可。
-</code></pre><h2 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h2><pre><code>修改文件 themes\next\source\css\_common\components\post\post.styl ，在末尾添加如下css样式，：
-</code></pre><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-id">#fc6423</span>;</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: <span class="selector-tag">none</span>;</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="blog文章书写开头格式"><a href="#blog文章书写开头格式" class="headerlink" title="blog文章书写开头格式"></a>blog文章书写开头格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">title: # 文章标题</span><br><span class="line">author: # 作者</span><br><span class="line">tags: </span><br><span class="line">  - Hexo</span><br><span class="line">  - Next</span><br><span class="line">categories: </span><br><span class="line">  - Hexo</span><br><span class="line">  - Next</span><br><span class="line">description: # 描述，首页文章显示的摘要</span><br><span class="line">date: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="关闭侧边栏设置"><a href="#关闭侧边栏设置" class="headerlink" title="关闭侧边栏设置"></a>关闭侧边栏设置</h2><p>在\source\js\src\motion.js里自行写实现该效果的js方法（当然也可以放在页面其他js文件里面）：</p>
-<p>这里贴一个实现此需求的js方法：</p>
-<p>// $(‘.sidebar-inner’).css({‘height’:’100%’});<br>$(‘body’).on(‘click’,function(e){<br>    var bSidebarShow = $(‘#sidebar’).css(‘display’)===’block’ &amp;&amp; $(‘#sidebar’).width() &gt; 0;<br>    var bFlag = $(e.target).parents(‘#sidebar,.sidebar-toggle’).length &gt; 0;<br>    if(bSidebarShow &amp;&amp; !bFlag){<br>        $(‘.sidebar-toggle-line-wrap’).trigger(‘click’);<br>        e.preventDefault();<br>    }<br>});</p>
-<h2 id="侧边栏居左"><a href="#侧边栏居左" class="headerlink" title="侧边栏居左"></a>侧边栏居左</h2><ol>
-<li>修改 source\js\src\motion.js<br>使用Ctrl+F查找paddingRight 把其修改为paddingLeft就可以了</li>
-<li>source\css_custom下为custom.styl添加内容<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-class">.sidebar-toggle</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">30px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.sidebar</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>把back-to-top这个按钮留在了右侧<br>如果你偏向一并放在左侧 添加以下css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.back-to-top</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>修改箭头动画方向<br>修改motion.js文件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sidebarToggleLine1st = <span class="keyword">new</span> SidebarToggleLine(&#123;</span><br><span class="line">  el: <span class="string">'.sidebar-toggle-line-first'</span>,</span><br><span class="line">  status: &#123;</span><br><span class="line">    arrow: &#123;<span class="attr">width</span>: <span class="string">'60%'</span>, <span class="attr">rotateZ</span>: <span class="string">'45deg'</span>, <span class="attr">top</span>: <span class="string">'2px'</span>, <span class="attr">left</span>: <span class="string">'50%'</span>&#125;,</span><br><span class="line">    close: &#123;<span class="attr">width</span>: <span class="string">'100%'</span>, <span class="attr">rotateZ</span>: <span class="string">'-45deg'</span>, <span class="attr">top</span>: <span class="string">'5px'</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> sidebarToggleLine2nd = <span class="keyword">new</span> SidebarToggleLine(&#123;</span><br><span class="line">  el: <span class="string">'.sidebar-toggle-line-middle'</span>,</span><br><span class="line">  status: &#123;</span><br><span class="line">    arrow: &#123;<span class="attr">width</span>: <span class="string">'90%'</span>&#125;,</span><br><span class="line">    close: &#123;<span class="attr">opacity</span>: <span class="number">0</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> sidebarToggleLine3rd = <span class="keyword">new</span> SidebarToggleLine(&#123;</span><br><span class="line">  el: <span class="string">'.sidebar-toggle-line-last'</span>,</span><br><span class="line">  status: &#123;</span><br><span class="line">    arrow: &#123;<span class="attr">width</span>: <span class="string">'60%'</span>, <span class="attr">rotateZ</span>: <span class="string">'-45deg'</span>, <span class="attr">top</span>: <span class="string">'-2px'</span>, <span class="attr">left</span>: <span class="string">'50%'</span>&#125;,</span><br><span class="line">    close: &#123;<span class="attr">width</span>: <span class="string">'100%'</span>, <span class="attr">rotateZ</span>: <span class="string">'45deg'</span>, <span class="attr">top</span>: <span class="string">'-5px'</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>不能调整透明<br>就把motion.js中选择的两个body改成了.container<br>NexT.utils.isDesktop() &amp;&amp; $(‘.container’).velocity(‘stop’)</p>
-<h2 id="侧栏背景图以及内部文字颜色的修改"><a href="#侧栏背景图以及内部文字颜色的修改" class="headerlink" title="侧栏背景图以及内部文字颜色的修改"></a>侧栏背景图以及内部文字颜色的修改</h2><p>在theme/next/source/css/_custom文件夹下打开custom.styl文件，往里面添加以下代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">            <span class="attribute">background</span>:<span class="built_in">url</span>(图片链接);</span><br><span class="line">            <span class="attribute">background-size</span>: cover;</span><br><span class="line">            <span class="attribute">background-position</span>:center;</span><br><span class="line">            <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">            p,span,a &#123;color: 颜色代码;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="滑动的menu"><a href="#滑动的menu" class="headerlink" title="滑动的menu"></a>滑动的menu</h2><h2 id="menu中的搜索"><a href="#menu中的搜索" class="headerlink" title="menu中的搜索"></a>menu中的搜索</h2><pre><code>LocalSearch搜索
-安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：
+        <h3 id="什么是xml"><a href="#什么是xml" class="headerlink" title="什么是xml"></a>什么是xml</h3><pre><code>可扩展标记语言
+</code></pre><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>传输和存储数据
+软件的配置文件
+</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="xml语法"><a href="#xml语法" class="headerlink" title="xml语法"></a>xml语法</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法:"></a>基本语法:</h4><pre><code>- XML必须有关闭标签
+- 区分大小写
+- 属性需要有引号
+- 标签必须正确嵌套.
 
-$ npm install hexo-generator-searchdb --save
-编辑 站点配置文件，新增以下内容到任意位置：
+文档声明
+注释
+元素
+属性
+特殊字符和CDATA区
+</code></pre><h4 id="文档声明"><a href="#文档声明" class="headerlink" title="文档声明"></a>文档声明</h4><p>通常出现在xml 文档的第一行第一列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml 属性名=&quot;值&quot; ... ?&gt;</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;  ?&gt;</span><br><span class="line">* version   :必须的. 使用”1.0”</span><br><span class="line">* encoding  :字符集. 是使用浏览器打开的时候采用的默认的字符集的编码.</span><br><span class="line">* standalone    :描述XML文档是否需要依赖其他的文件.</span><br></pre></td></tr></table></figure></p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><pre><code>&lt;!--  注释内容   --&gt;
+</code></pre><h4 id="元素-标签"><a href="#元素-标签" class="headerlink" title="元素(标签)"></a>元素(标签)</h4><p>命名规范</p>
+<ol>
+<li>字母 数字 及其他字符</li>
+<li>不能以数字或标点符号开始</li>
+<li>不能以字符”xml”(“XML/Xml”)开始</li>
+<li>不能包含空格</li>
+</ol>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><pre><code>属性的名称规范与元素一致
+需要引号
+</code></pre><h4 id="特殊字符和CDATA区"><a href="#特殊字符和CDATA区" class="headerlink" title="特殊字符和CDATA区"></a>特殊字符和CDATA区</h4><p>#####特殊字符</p>
+<pre><code>&amp;lt; &lt; 小于 
+&amp;gt; &gt; 大于 
+&amp;amp; &amp; 和号 
+&amp;apos; &apos; 单引号 
+&amp;quot; &quot; 引号 
+</code></pre><h5 id="CDATA区"><a href="#CDATA区" class="headerlink" title="CDATA区"></a>CDATA区</h5><p>CDATA区中的所有内容都会被认为是字符串<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[ 内容 ]]&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="xml解析"><a href="#xml解析" class="headerlink" title="xml解析"></a>xml解析</h2><p>从xml文档中获取数据</p>
+<h3 id="解析方式"><a href="#解析方式" class="headerlink" title="解析方式"></a>解析方式</h3><ol>
+<li>DOM解析    Doucument Object Model</li>
+<li>SAX解析    Simple Api for Xml</li>
+</ol>
+<h3 id="两种解析方式的区别"><a href="#两种解析方式的区别" class="headerlink" title="两种解析方式的区别"></a>两种解析方式的区别</h3><p>DOM:</p>
+<pre><code>一次性将文档加载到内存形成树形结构解析
+优点:当文件特别大时容易内存溢出
+缺点:对xml进行增删改操作
+</code></pre><p>SAX:</p>
+<pre><code>事件驱动方式,一行一行的解析
+优点:不能对文档进行增删改操作
+缺点:当文件特别大时不会内存溢出
+</code></pre><h3 id="api实现与案例"><a href="#api实现与案例" class="headerlink" title="api实现与案例"></a>api实现与案例</h3><p>针对这两种解析的方式，不同的公司提供了不同的API的实现.</p>
+<ul>
+<li>JAXP      :SUN公司提供的一套XML的解析的API.</li>
+<li>JDOM      :开源组织提供了一套XML的解析的API-jdom.</li>
+<li><code>DOM4J</code>    :开源组织提供了一套XML的解析的API-dom4j.</li>
+<li><code>pull</code>     :主要应用在Android手机端解析XML.</li>
+</ul>
+<h4 id="dom4j案例代码"><a href="#dom4j案例代码" class="headerlink" title="dom4j案例代码"></a>dom4j案例代码</h4><ol>
+<li>【步骤一】导入jar包.dom4j-1.6.1.jar</li>
+<li>【步骤二】创建解析器</li>
+<li>【步骤三】解析文档获得代表文档的Document对象.</li>
+<li>【步骤四】获得跟节点.</li>
+<li>【步骤五】从跟节点下查找其他的节点</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建解析器</span></span><br><span class="line">SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line"><span class="comment">// 解析XML的文档</span></span><br><span class="line">Document document = reader.read(<span class="string">"xml/demo1.xml"</span>);</span><br><span class="line"><span class="comment">// 获得跟节点</span></span><br><span class="line">Element root = document.getRootElement();</span><br><span class="line">System.out.println(root.getName());</span><br><span class="line"><span class="comment">// 查找跟节点下的子节点. element() elements();</span></span><br><span class="line">Element pElement = root.element(<span class="string">"person"</span>); <span class="comment">// 查找的是第一个person元素</span></span><br><span class="line"><span class="comment">// root.elements("person").get(1); // 查找的是第二个person元素</span></span><br><span class="line">Element nElement = pElement.element(<span class="string">"name"</span>);</span><br><span class="line">Element aElement = pElement.element(<span class="string">"age"</span>);</span><br><span class="line">Element sElement = pElement.element(<span class="string">"sex"</span>);</span><br><span class="line">System.out.println(nElement.getText());</span><br><span class="line">System.out.println(aElement.getText());</span><br><span class="line">System.out.println(sElement.getText());</span><br></pre></td></tr></table></figure>
+<h4 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h4><p>XPath由W3C的XPath 1.0 标准描述,dom4j支持xpath</p>
+<ul>
+<li>jaxen-1.1-beta-6.jar</li>
+</ul>
+<p>dom4j的XPath支持的API:</p>
+<ul>
+<li>List document.selectNodes(String xPath);</li>
+<li>Node document.selectSingleNode(String xPath);<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建解析器:</span></span><br><span class="line">        SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="comment">// 解析XML返回Document对象.</span></span><br><span class="line">        Document document = reader.read(<span class="string">"xml/demo1.xml"</span>);</span><br><span class="line">        <span class="comment">/*List&lt;Node&gt; list = document.selectNodes("//name");</span></span><br><span class="line"><span class="comment">        for (Node node : list) &#123;</span></span><br><span class="line"><span class="comment">            Element element = (Element) node;</span></span><br><span class="line"><span class="comment">            System.out.println(element.getText());</span></span><br><span class="line"><span class="comment">        &#125;*/</span> </span><br><span class="line">        List&lt;Node&gt; list = document.selectNodes(<span class="string">"//person['@id']"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node node : list) &#123;</span><br><span class="line">            Element element = (Element) node;</span><br><span class="line">            System.out.println(element.attributeValue(<span class="string">"id"</span>));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="xml约束"><a href="#xml约束" class="headerlink" title="xml约束"></a>xml约束</h2><h3 id="XML的约束的概述"><a href="#XML的约束的概述" class="headerlink" title="XML的约束的概述:"></a>XML的约束的概述:</h3><ul>
+<li>什么是XML的约束 :就是用来约束XML的文档中可以出现哪些标签，不能出现哪些标签，标签中是否有顺序，出现的次数.</li>
+<li>XML的约束            :用来规范XML的写法</li>
+</ul>
+<p>###XML的约束的种类及区别?<br>DTD 和 Schema :</p>
+<pre><code>区别:
+     1.DTD语法是自成一体的.Schema语法就是XML的语法.
+     2.Schema的语法就是XML的语法所以更容易被解析器所解析.
+     3.Schema支持名称空间.
+     4.Schema有比DTD更加强大的语义和语法的约束.
+</code></pre><h3 id="DTD的语法"><a href="#DTD的语法" class="headerlink" title="DTD的语法"></a>DTD的语法</h3><p>####DTD的引入方式:</p>
+<ul>
+<li>内部的DTD:<br>&lt;!DOCTYPE persons [<br>]&gt;</li>
+</ul>
+<ul>
+<li><p>外部的DTD:</p>
+<ul>
+<li>一种本地DTD:<br>&lt;!DOCTYPE persons SYSTEM “unknown.dtd”&gt;</li>
+<li>一种网络DTD:<br>&lt;!DOCTYPE persons PUBLIC “//UNKNOWN/“ “unknown.dtd”&gt;</li>
+</ul>
+</li>
+<li><p>元素:</p>
+<ul>
+<li>&lt;!ELEMENT 元素名 元素类型&gt;   </li>
+<li>元素类型:<ul>
+<li>EMPTY</li>
+<li>ANY</li>
+<li>子元素</li>
+<li>是否有序: 使用 逗号(,)或者竖线(|)表示.</li>
+<li>出现的次数：?:零次或一次 +：一次或多次 *：零次或多次 <ul>
+<li>PCDATA 可解析的字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性:<ul>
+<li>&lt;!ATTLIST 元素名称 属性名称 属性的类型 属性的约束&gt;<ul>
+<li>属性的类型:<ul>
+<li>ID类型:表示属性值需要是唯一的.</li>
+<li>CDATA类型:普通的字符串.</li>
+<li>枚举:</li>
+</ul>
+</li>
+<li>属性的约束:<ul>
+<li>#REQUIRED 属性值是必须的</li>
+<li>#IMPLIED 属性不是必须的</li>
+<li>#FIXED value   属性值固定<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT persons (person*)&gt;</span><br><span class="line">&lt;!ELEMENT person (name|age|sex)*&gt;</span><br><span class="line"></span><br><span class="line">&lt;!ELEMENT name (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT age (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT sex (#PCDATA)&gt;</span><br><span class="line"></span><br><span class="line">&lt;!ATTLIST person id ID #REQUIRED&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Schema的语法"><a href="#Schema的语法" class="headerlink" title="Schema的语法"></a>Schema的语法</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    名称空间:一个XML只能引入一个DTD约束文档.使用了Schema约束XML文档,一个XML可以引入多个Schame的约束!!!</span></span><br><span class="line"><span class="comment">                      如果再多个Schema文档中定义了相同的属性名称 该怎么办?</span></span><br><span class="line"><span class="comment">      * 名称空间类似于java中的package.通过名称空间区分 标签或属性来自于哪个文档的！！！通常名称空间唯一的不重复的即可.一般情况下使用一个URL地址表示一个名称空间.</span></span><br><span class="line"><span class="comment">      </span></span><br><span class="line"><span class="comment">    xmlns               :xml name sapace .代表当前的文档应用的名称空间.</span></span><br><span class="line"><span class="comment">    targetNameSpace     :目标名称空间.</span></span><br><span class="line"><span class="comment">    elementFormDefault  :</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">schema</span> </span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">targetNamespace</span>=<span class="string">"http://www.itheima.com/ee25"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">elementFormDefault</span>=<span class="string">"qualified"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 复杂标签 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"persons"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 复杂类型 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">complexType</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">sequence</span> <span class="attr">maxOccurs</span>=<span class="string">"unbounded"</span> <span class="attr">minOccurs</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"person"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">complexType</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">sequence</span>&gt;</span></span><br><span class="line">                            <span class="comment">&lt;!-- 简单标签 --&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"int"</span>&gt;</span><span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">sequence</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">use</span>=<span class="string">"required"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">complexType</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">sequence</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">complexType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
-编辑 主题配置文件，启用本地搜索功能：
-
- Local search
-local_search:
-  enable: true
-</code></pre>
       
     </div>
     
@@ -434,9 +507,9 @@ local_search:
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/xml/" rel="tag"><i class="fa fa-tag"></i> xml</a>
           
-            <a href="/tags/Next/" rel="tag"><i class="fa fa-tag"></i> Next</a>
+            <a href="/tags/javaWeb/" rel="tag"><i class="fa fa-tag"></i> javaWeb</a>
           
         </div>
       
@@ -449,8 +522,8 @@ local_search:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/网站搭建/博客网站搭建/" rel="next" title="blog网站搭建">
-                <i class="fa fa-chevron-left"></i> blog网站搭建
+              <a href="/网站搭建/主题设置/" rel="next" title="网站主题设置">
+                <i class="fa fa-chevron-left"></i> 网站主题设置
               </a>
             
           </div>
@@ -459,8 +532,8 @@ local_search:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/javaWeb/xml/" rel="prev" title="xml">
-                xml <i class="fa fa-chevron-right"></i>
+              <a href="/uncategorized/MarkDown语法/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -605,7 +678,7 @@ local_search:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态背景"><span class="nav-number">1.</span> <span class="nav-text">动态背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章阴影效果"><span class="nav-number">2.</span> <span class="nav-text">主页文章阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部加上访问量"><span class="nav-number">3.</span> <span class="nav-text">在网站底部加上访问量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页只显示文章部分"><span class="nav-number"></span> <span class="nav-text">首页只显示文章部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页脚元素居中"><span class="nav-number"></span> <span class="nav-text">页脚元素居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-number"></span> <span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blog文章书写开头格式"><span class="nav-number"></span> <span class="nav-text">blog文章书写开头格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭侧边栏设置"><span class="nav-number"></span> <span class="nav-text">关闭侧边栏设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏居左"><span class="nav-number"></span> <span class="nav-text">侧边栏居左</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧栏背景图以及内部文字颜色的修改"><span class="nav-number"></span> <span class="nav-text">侧栏背景图以及内部文字颜色的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动的menu"><span class="nav-number"></span> <span class="nav-text">滑动的menu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#menu中的搜索"><span class="nav-number"></span> <span class="nav-text">menu中的搜索</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是xml"><span class="nav-number">1.</span> <span class="nav-text">什么是xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">2.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number"></span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xml语法"><span class="nav-number">1.</span> <span class="nav-text">xml语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本语法"><span class="nav-number">1.1.</span> <span class="nav-text">基本语法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档声明"><span class="nav-number">1.2.</span> <span class="nav-text">文档声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">1.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素-标签"><span class="nav-number">1.4.</span> <span class="nav-text">元素(标签)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">1.5.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊字符和CDATA区"><span class="nav-number">1.6.</span> <span class="nav-text">特殊字符和CDATA区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CDATA区"><span class="nav-number">1.6.1.</span> <span class="nav-text">CDATA区</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xml解析"><span class="nav-number"></span> <span class="nav-text">xml解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析方式"><span class="nav-number">1.</span> <span class="nav-text">解析方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种解析方式的区别"><span class="nav-number">2.</span> <span class="nav-text">两种解析方式的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api实现与案例"><span class="nav-number">3.</span> <span class="nav-text">api实现与案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dom4j案例代码"><span class="nav-number">3.1.</span> <span class="nav-text">dom4j案例代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XPath"><span class="nav-number">3.2.</span> <span class="nav-text">XPath</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xml约束"><span class="nav-number"></span> <span class="nav-text">xml约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的约束的概述"><span class="nav-number">1.</span> <span class="nav-text">XML的约束的概述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD的语法"><span class="nav-number">2.</span> <span class="nav-text">DTD的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema的语法"><span class="nav-number">3.</span> <span class="nav-text">Schema的语法</span></a></li></ol></div>
             
 
           </div>

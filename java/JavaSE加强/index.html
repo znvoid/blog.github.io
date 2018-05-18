@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_m-16x16-next.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaSE,进阶学习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面向对象封装static 关键字 修饰成员变量和方法 内部类  ####特点：  随着类的加载而加载 优先于对象存在 被类的所有对象共享 可以被类名调用 优缺点： 优点: 对象共享数据，节省空间 被类名直接调用   缺点:  访问有局限性          代码块 在java中，使用{}括起来的代码被称为代码块  ####分类 #####局部代码块  在方法中出现，控制变量生命周期，及早释放，提高">
+<meta name="keywords" content="JavaSE,进阶学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE加强">
+<meta property="og:url" content="znvoid.tk/java/JavaSE加强/index.html">
+<meta property="og:site_name" content="znBlog 个人博客">
+<meta property="og:description" content="面向对象封装static 关键字 修饰成员变量和方法 内部类  ####特点：  随着类的加载而加载 优先于对象存在 被类的所有对象共享 可以被类名调用 优缺点： 优点: 对象共享数据，节省空间 被类名直接调用   缺点:  访问有局限性          代码块 在java中，使用{}括起来的代码被称为代码块  ####分类 #####局部代码块  在方法中出现，控制变量生命周期，及早释放，提高">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-18T13:19:50.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaSE加强">
+<meta name="twitter:description" content="面向对象封装static 关键字 修饰成员变量和方法 内部类  ####特点：  随着类的加载而加载 优先于对象存在 被类的所有对象共享 可以被类名调用 优缺点： 优点: 对象共享数据，节省空间 被类名直接调用   缺点:  访问有局限性          代码块 在java中，使用{}括起来的代码被称为代码块  ####分类 #####局部代码块  在方法中出现，控制变量生命周期，及早释放，提高">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="znvoid.tk/java/JavaSE加强/"/>
+
+
+
+
+
+  <title>JavaSE加强 | znBlog 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/java/JavaSE加强/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="znBlog 个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaSE加强</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T20:47:43+08:00">
+                2018-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h3><blockquote>
+<p>修饰成员变量和方法 内部类</p>
+</blockquote>
+<p>####特点：</p>
+<ul>
+<li>随着类的加载而加载</li>
+<li>优先于对象存在</li>
+<li>被类的所有对象共享</li>
+<li>可以被类名调用</li>
+<li>优缺点：<ul>
+<li>优点:<ul>
+<li>对象共享数据，节省空间</li>
+<li>被类名直接调用</li>
+</ul>
+</li>
+<li>缺点: <ul>
+<li>访问有局限性    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><blockquote>
+<p>在java中，使用{}括起来的代码被称为代码块</p>
+</blockquote>
+<p>####分类</p>
+<p>#####局部代码块</p>
+<blockquote>
+<p>在方法中出现，控制变量生命周期，及早释放，提高内存利用率</p>
+</blockquote>
+<p>#####构造代码块</p>
+<blockquote>
+<p>在类中方法外出现，抽取构造方法中的共性，每次创建对象都会执行，并且在构造方法前执行</p>
+</blockquote>
+<p>#####静态代码块</p>
+<blockquote>
+<p>在类中方法外出现，并加上static修饰；用于给类进行初始化，在加载的时候就执行，并且只执行一次。</p>
+</blockquote>
+<blockquote>
+<p>一般用于加载驱动</p>
+</blockquote>
+<p>#####同步代码块</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><blockquote>
+<p>多个类有共同的成员变量和方法，抽取到另一个类中（父类）在让多个类继承父类</p>
+</blockquote>
+<h3 id="格式："><a href="#格式：" class="headerlink" title="格式："></a>格式：</h3><pre><code>class 子类 extends 父类 {}
+</code></pre><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>在Java中，类只支持单继承，不允许多继承，也就是说一个类只能有一个直接父类,但多个类可以继承一个父类</li>
+<li>在Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类</li>
+<li><p>在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><blockquote>
+<p>子类只能获取父类的非私有成员</p>
+<p>super 可以获取父类的成员变量和成员方法，用法与 this 相似</p>
+</blockquote>
+<h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><blockquote>
+<p>当父类方法不能完成满足子类使用</p>
+<p>用注解 @Override：方法重写，说明下面的方法是重写父类的方法</p>
+</blockquote>
+<pre><code>注意事项：
+     不能继承父类私有成员
+     权限修饰符必须大于等于
+</code></pre></li>
+</ul>
+<h3 id="继承中构造方法的执行顺序"><a href="#继承中构造方法的执行顺序" class="headerlink" title="继承中构造方法的执行顺序"></a>继承中构造方法的执行顺序</h3><pre><code>A:super(实参列表);语句 在子类的构造方法中使用,用来调用父类中的构造方法(具体哪一个由传递的参数决定),并且只能在构造方法第一行使用
+B:this(实参列表); 语句  在类的构造方法中使用,用来调用本类中的其它构造方法(具体哪一个由传递的参数决定),并且只能在构造方法的第一行使用
+</code></pre><h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><pre><code>没有变量引用的对象
+当方法只调用一次时使用
+</code></pre><h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><pre><code>final： 修饰符，可以用于修饰类、成员方法和成员变量
+   final所修饰的类：不能被继承，不能有子类
+   final所修饰的方法:不能被重写
+   final所修饰的变量：是不可以修改的，是常量
+</code></pre><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><pre><code>abstract 修饰符 用于方法和类
+有抽象方法的类必须是抽象类
+抽象类的特点：
+    抽象方法只能在抽象类里面
+    抽象类和抽象方法必须被abstract修饰
+    抽象类不能创建对象（不能实例化）
+    抽象类中可以有非抽象的方法
+    抽象类和类的关系也是继承
+    一个类继承了抽象类要么重写所有的抽象方法，要么他自己是抽象类
+static 修饰的方法不会被继承
+</code></pre><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><pre><code>处理单一继承的局限性
+比抽象类还抽象的类，接口里所有的方法都是抽象方法，接口和类的关系是实现 implements
+</code></pre><h4 id="定义格式："><a href="#定义格式：" class="headerlink" title="定义格式："></a>定义格式：</h4><pre><code>public interface 接口名 {
+    抽象方法1;
+    抽象方法2;
+}
+</code></pre><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><pre><code>class 类 implements 接口 {
+    重写接口中方法
+} 
+</code></pre><h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><pre><code>只能有抽象方法
+方法只能使用pulic abstract 修饰符 默认使用 可省略
+只能有常量
+常量只能使用pulic static fianl 修饰符 默认使用 可省略
+</code></pre><h4 id="类与接口关系"><a href="#类与接口关系" class="headerlink" title="类与接口关系"></a>类与接口关系</h4><pre><code>类与类之间:继承关系,一个类只能直接继承一个父类,但是支持多重继承
+类与接口之间:只有实现关系,一个类可以实现多个接口
+接口与接口之间:只有继承关系,可以多重继承
+</code></pre><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><pre><code>打破继承的局限性
+对外提供规则
+降低了程序的耦合性
+</code></pre><h5 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h5><pre><code>1.共性：
+不断的进行抽取，抽取出抽象的，没有具体实现的方法,都不能实例化（不能创建对象）
+2.区别    与类的关系
+    类与接口是实现关系，而且是多实现，一个类可以实现多个接口，类与抽象类是继承关系，Java中的继承是单一继承，多层继承，一个类只能继承一个父类，但是可以有爷爷类
+   成员
+    a.成员变量
+        抽象类可以有成员变量，也可以有常量
+        接口只能有常量，默认修饰符public static final
+    b.成员方法
+            抽象类可以有抽象方法，也可以有非抽象方法
+            接口只能有抽象方法，默认修饰符 public abstract
+    c.构造方法
+            抽象类有构造方法，为子类提供
+            接口没有构造方法
+</code></pre><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><blockquote>
+<p>多态是继封装、继承之后，面向对象的第三大特性</p>
+</blockquote>
+<pre><code>前提
+    子父类
+    方法重写
+    父类引用指向子类对象
+动态绑定
+    运行期方法调用是根据其具体类
+优点 可维护性 可扩展性
+</code></pre><h4 id="包："><a href="#包：" class="headerlink" title="包："></a>包：</h4><pre><code>多层结构
+不同包下文件名可相同 
+必须在第一行声明
+
+类的全名
+    包名.类名
+使用import 类的全名  将类导入
+</code></pre><h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><table>
+<thead>
+<tr>
+<th>权限修饰符</th>
+<th>public</th>
+<th>protected</th>
+<th>default</th>
+<th>private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一类中</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√      </td>
+</tr>
+<tr>
+<td>同一包中(子类与无关类)</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>不同包的子类</td>
+<td>√</td>
+<td>√        </td>
+</tr>
+<tr>
+<td>不同包中的无关类</td>
+<td>√    </td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>类</th>
+<th>成员变量</th>
+<th>成员方法</th>
+<th>构造方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>protected</td>
+<td></td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>private</td>
+<td>　</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>abstract</td>
+<td>Y</td>
+<td></td>
+<td>Y</td>
+<td>　</td>
+</tr>
+<tr>
+<td>static</td>
+<td>　</td>
+<td>Y</td>
+<td>Y</td>
+<td>　</td>
+</tr>
+<tr>
+<td>final</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>　</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><blockquote>
+<p>将类写在其他类的内部，可以写在其他类的成员位置和局部位置，这时写在其他类内部的类就称为内部类。其他类也称为外部类。</p>
+</blockquote>
+<h4 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h4><pre><code>在类的成员位置
+可以访问外部类的成员包括私有成员
+
+外部类.内部类 对象名 = new 外部类().new 内部类();
+</code></pre><h4 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h4><blockquote>
+<p>在方法内，出了方法就无法使用   </p>
+</blockquote>
+<h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><pre><code>可以看做没有名字的局部内部类
+格式
+    new 类/接口 (){
+        有抽象方法就必须实现具体方法体
+    };
+原理：
+    创建了这个类（接口）的子类对象
+</code></pre><hr>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><blockquote>
+<p>类层次结构的根类</p>
+</blockquote>
+<p>###方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">toString()</span><br><span class="line">equals(Object obj)</span><br></pre></td></tr></table></figure>
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><blockquote>
+<p>不能被实例化 包含一些有用的字段和方法</p>
+</blockquote>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arraycopy(Object src, <span class="keyword">int</span> srcPos, Object dest, <span class="keyword">int</span> destPos, <span class="keyword">int</span> length)</span><br><span class="line">从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">currentTimeMillis() </span><br><span class="line">          返回以毫秒为单位的当前时间</span><br><span class="line">          </span><br><span class="line">exit(<span class="keyword">int</span> status) </span><br><span class="line">          终止当前正在运行的 Java 虚拟机</span><br></pre></td></tr></table></figure>
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><blockquote>
+<p>表示特定的瞬间，精确到毫秒</p>
+</blockquote>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code>Date()  创建当前系统时间的Date对象
+Date(long date) 创建指定时间的Date对象
+</code></pre><h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><pre><code>    setTime(long time)
+    long getTime()
+大部分方法已过时 Calendar类代替
+</code></pre><h3 id="DateFormat"><a href="#DateFormat" class="headerlink" title="DateFormat"></a>DateFormat</h3><blockquote>
+<p>抽象类 已知实现子类SimpleDateFormat</p>
+</blockquote>
+<h3 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h3><h4 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code>SimpleDateFormat() 默认模式创建对象
+SimpleDateFormat(String pattern)指定模式创建对象
+</code></pre><h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h4><pre><code>Date parse(String text)解析字符串的文本，生成 Date。
+String format(Date date) 
+ 将给定的 Date 格式化为日期/时间字符串。
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  例：</span><br><span class="line">      SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH:mm:ss"</span>);</span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">String s = sdf.format(date)</span><br><span class="line">-----------------</span><br><span class="line">String now = <span class="string">"2000-01-01"</span>；</span><br><span class="line">SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">Date d2 = sdf.parse(now);</span><br></pre></td></tr></table></figure>
+<h2 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h2><pre><code>抽象类 已知实现子类GregorianCalendar
+Calendar c = Calendar.getInstance();
+c.get(Calendar.DAY_OF_MONTH )
+</code></pre><h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><pre><code>由于基本数据类型只能做一些简单的操作和运算，所以java为我们封装了基本类型。
+
+自动装箱和拆箱
+    从JDK1.5 开始
+</code></pre><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>一套规则可以用于比配字符串
+Pattern
+Matcher
+
+
+字符 
+x 字符 x 
+\\ 反斜线字符 
+字符类 
+[abc] a、b 或 c（简单类） 
+[^abc] 任何字符，除了 a、b 或 c（否定） 
+[a-zA-Z] a 到 z 或 A 到 Z，两头的字母包括在内（范围）
+预定义字符类 
+. 任何字符（与行结束符可能匹配也可能不匹配） 
+\d 数字：[0-9] 
+\D 非数字： [^0-9] 
+\s 空白字符：[ \t\n\x0B\f\r] 
+\S 非空白字符：[^\s] 
+\w 单词字符：[a-zA-Z_0-9] 
+\W 非单词字符：[^\w] 
+数量词 
+X? X，一次或一次也没有 
+X* X，零次或多次 
+X+ X，一次或多次 
+X{n} X，恰好 n 次 
+X{n,} X，至少 n 次 
+X{n,m} X，至少 n 次，但是不超过 m 次 
+</code></pre><h1 id="集合Collection"><a href="#集合Collection" class="headerlink" title="集合Collection"></a>集合Collection</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="接口Collection-层次结构的根"><a href="#接口Collection-层次结构的根" class="headerlink" title="接口Collection 层次结构的根"></a>接口Collection<e> 层次结构的根</e></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><pre><code>1、toArray() 把集合变成数组，然后遍历数组
+2、iterator() 迭代器对象，通过迭代器对象迭代集合
+    Iterator 类
+      Object next() 下一个元素
+      boolean  hasNext() 判断是否有下一个元素
+</code></pre><h3 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h3><pre><code>for(元素类型 元素变量：集合或数组对象){
+    可以直接使用元素变量
+}
+
+在增强for循环中不能修改集合，否则会发生并发异常
+</code></pre><h3 id="并发修改异常"><a href="#并发修改异常" class="headerlink" title="并发修改异常"></a>并发修改异常</h3><pre><code>在使用迭代器是不允许集合有修改（增加、删除），否则会抛出异常
+解决办法
+    使用迭代器自身去修改集合
+</code></pre><p>##泛型</p>
+<ol>
+<li><p>是一种广泛的类型，把明确数据类型的工作提前到了编译时期，借鉴了数组的特点</p>
+<blockquote>
+<pre><code>特别注意：泛型只能写引用数据类型。
+</code></pre></blockquote>
+</li>
+<li><p>泛型的好处</p>
+<ul>
+<li>避免了类型转换的问题</li>
+<li>可以减少黄色警告线</li>
+<li>可以简化我们代码的书写</li>
+</ul>
+</li>
+</ol>
+<h3 id="类名上的泛型"><a href="#类名上的泛型" class="headerlink" title="类名上的泛型"></a>类名上的泛型</h3><pre><code>class Box&lt;E&gt;{}
+</code></pre><h3 id="方法上的泛型"><a href="#方法上的泛型" class="headerlink" title="方法上的泛型"></a>方法上的泛型</h3><pre><code>public &lt;T&gt; T method(T t){
+    return t;
+}
+</code></pre><h3 id="泛型上下限"><a href="#泛型上下限" class="headerlink" title="泛型上下限"></a>泛型上下限</h3><pre><code>? extends 类名1           泛型上限 
+？ super  类名2           泛型下限
+</code></pre><h2 id="常见数据结构"><a href="#常见数据结构" class="headerlink" title="常见数据结构"></a>常见数据结构</h2><h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><blockquote>
+<p>长度一旦定义就不能改变</p>
+</blockquote>
+<blockquote>
+<p>有整数索引</p>
+</blockquote>
+<blockquote>
+<p>只能存储同一种类型的元素</p>
+</blockquote>
+<blockquote>
+<p>即可以存储基本数据类型也可以存储引用数据类型</p>
+</blockquote>
+<blockquote>
+<p>查找快 增删慢    </p>
+</blockquote>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><blockquote>
+<p>由链子连接起来的一堆节点</p>
+</blockquote>
+<blockquote>
+<p>特点:查询慢 增删快</p>
+</blockquote>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><blockquote>
+<p>先进后出       </p>
+</blockquote>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><blockquote>
+<p>先进先出    </p>
+</blockquote>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre><code>有序 存储顺序有序
+索引
+允许重复
+
+子类
+    ArrayList
+        底层是数组结构 查询快 增删慢
+    LinkedList
+        底层是链表结构 查询慢 增删快
+        方法
+            addFirst(E e)
+            getFirst()
+            removeFirst()
+            addLast(E e)
+            getLast()
+            removeLast()
+</code></pre><h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><pre><code>List的子类
+
+无序（存储和读取的顺序）
+元素唯一
+</code></pre><h3 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h3><blockquote>
+<p>集合工具类</p>
+</blockquote>
+<h4 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list,T key)</span>   <span class="comment">//二分查找指定元素的下标,注意list必须排序完毕</span></span></span><br><span class="line"><span class="function">       </span></span><br><span class="line"><span class="function"><span class="title">copy</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; dest, List&lt;? extends T&gt; src)</span>  <span class="comment">//  把源列表数据覆盖到目标列表，注意目标列表的长度至少必须等于源列表</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">fill</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; list, T obj)</span>  <span class="comment">//使用指定元素替换指定列表中的所有元素 </span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">shuffle</span><span class="params">(List&lt;?&gt; list)</span>    <span class="comment">//使用默认随机源对指定列表进行置换。</span></span></span><br><span class="line"><span class="function">       </span></span><br><span class="line"><span class="function"><span class="title">sort</span><span class="params">(List&lt;T&gt; list)</span>      <span class="comment">//根据元素的自然顺序 对指定列表按升序进行排序。   </span></span></span><br><span class="line"><span class="function">   </span></span><br><span class="line"><span class="function"><span class="title">swap</span><span class="params">(List&lt;?&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>     <span class="comment">//在指定列表的指定位置处交换元素。</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><blockquote>
+<p>将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。    </p>
+</blockquote>
+<h2 id="与Collextion的区别"><a href="#与Collextion的区别" class="headerlink" title="与Collextion的区别"></a>与Collextion的区别</h2><blockquote>
+<p>Map : 双列集合 通常处理有对应关系的数据 key是不可重复的</p>
+</blockquote>
+<blockquote>
+<p>Collection: 单列集合，有不同子类体系</p>
+</blockquote>
+<h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><ol>
+<li><p>增</p>
+<blockquote>
+<p>put(key ,value)</p>
+</blockquote>
+</li>
+<li><p>删</p>
+<blockquote>
+<p>clear()     清除所有</p>
+<p> remove(Object e) 移除</p>
+</blockquote>
+</li>
+<li><p>查</p>
+<blockquote>
+<p>  get(Object key)</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><blockquote>
+<p>包含错误的类型、原因、位置</p>
+</blockquote>
+<p>##体系结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">Throwable--&gt;Error</span><br><span class="line">Throwable--&gt;Exception</span><br></pre></td></tr></table></figure>
+<h2 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h2><ol>
+<li>出现异常未处理 jvm帮我们处理 控制台打印异常信息并终止程序</li>
+<li><p>捕获处理</p>
+<blockquote>
+<pre><code>try ... catch 
+
+try{
+      可能出现问题的代码
+ }catch(异常类 异常){        
+ }
+</code></pre></blockquote>
+</li>
+<li><p>抛出去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   方法（） throws 异常类 &#123;&#125;</span><br><span class="line">新</span><br><span class="line">    try(FileWriter fw = new FileWriter(&quot;a.txt&quot;))&#123;//自动关流</span><br><span class="line">        fw.write(&quot;&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="异常种类"><a href="#异常种类" class="headerlink" title="异常种类"></a>异常种类</h2><p>###运行时异常</p>
+<blockquote>
+<p>RuntimeException 的子类，在运行时期的异常          </p>
+</blockquote>
+<h3 id="编译时异常"><a href="#编译时异常" class="headerlink" title="编译时异常"></a>编译时异常</h3><blockquote>
+<p>Exception子类RuntimeException子类非编译时期必须处理</p>
+</blockquote>
+<h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1><h2 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h2><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File(File parent,String child)</span><br><span class="line">File(String path)</span><br><span class="line">File(String parent,String child)</span><br></pre></td></tr></table></figure>
+<h3 id="方法-4"><a href="#方法-4" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creatNewFile() <span class="comment">//创建文件</span></span><br><span class="line">mkdir()     <span class="comment">//创建文件夹</span></span><br><span class="line">mkdirs()</span><br><span class="line">delete() <span class="comment">//删除文件，</span></span><br><span class="line">isAbsolute() 路径是否是绝对路径</span><br></pre></td></tr></table></figure>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="标准输入输出流"><a href="#标准输入输出流" class="headerlink" title="标准输入输出流"></a>标准输入输出流</h3><blockquote>
+<p>System.in</p>
+</blockquote>
+<blockquote>
+<p>System.out</p>
+</blockquote>
+<h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><blockquote>
+<p>把字节流转换为字符流<br>    outputStreamWriter<br>    inputStreamReader</p>
+</blockquote>
+<h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><blockquote>
+<p>打印流添加输出数据的功能，使它们能够方便地打印各种数据值表示形式.<br>    字符打印流    PrintWriter<br>    void print(String str): 输出任意类型的数据，<br>    void println(String str): 输出任意类型的数据，自动写入换行操作</p>
+</blockquote>
+<h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><blockquote>
+<p>用于从流中读取对象的<br>    ObjectInputStream称为 反序列化流,利用输入流从文件中读取对象<br>    ObjectOutputStream 称为 序列化流,利用输出流向文件中写入对象<br>    特点：用于操作对象。可以将对象写入到文件中，也可以从文件中读取对象。</p>
+</blockquote>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="进程：一个应用程序在内存中执行区域"><a href="#进程：一个应用程序在内存中执行区域" class="headerlink" title="进程：一个应用程序在内存中执行区域"></a>进程：一个应用程序在内存中执行区域</h3><h3 id="线程：进程中的一个执行控制单元"><a href="#线程：进程中的一个执行控制单元" class="headerlink" title="线程：进程中的一个执行控制单元"></a>线程：进程中的一个执行控制单元</h3><blockquote>
+<p>一个进程可以有多个线程</p>
+</blockquote>
+<h3 id="多线程实现"><a href="#多线程实现" class="headerlink" title="多线程实现"></a>多线程实现</h3><blockquote>
+<p>方式一</p>
+</blockquote>
+<pre><code>继承Thread 类
+重写run方法
+创建对象
+启动 start()
+</code></pre><blockquote>
+<p> 方式二</p>
+<pre><code>实现Runnable 接口
+</code></pre></blockquote>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><blockquote>
+<p>设备之间的数据通讯<br>    Socket</p>
+</blockquote>
+<h2 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h2><pre><code>ip
+    网络设备的标识
+端口
+    用于标识进程的逻辑地址
+传输协议
+    udp tcp ip
+</code></pre><h2 id="InerAddress"><a href="#InerAddress" class="headerlink" title="InerAddress"></a>InerAddress</h2><pre><code>表示网络协议（IP) 地址
+   InetAddress address =InetAddress.getByName(&quot;itheima&quot;);//通过主机名获取InetAddress
+
+    InetAddress address =InetAddress.getLocalHost();//本地主机InetAddress
+</code></pre><h2 id="Udp"><a href="#Udp" class="headerlink" title="Udp"></a>Udp</h2><h3 id="发送过程"><a href="#发送过程" class="headerlink" title="发送过程"></a>发送过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建Socket对象</span></span><br><span class="line"> DatagramSocket ds =<span class="keyword">new</span> DategramSocket();<span class="comment">//创建socket对象随机分配端口</span></span><br><span class="line"> <span class="comment">//DatagramSocket ds =new DategramSocket(1000);指定端口</span></span><br><span class="line"> <span class="comment">//创建数据并打包</span></span><br><span class="line"> <span class="comment">//DatagramPacket 数据包类</span></span><br><span class="line"> <span class="keyword">byte</span>[] bys;<span class="comment">//数据</span></span><br><span class="line"> InetAddress addr = InetAddress.getByName(<span class="string">""</span>);<span class="comment">//ip地址</span></span><br><span class="line"> <span class="keyword">int</span> port ;<span class="comment">//端口</span></span><br><span class="line"> DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(bys,bys.length,addr,port);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 发送数据</span></span><br><span class="line"> ds.send(dp);</span><br><span class="line"> <span class="comment">//关闭资源</span></span><br><span class="line"> ds.close();</span><br></pre></td></tr></table></figure>
+<h3 id="接收过程"><a href="#接收过程" class="headerlink" title="接收过程"></a>接收过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建Socket对象</span></span><br><span class="line"> DatagramSocket ds =<span class="keyword">new</span> DategramSocket(<span class="number">1000</span>);<span class="comment">//指定端口</span></span><br><span class="line"><span class="comment">//接收数据</span></span><br><span class="line"><span class="keyword">byte</span>[] bys = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">DatagramPacket dp = <span class="keyword">new</span> DatagrmPacket(bys,bys.length);</span><br><span class="line">ds.receive(dp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//拆分数据</span></span><br><span class="line">InetAddress addr =dp.getAddress();</span><br><span class="line"><span class="keyword">int</span> length =dp.getLength();<span class="comment">//数据长度</span></span><br><span class="line"><span class="comment">//byte[] data =dp.getData();//数据会在bys 中</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭资源</span></span><br><span class="line">ds.close();</span><br></pre></td></tr></table></figure>
+<h2 id="Tcp"><a href="#Tcp" class="headerlink" title="Tcp"></a>Tcp</h2><h3 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建socket对象</span></span><br><span class="line"> Socket socket = <span class="keyword">new</span> Socket(InetAddres.getByName(<span class="string">""</span>),<span class="number">10086</span>);</span><br><span class="line"><span class="comment">// 获取输出流对象</span></span><br><span class="line">OutputSteam os socket.getOutputStream();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送数据</span></span><br><span class="line">  os.write(<span class="string">""</span>);</span><br><span class="line"> <span class="comment">//关闭资源</span></span><br><span class="line"> socket.close();</span><br></pre></td></tr></table></figure>
+<h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> ServerSocket ss = <span class="keyword">new</span> ServerSocket(<span class="number">10086</span>);</span><br><span class="line"> <span class="comment">//监听</span></span><br><span class="line">Socket socket = ss.accept();</span><br><span class="line"><span class="comment">//获得输入流</span></span><br><span class="line">InputStream is =socket.getInputStream();</span><br><span class="line"><span class="keyword">byte</span>[] bs = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len =is.read(bs);</span><br><span class="line"></span><br><span class="line">is.close();</span><br></pre></td></tr></table></figure>
+<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><blockquote>
+<p>运行过程中获取对象，对象中的成员</p>
+</blockquote>
+<h2 id="获取字节码对象"><a href="#获取字节码对象" class="headerlink" title="获取字节码对象"></a>获取字节码对象</h2><pre><code>Class clz =Class.forName(&quot;类的全名&quot;);
+</code></pre><h2 id="获取构造方法"><a href="#获取构造方法" class="headerlink" title="获取构造方法"></a>获取构造方法</h2><pre><code>Constructor[] cs=  clz.getConstructors() //获取所有public 构造方法
+Constructor c =clz.getConstructor();//获取无参构造
+Constructor c =clz.getConstructor(T.class,..);//获取有参构造
+</code></pre><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><pre><code>Object o = c.newInstance();//无参 c为无构造
+Object o = c.newInstance(...);//有参 传递实参 c为有参构造
+</code></pre><h2 id="获取成员字段"><a href="#获取成员字段" class="headerlink" title="获取成员字段"></a>获取成员字段</h2><pre><code>Field field =clz.getField();
+Field[]  getFields(); public 字段
+getDeclarefields(); 所有的字段
+
+field.get(o) //获取o对象上的field字段的值
+field.setAccessible(true) //设置反射取消java访问检查
+field.set(o,值) //给o对象上的field字段设值
+</code></pre><h2 id="获取成员方法"><a href="#获取成员方法" class="headerlink" title="获取成员方法"></a>获取成员方法</h2><pre><code>Method m = clz.getMethod(&quot;method&quot;,形参类型);
+m.Invoke(o,实参); 调用方法 
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaSE/" rel="tag"><i class="fa fa-tag"></i> JavaSE</a>
+          
+            <a href="/tags/进阶学习/" rel="tag"><i class="fa fa-tag"></i> 进阶学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java/JavaSE基础/" rel="next" title="JavaSE基础">
+                <i class="fa fa-chevron-left"></i> JavaSE基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div class="overlay"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zn" />
+            
+              <p class="site-author-name" itemprop="name">zn</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+   
+        </div>
+
+        <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2194279655&auto=0&height=90"></iframe>
+        </div>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-关键字"><span class="nav-number">1.1.1.</span> <span class="nav-text">static 关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式："><span class="nav-number">1.2.1.</span> <span class="nav-text">格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重写"><span class="nav-number">1.2.4.</span> <span class="nav-text">方法重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承中构造方法的执行顺序"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承中构造方法的执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名对象"><span class="nav-number">1.2.6.</span> <span class="nav-text">匿名对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#final关键字"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">final关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.2.7.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.2.8.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义格式："><span class="nav-number">1.2.8.1.</span> <span class="nav-text">定义格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类与接口关系"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">类与接口关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.8.5.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.2.8.5.1.</span> <span class="nav-text">接口和抽象类的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">1.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">包：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">1.3.1.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类"><span class="nav-number">1.3.2.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#成员内部类"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部内部类"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名内部类"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">2.1.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System"><span class="nav-number">2.2.</span> <span class="nav-text">System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.3.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DateFormat"><span class="nav-number">2.3.3.</span> <span class="nav-text">DateFormat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat"><span class="nav-number">2.3.4.</span> <span class="nav-text">SimpleDateFormat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数-1"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-2"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar"><span class="nav-number">2.4.</span> <span class="nav-text">Calendar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装类"><span class="nav-number">2.5.</span> <span class="nav-text">包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合Collection"><span class="nav-number">3.</span> <span class="nav-text">集合Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口Collection-层次结构的根"><span class="nav-number">3.1.1.</span> <span class="nav-text">接口Collection 层次结构的根</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强for循环"><span class="nav-number">3.1.3.</span> <span class="nav-text">增强for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发修改异常"><span class="nav-number">3.1.4.</span> <span class="nav-text">并发修改异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类名上的泛型"><span class="nav-number">3.1.5.</span> <span class="nav-text">类名上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法上的泛型"><span class="nav-number">3.1.6.</span> <span class="nav-text">方法上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型上下限"><span class="nav-number">3.1.7.</span> <span class="nav-text">泛型上下限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据结构"><span class="nav-number">3.2.</span> <span class="nav-text">常见数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组："><span class="nav-number">3.2.1.</span> <span class="nav-text">数组：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">3.2.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">3.2.3.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">3.2.4.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">3.3.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">3.3.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections"><span class="nav-number">3.3.2.</span> <span class="nav-text">Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-3"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">4.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#与Collextion的区别"><span class="nav-number">4.1.</span> <span class="nav-text">与Collextion的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用功能"><span class="nav-number">4.2.</span> <span class="nav-text">常用功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#处理方式"><span class="nav-number">5.1.</span> <span class="nav-text">处理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常种类"><span class="nav-number">5.2.</span> <span class="nav-text">异常种类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译时异常"><span class="nav-number">5.2.1.</span> <span class="nav-text">编译时异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO流"><span class="nav-number">6.</span> <span class="nav-text">IO流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#File类"><span class="nav-number">6.1.</span> <span class="nav-text">File类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">6.1.1.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-4"><span class="nav-number">6.1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">6.2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准输入输出流"><span class="nav-number">6.2.1.</span> <span class="nav-text">标准输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流"><span class="nav-number">6.2.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印流"><span class="nav-number">6.2.3.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象流"><span class="nav-number">6.2.4.</span> <span class="nav-text">对象流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">7.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">7.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程：一个应用程序在内存中执行区域"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程：一个应用程序在内存中执行区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程：进程中的一个执行控制单元"><span class="nav-number">7.1.2.</span> <span class="nav-text">线程：进程中的一个执行控制单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程实现"><span class="nav-number">7.1.3.</span> <span class="nav-text">多线程实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三要素"><span class="nav-number">8.1.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InerAddress"><span class="nav-number">8.2.</span> <span class="nav-text">InerAddress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Udp"><span class="nav-number">8.3.</span> <span class="nav-text">Udp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送过程"><span class="nav-number">8.3.1.</span> <span class="nav-text">发送过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收过程"><span class="nav-number">8.3.2.</span> <span class="nav-text">接收过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tcp"><span class="nav-number">8.4.</span> <span class="nav-text">Tcp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送"><span class="nav-number">8.4.1.</span> <span class="nav-text">发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收"><span class="nav-number">8.4.2.</span> <span class="nav-text">接收</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射"><span class="nav-number">9.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取字节码对象"><span class="nav-number">9.1.</span> <span class="nav-text">获取字节码对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取构造方法"><span class="nav-number">9.2.</span> <span class="nav-text">获取构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">9.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员字段"><span class="nav-number">9.4.</span> <span class="nav-text">获取成员字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员方法"><span class="nav-number">9.5.</span> <span class="nav-text">获取成员方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">znvoid</span>
+
+  
+</div>
+
+<div class="busuanzi-count"><script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user-circle-o"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
