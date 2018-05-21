@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_m-16x16-next.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,HTML,前端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HTML  Hyper Text Markup Language  超文本标记语言 一个HTML文件后缀名为.html 或 htm">
+<meta name="keywords" content="JavaWeb,HTML,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML">
+<meta property="og:url" content="znvoid.tk/JavaWeb/JavaWeb前端基础/index.html">
+<meta property="og:site_name" content="znBlog 个人博客">
+<meta property="og:description" content="HTML  Hyper Text Markup Language  超文本标记语言 一个HTML文件后缀名为.html 或 htm">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-20T11:08:17.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML">
+<meta name="twitter:description" content="HTML  Hyper Text Markup Language  超文本标记语言 一个HTML文件后缀名为.html 或 htm">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="znvoid.tk/JavaWeb/JavaWeb前端基础/"/>
+
+
+
+
+
+  <title>HTML | znBlog 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/JavaWeb前端基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="znBlog 个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T08:20:31+08:00">
+                2018-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  HTML  Hyper Text Markup Language  超文本标记语言 一个HTML文件后缀名为.html 或 htm
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><blockquote>
+<p>Hyper Text Markup Language  超文本标记语言</p>
+<blockquote>
+<p>标记语言：指的是通过一组标签的形式描述事物的一门语言<br>用于制作页面（静态）</p>
+</blockquote>
+</blockquote>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><blockquote>
+<p>一个HTML文件后缀名为.html 或 htm</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 头标签 基于当前页面的一些配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>html 标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置字符集 seo优化--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 体标签 展示内容--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">html body</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h2><ol>
+<li>按标签写法<blockquote>
+<ul>
+<li>双边  <code>&lt;body&gt;&lt;/body&gt;</code></li>
+<li>单边  <code>&lt;br /&gt;</code></li>
+</ul>
+</blockquote>
+</li>
+<li>按状态<blockquote>
+<ul>
+<li>行内 <code>&lt;span&gt;</code></li>
+<li>块级 <code>&lt;div&gt;</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="HTML-字体排版标签"><a href="#HTML-字体排版标签" class="headerlink" title="HTML 字体排版标签"></a>HTML 字体排版标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span>&gt;</span> 字体便签</span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span> <span class="attr">size</span>=<span class="string">"12"</span> <span class="attr">face</span>=<span class="string">"宋体"</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">属性 color 字体颜色</span><br><span class="line">英文单词 red black..</span><br><span class="line">使用16进制  #FFFFFF , #FFFF</span><br><span class="line">属性 size  字体大小</span><br><span class="line">从1 到 7</span><br><span class="line">属性 face 字体</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span> 换行标签</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> &gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span> 标题标签 ... <span class="tag">&lt;<span class="name">h6</span>&gt;</span><span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> 段落标签</span><br><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span> 字体加粗</span><br><span class="line"><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 斜体标签</span><br><span class="line"><span class="tag">&lt;<span class="name">u</span>&gt;</span><span class="tag">&lt;/<span class="name">u</span>&gt;</span> 下划线标签</span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span> <span class="tag">&lt;/<span class="name">center</span>&gt;</span>内容居中</span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;/<span class="name">hr</span>&gt;</span> 分隔线</span><br><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span> 预定义标签 将字符串原封不动的显示出来</span><br></pre></td></tr></table></figure>
+<h3 id="HTML-图片标签"><a href="#HTML-图片标签" class="headerlink" title="HTML 图片标签"></a>HTML 图片标签</h3><blockquote>
+<p><code>&lt;img&gt; 图片标签</code></p>
+</blockquote>
+<pre><code>属性
+src     ：   图片来源
+width  :    图片的宽度.
+height: 图片的高度.
+alt    :   图片找不到显示的内容.
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"a.png"</span> <span class="attr">width</span>=<span class="string">100%</span> <span class="attr">height</span>=<span class="string">100%</span> <span class="attr">alt</span>=<span class="string">"img"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="HTML-列表标签"><a href="#HTML-列表标签" class="headerlink" title="HTML 列表标签"></a>HTML 列表标签</h3><ul>
+<li>无序<blockquote>
+<p> ul li</p>
+<p>  属性</p>
+<pre><code>type    类型
+circle 空心点
+disc  实心点 默认
+square 方块
+</code></pre></blockquote>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>有序<blockquote>
+<p>ol li</p>
+</blockquote>
+  属性<pre><code>type    类型
+1  数字型
+a 英文型
+i 罗马字符型
+start 从哪个开始
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="超链接标签-lt-a-gt"><a href="#超链接标签-lt-a-gt" class="headerlink" title="超链接标签 &lt;a&gt;"></a>超链接标签 <code>&lt;a&gt;</code></h3><blockquote>
+<p>属性<br>   href   :链接的路径<br>   target :打开的方式<br>               _self   :在自身页面打开<br>              _blank  :新打开一个页面</p>
+</blockquote>
+<h3 id="table标签"><a href="#table标签" class="headerlink" title="table标签"></a>table标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">&lt;tr&gt;&lt;!--行--&gt;</span><br><span class="line">&lt;td&gt;&lt;/td&gt; 列</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>属性<br>width ； 表格宽度<br>height：表格高度<br>border ： 边框<br>Align: 水平位置<br>left<br>right<br>center</p>
+<p><td> 属性<br>合并单元格<br>colspan=”列数”<br>rowspan=”行数”</td></p>
+<h3 id="表单标签-lt-form-gt"><a href="#表单标签-lt-form-gt" class="headerlink" title="表单标签 &lt;form&gt;"></a>表单标签 <code>&lt;form&gt;</code></h3><blockquote>
+<p>action 提交的路径，默认当前页面</p>
+</blockquote>
+<blockquote>
+<p>method 请求方式，GET 和POST 默认为GET</p>
+</blockquote>
+<h4 id="表单中的元素"><a href="#表单中的元素" class="headerlink" title="表单中的元素"></a>表单中的元素</h4><h5 id="lt-input-gt-文本框"><a href="#lt-input-gt-文本框" class="headerlink" title="&lt;input&gt; 文本框"></a><code>&lt;input&gt;</code> 文本框</h5><blockquote>
+<p> <code>&lt;input type=&quot;text&quot;/&gt;</code>  文本框</p>
+<pre><code>属性
+  type：      类型
+  text        文本框
+  password    密码框
+  radio       单选按钮
+  checkbox    复选按钮
+  button      普通按钮
+  submit      提交按钮
+  reset       重置按钮
+  file        文件上传的表单项
+  hidden      隐藏字段
+  image       图片按钮
+  name:       表单元素名称 必须有
+  value:      文本框默认值
+  size:       文本框长度
+  maxlength:  最大输入长度
+  readonly:   只读
+  checked:    单选/复选按钮默认选中
+</code></pre></blockquote>
+<h5 id="lt-select-gt-下拉列表"><a href="#lt-select-gt-下拉列表" class="headerlink" title="&lt;select&gt;    下拉列表"></a><code>&lt;select&gt;</code>    下拉列表</h5><blockquote>
+<p>name 属性</p>
+</blockquote>
+<h5 id="lt-option-gt"><a href="#lt-option-gt" class="headerlink" title="&lt;option&gt;"></a><code>&lt;option&gt;</code></h5><blockquote>
+<p>value 属性</p>
+</blockquote>
+<p>#####<code>&lt;textarea&gt;</code> 文本域</p>
+<blockquote>
+<p>cols</p>
+</blockquote>
+<blockquote>
+<p>rows</p>
+</blockquote>
+<h4 id="框架标签-frameset"><a href="#框架标签-frameset" class="headerlink" title="框架标签 frameset"></a>框架标签 frameset</h4><blockquote>
+<p>注意 与body 标签冲突</p>
+</blockquote>
+<blockquote>
+<p>属性<br>    rows<br>    cols<br>    两者只能出现其一</p>
+</blockquote>
+<blockquote>
+<p>使用<code>&lt;frame&gt;</code> 标签 frame代表分切的每个部分</p>
+<blockquote>
+<p>属性</p>
+</blockquote>
+</blockquote>
+<pre><code>src 网页的连接
+name 指定名称  可以通过a标签跳转
+onresize 让frame边框不能拖动
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;frameset rows=2&gt;</span><br><span class="line">&lt;frame&gt;&lt;/frame&gt;</span><br><span class="line">&lt;frameset cols=2&gt;</span><br><span class="line">&lt;frame&gt;&lt;/frame&gt;</span><br><span class="line">&lt;frame&gt;&lt;/frame&gt;</span><br><span class="line">&lt;/frameset&gt;</span><br><span class="line">&lt;/frameset&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="css-层叠样式"><a href="#css-层叠样式" class="headerlink" title="css 层叠样式"></a>css 层叠样式</h1><blockquote>
+<p>div +css 页面布局</p>
+</blockquote>
+<blockquote>
+<p> 对页面进行美化</p>
+</blockquote>
+<h2 id="块标签"><a href="#块标签" class="headerlink" title="块标签"></a>块标签</h2><p><code>&lt;div&gt;&lt;/div&gt;</code> ： 默认一个独占一行</p>
+<h2 id="行内标签"><a href="#行内标签" class="headerlink" title="行内标签"></a>行内标签</h2><p><code>&lt;span&gt;&lt;/span&gt;</code>  : 默认不换行</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h3><p>####行内式</p>
+<blockquote>
+<p>直接标签内使用style 属性<br><code>&lt; h1 style=&quot;color:red;&quot;&gt;&lt;/h1&gt;</code></p>
+</blockquote>
+<p>####内联式</p>
+<blockquote>
+<p>使用style标签,一般放在head 标签内</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">h1&#123;</span><br><span class="line">color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>####外联式</p>
+<blockquote>
+<p>单独定义.css文件在HTML中link标签中引入</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.css文件中</span><br><span class="line">h1&#123;</span><br><span class="line">color:red;</span><br><span class="line">&#125;</span><br><span class="line">html中 使用link 标签</span><br><span class="line">&lt;link href=&quot;.css文件路径&quot; type=&quot;text/css&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="声明-属性-值"><a href="#声明-属性-值" class="headerlink" title="声明      属性:值"></a>声明      属性:值</h4><blockquote>
+<p>选择器{属性:值;属性:值…}</p>
+</blockquote>
+<h4 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h4><blockquote>
+<p>根据标签名称<br>    div{}</p>
+</blockquote>
+<p>####id选择器   </p>
+<blockquote>
+<p>根据标签id属性值 _id</p>
+</blockquote>
+<pre><code>#_id{}
+</code></pre><h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><blockquote>
+<p>根据标签class属性值 _class<br>    ._class{}</p>
+</blockquote>
+<h4 id="其他选择器"><a href="#其他选择器" class="headerlink" title="其他选择器"></a>其他选择器</h4><h5 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h5><pre><code>eq: 
+input[type=&quot;text&quot;]{
+}
+</code></pre><h5 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h5><pre><code>div span{} 查找所有div 中的所有span标签
+</code></pre><p>#####子元素选择器<br>    div &gt; span{} 查找所有div 中的第一层是span标签</p>
+<h5 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h5><pre><code>div + span{}
+</code></pre><h5 id="并列选择器"><a href="#并列选择器" class="headerlink" title="并列选择器"></a>并列选择器</h5><pre><code>选择器1,选择器2{}
+</code></pre><h3 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h3><pre><code>CSS float 属性
+值 描述
+left 元素向左浮动。
+right 元素向右浮动。
+none 默认值。元素不浮动，并会显示在其在文本中出现的位置。
+inherit 规定应该从父元素继承 float 属性的值。
+清除浮动 使用clear 属性
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:'left'"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear :'none'"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><pre><code>position
+绝对定位 absolute
+相对定位 relative
+盒子模型
+内边距 pedJSKSJding
+边框 border
+外边距 margin
+</code></pre><h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><blockquote>
+<p>脚本语言</p>
+</blockquote>
+<p>##组成<br>    ECMAScript: 基本语法<br>    DOM document object model 文档对象模型<br>    BOM browser object model    浏览器对象模型</p>
+<p>##语法<br>区分大小写</p>
+<p>###弱变量类型语言(与java不同)<br>    变量命名<br>    var i =3;//整数型<br>    var i =”3”;//字符串类型</p>
+<p>###数据类型<br>    undefined 未定义<br>    boolean<br>    number<br>    string<br>    object</p>
+<p>###运算符 与Java中基本一致<br>    js中=== 全等 类型和值都一致才为true</p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><pre><code>与Java语句一致
+</code></pre><p>##开发步骤<br>    通常由一个事件触发<br>    事件触发后引用函数<br>    调用函数</p>
+<h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><pre><code>function 函数名(){
+函数体
+}
+</code></pre><h3 id="匿名函数-window-onload-function"><a href="#匿名函数-window-onload-function" class="headerlink" title="匿名函数 window.onload=function(){}"></a>匿名函数 window.onload=function(){}</h3><pre><code>常用事件
+onclick     点击事件
+ onsubmit   提交
+onchange    select选中
+onfocus         获得焦点
+onblur      失去焦点
+onload      页面加载
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">var br=doucment.getElementById(&quot;id&quot;);</span><br><span class="line">br.onclik(function()&#123;</span><br><span class="line">//...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="js引入方式"><a href="#js引入方式" class="headerlink" title="js引入方式"></a>js引入方式</h2><h3 id="使用script-标签"><a href="#使用script-标签" class="headerlink" title="使用script 标签"></a>使用script 标签</h3><pre><code>&lt;script&gt;
+js内容
+&lt;/script&gt;
+</code></pre><h3 id="引入-js-文件"><a href="#引入-js-文件" class="headerlink" title="引入.js 文件"></a>引入.js 文件</h3><pre><code>&lt;script src=&quot;js文件&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2><pre><code>&quot;&quot;.match(/正则表达式/)
+/正则表达式/.test(&quot;&quot;)
+</code></pre><p>##获得页面元素<br>    document.getElementById(“id”);</p>
+<pre><code>window中setTimeout(一定时间后执行) setInterval(每隔一定时间执行)
+eg:
+setInterval(function(){
+},1000);
+setTimeout(function(){
+},1000);
+</code></pre><h1 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h1><blockquote>
+<p>一个js 的框架(类库)</p>
+</blockquote>
+<p>##引入<br>    <script src="jq文件"></script><br>    $(function(){               //$相当于JQuery 对象<br>    //等页面的Dom树绘制完成后执行<br>    });</p>
+<h2 id="js-jq对象转换"><a href="#js-jq对象转换" class="headerlink" title="js/jq对象转换"></a>js/jq对象转换</h2><p>###js对象转jq对象<br>    $(js对象)</p>
+<p>###jq对象转js对象<br>    var $d1=$(“#id”);//jq对象 $d1 变量名可起其他名    #id 为 #+标签id    eq: var a =$(#id);<br>    $d1[0];或    $d1.get(0);//转为js对象</p>
+<p>##显示与隐藏<br>    $(选择器).show();<br>    $(选择器).hide();<br>    $(选择器).toggle(); 当标签隐藏时显示,显示时隐藏<br>    用于绑定两个或多个事件处理器函数，以响应被选元素的轮流的 click 事件。<br>    如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。</p>
+<p>###基本<br>    show([speed,[easing],[fn]])<br>    hide([speed,[easing],[fn]])<br>    toggle([speed],[easing],[fn])</p>
+<p>###滑动<br>    slideDown([spe],[eas],[fn])<br>    slideUp([speed,[easing],[fn]])<br>    slideToggle([speed],[easing],[fn])<br>    注意要设置标签的宽度</p>
+<p>###淡入淡出<br>    fadeIn([speed],[eas],[fn])<br>    fadeOut([speed],[eas],[fn])<br>    fadeTo([[spe],opa,[eas],[fn]])<br>    fadeToggle([speed,[eas],[fn]])</p>
+<p>##选择器</p>
+<blockquote>
+<p>$(选择器)</p>
+</blockquote>
+<p>###基本</p>
+<pre><code>#id             id选择器
+.class          类选择器
+元素名         元素选择器
+*               通配选择器
+选择器1,选择器2   并列选择器
+</code></pre><h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><pre><code>ancestor descendant     后代选择器       使用空格        eg: $(body div) body 下的所有的div标签
+parent &gt; child          子元素选择器      使用&gt;     eg:$(body&gt;div)  body下的第一层div标签
+prev + next             下一个元素       使用+     eg:$(#id+div)       id标签的下一个标签
+prev ~ siblings         兄弟元素            使用~     eg:$(#id~div)       id标签的所有兄弟标签
+</code></pre><h3 id="基本过滤"><a href="#基本过滤" class="headerlink" title="基本过滤"></a>基本过滤</h3><pre><code>:first          第一个元素
+:last           最后一个元素
+:odd            奇数元素
+:even       偶数元素
+:eq(index)      下标为index 元素
+内容过滤
+:contains(text)     内容为text的元素
+</code></pre><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><pre><code>[attribute]                         
+[attribute=value]           匹配给定的属性是某个特定值的元素
+[attribute!=value]          匹配所有不含有指定的属性，或者属性不等于特定值的元素
+[attribute^=value]          匹配给定的属性是以某些值开始的元素
+[attribute$=value] 
+[attribute*=value] 
+[attrSel1][attrSel2][attrSelN] 
+</code></pre><h3 id="表单选择器和表单属性选择器"><a href="#表单选择器和表单属性选择器" class="headerlink" title="表单选择器和表单属性选择器"></a>表单选择器和表单属性选择器</h3><pre><code>:input  所有的表单标签
+checked     checkbox 或  radio 被选中
+selected    select被选中
+</code></pre><h3 id="添加和移除样式"><a href="#添加和移除样式" class="headerlink" title="添加和移除样式"></a>添加和移除样式</h3><pre><code>* 如果样式没有事先定义,可以使用css方法为奇数行或者偶数行设置背景颜色.
+css(&quot;属性&quot;,&quot;值&quot;)
+css(&quot;属性1:值1&quot;,&quot;属性2:值2&quot;)
+* 如果已经在css文件中事先将样式定义完成了,不能使用css方法了.使用JQ中的CSS类中的方法：
+    * addClass();
+    * removeClass();
+
+eg:
+$(&quot;tr&quot;).addClass(&quot;&quot;);
+</code></pre><h2 id="标签属性操作"><a href="#标签属性操作" class="headerlink" title="标签属性操作"></a>标签属性操作</h2><pre><code>attr(); 高版本会失效
+prop(); 获取设置属性  prop(&quot;属性&quot;)  prop(&quot;属性&quot;,&quot;值&quot;)
+removeProp()    移除属性
+操作文档对象
+append()        添加
+appendTo()  添加到
+html()      替换内容
+</code></pre><h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><pre><code>$().each(function(i,n){ // i代表index ,n代表当前元素
+
+})
+$.each(数组,function(i,n){})
+</code></pre><h3 id="事件切换"><a href="#事件切换" class="headerlink" title="事件切换"></a>事件切换</h3><pre><code>toggle();
+用于绑定两个或多个事件处理器函数，以响应被选元素的轮流的 click 事件。
+如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。
+
+eg:
+对表格切换显示/隐藏
+$(&apos;td).toggle();
+对表格的切换一个类
+$(&quot;td&quot;).toggle(
+  function () {
+    $(this).addClass(&quot;selected&quot;);
+  },
+  function () {
+    $(this).removeClass(&quot;selected&quot;);
+  }
+);
+</code></pre><h3 id="trigger和triggerHandler的区别"><a href="#trigger和triggerHandler的区别" class="headerlink" title="trigger和triggerHandler的区别"></a>trigger和triggerHandler的区别</h3><pre><code>1.trigger和triggerHandler都会触发自己实现的逻辑
+2.trigger会导致系统的事件和自己定义的逻辑都被触发
+3.triggerHandler只会触发自己实现的逻辑,不会触发系统的事件
+4.trigger会对所有匹配到的元素都执行相关逻辑
+5.triggerHandler他只会对匹配到的元素的第一个执行自己的逻辑,并且不会执行系统的事件
+6.trigger会导致事件冒泡.triggerHanlder不会导致事件冒泡
+</code></pre><h1 id="BootStrap-前端响应式框架"><a href="#BootStrap-前端响应式框架" class="headerlink" title="BootStrap  前端响应式框架"></a>BootStrap  前端响应式框架</h1><blockquote>
+<p>引入bootstrap文件</p>
+</blockquote>
+<blockquote>
+<p>注意先引入jquery在引入bootstrap.js</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/bootstrap-theme.min.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/jquery-1.8.3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>添加<code>&lt;meta&gt;标签</code><br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
+</blockquote>
+</blockquote>
+<h2 id="全局css"><a href="#全局css" class="headerlink" title="全局css"></a>全局css</h2><h3 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h3><pre><code>.container
+.container-flue
+</code></pre><h3 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h3><pre><code>12列
+.row 行
+.col-lg-n       .col-md-n       .col-sm-n       .col-xs-n   四种列样式,n是数字1-12代表占行的份额,行的总份额为12
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="javaScript插件"><a href="#javaScript插件" class="headerlink" title="javaScript插件"></a>javaScript插件</h3><h4 id="轮播"><a href="#轮播" class="headerlink" title="轮播"></a>轮播</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaWeb/HTTP协议/" rel="next" title="Http">
+                <i class="fa fa-chevron-left"></i> Http
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaWeb/JavaWeb -Mysql/" rel="prev" title="Mysql">
+                Mysql <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div class="overlay"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zn" />
+            
+              <p class="site-author-name" itemprop="name">zn</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+   
+        </div>
+
+        <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2194279655&auto=0&height=90"></iframe>
+        </div>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签分类"><span class="nav-number">1.2.</span> <span class="nav-text">标签分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-字体排版标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTML 字体排版标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-图片标签"><span class="nav-number">1.2.2.</span> <span class="nav-text">HTML 图片标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-列表标签"><span class="nav-number">1.2.3.</span> <span class="nav-text">HTML 列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接标签-lt-a-gt"><span class="nav-number">1.2.4.</span> <span class="nav-text">超链接标签 &lt;a&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table标签"><span class="nav-number">1.2.5.</span> <span class="nav-text">table标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单标签-lt-form-gt"><span class="nav-number">1.2.6.</span> <span class="nav-text">表单标签 &lt;form&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单中的元素"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">表单中的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-input-gt-文本框"><span class="nav-number">1.2.6.1.1.</span> <span class="nav-text">&lt;input&gt; 文本框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-select-gt-下拉列表"><span class="nav-number">1.2.6.1.2.</span> <span class="nav-text">&lt;select&gt;    下拉列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-option-gt"><span class="nav-number">1.2.6.1.3.</span> <span class="nav-text">&lt;option&gt;</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签-frameset"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">框架标签 frameset</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css-层叠样式"><span class="nav-number">2.</span> <span class="nav-text">css 层叠样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#块标签"><span class="nav-number">2.1.</span> <span class="nav-text">块标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内标签"><span class="nav-number">2.2.</span> <span class="nav-text">行内标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">2.3.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.3.2.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明-属性-值"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">声明      属性:值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素选择器"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">元素选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类选择器"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他选择器"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">其他选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性选择器"><span class="nav-number">2.3.2.4.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后代选择器"><span class="nav-number">2.3.2.4.2.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#相邻选择器"><span class="nav-number">2.3.2.4.3.</span> <span class="nav-text">相邻选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#并列选择器"><span class="nav-number">2.3.2.4.4.</span> <span class="nav-text">并列选择器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动"><span class="nav-number">2.3.3.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位"><span class="nav-number">2.3.4.</span> <span class="nav-text">定位</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS"><span class="nav-number">3.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语句"><span class="nav-number">3.0.1.</span> <span class="nav-text">语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义函数"><span class="nav-number">3.1.</span> <span class="nav-text">定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数-window-onload-function"><span class="nav-number">3.1.1.</span> <span class="nav-text">匿名函数 window.onload=function(){}</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js引入方式"><span class="nav-number">3.2.</span> <span class="nav-text">js引入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用script-标签"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用script 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-js-文件"><span class="nav-number">3.2.2.</span> <span class="nav-text">引入.js 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则"><span class="nav-number">3.3.</span> <span class="nav-text">正则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery"><span class="nav-number">4.</span> <span class="nav-text">JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-jq对象转换"><span class="nav-number">4.1.</span> <span class="nav-text">js/jq对象转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">4.1.1.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本过滤"><span class="nav-number">4.1.2.</span> <span class="nav-text">基本过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">4.1.3.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单选择器和表单属性选择器"><span class="nav-number">4.1.4.</span> <span class="nav-text">表单选择器和表单属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加和移除样式"><span class="nav-number">4.1.5.</span> <span class="nav-text">添加和移除样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签属性操作"><span class="nav-number">4.2.</span> <span class="nav-text">标签属性操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">4.2.1.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件切换"><span class="nav-number">4.2.2.</span> <span class="nav-text">事件切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trigger和triggerHandler的区别"><span class="nav-number">4.2.3.</span> <span class="nav-text">trigger和triggerHandler的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BootStrap-前端响应式框架"><span class="nav-number">5.</span> <span class="nav-text">BootStrap  前端响应式框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局css"><span class="nav-number">5.1.</span> <span class="nav-text">全局css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局容器"><span class="nav-number">5.1.1.</span> <span class="nav-text">布局容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栅格系统"><span class="nav-number">5.1.2.</span> <span class="nav-text">栅格系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javaScript插件"><span class="nav-number">5.1.3.</span> <span class="nav-text">javaScript插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#轮播"><span class="nav-number">5.1.3.1.</span> <span class="nav-text">轮播</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">znvoid</span>
+
+  
+</div>
+
+<div class="busuanzi-count"><script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user-circle-o"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
