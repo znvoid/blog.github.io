@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="JavaWeb,servlet," />
+  <meta name="keywords" content="JavaWeb,Filter," />
 
 
 
@@ -73,18 +73,20 @@
 
 
 
-<meta name="description" content="会话 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.">
-<meta name="keywords" content="JavaWeb,servlet">
+<meta name="description" content="过滤客户端向服务器发送的请求 自动登录实现  通用网站的字符集编码过滤器">
+<meta name="keywords" content="JavaWeb,Filter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaweb会话技术">
-<meta property="og:url" content="znvoid.tk/JavaWeb/JavaWeb-Cookie&Session/index.html">
+<meta property="og:title" content="JavaWeb Servlet过滤器Filter">
+<meta property="og:url" content="znvoid.tk/JavaWeb/JavaWeb-Filter/index.html">
 <meta property="og:site_name" content="znBlog 个人博客">
-<meta property="og:description" content="会话 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.">
+<meta property="og:description" content="过滤客户端向服务器发送的请求 自动登录实现  通用网站的字符集编码过滤器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-27T10:52:07.972Z">
+<meta property="og:image" content="http://os4z8t7lb.bkt.clouddn.com/201803110738_240.png">
+<meta property="og:updated_time" content="2018-06-03T11:09:38.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaweb会话技术">
-<meta name="twitter:description" content="会话 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.">
+<meta name="twitter:title" content="JavaWeb Servlet过滤器Filter">
+<meta name="twitter:description" content="过滤客户端向服务器发送的请求 自动登录实现  通用网站的字符集编码过滤器">
+<meta name="twitter:image" content="http://os4z8t7lb.bkt.clouddn.com/201803110738_240.png">
 
 
 
@@ -114,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="znvoid.tk/JavaWeb/JavaWeb-Cookie&Session/"/>
+  <link rel="canonical" href="znvoid.tk/JavaWeb/JavaWeb-Filter/"/>
 
 
 
 
 
-  <title>javaweb会话技术 | znBlog 个人博客</title>
+  <title>JavaWeb Servlet过滤器Filter | znBlog 个人博客</title>
   
 
 
@@ -274,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/JavaWeb-Cookie&Session/">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/JavaWeb-Filter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zn">
@@ -291,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javaweb会话技术</h1>
+          <h1 class="post-title" itemprop="name headline">JavaWeb Servlet过滤器Filter</h1>
         
 
         <div class="post-meta">
@@ -303,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T15:59:56+08:00">
-                2018-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T19:06:03+08:00">
+                2018-06-03
               </time>
             
 
@@ -350,7 +352,7 @@
 
           
               <div class="post-description">
-                  会话 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.
+                  过滤客户端向服务器发送的请求 自动登录实现  通用网站的字符集编码过滤器
               </div>
           
 
@@ -367,91 +369,80 @@
       
 
       
-        <h1 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h1><blockquote>
-<p>会话: 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.</p>
+        <h1 id="JavaWeb-Servlet过滤器Filter"><a href="#JavaWeb-Servlet过滤器Filter" class="headerlink" title="JavaWeb Servlet过滤器Filter"></a>JavaWeb Servlet过滤器Filter</h1><h2 id="什么是过滤器"><a href="#什么是过滤器" class="headerlink" title="什么是过滤器"></a>什么是过滤器</h2><blockquote>
+<p>Filter 可以过滤客户端向服务器发送的请求</p>
 </blockquote>
-<p>常见的会话技术:</p>
 <ul>
-<li>Cookie  :将数据保存到客户端浏览器.</li>
-<li>Session :将数据保存到服务器端.</li>
-<li>URL重写</li>
-<li>隐藏表单域 hidden</li>
+<li>编写一个类实现Filter接口</li>
+<li>web.xml 配置过滤器</li>
 </ul>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><blockquote>
-<p>向浏览器保存数据:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置过滤器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>filter类的全名<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>拦截的路径<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="过滤器生命周期"><a href="#过滤器生命周期" class="headerlink" title="过滤器生命周期"></a>过滤器生命周期</h2><ol>
+<li>创建：服务器启动时</li>
+</ol>
 <blockquote>
-<p>HttpServletResponse有一个方法:<code>void addCookie(Cookie cookie);</code><br>获得浏览器带过来的Cookie:<br>HttpServletRequest有一个方法:<code>Cookie[] getCookies();</code><br>创建一个Cookie对象:<code>Cookie(String name,String value);</code></p>
+<p>web 应用程序启动时，web 服务器将创建Filter 的实例对象，并调用其init方法，完成对象的初始化功能，从而为后续的用户请求作好拦截的准备工作，filter对象只会创建一次，init方法也只会执行一次。通过init方法的参数，可获得代表当前filter配置信息的FilterConfig对象。</p>
 </blockquote>
-</blockquote>
-<h3 id="Cookie常用API"><a href="#Cookie常用API" class="headerlink" title="Cookie常用API"></a>Cookie常用API</h3><ul>
-<li>getName();  –获取Cookie的名称</li>
-<li>getValue();   –获取Cookie的值</li>
-<li>setDomain(String domain); – 设置Cookie的有效域名.</li>
-<li>setPath(String path); – 设置Cookie的有效路径.</li>
-<li><p>setMaxAge(int maxAge); – 设置Cookie的有效时间.</p>
-<p>  setMaxAge如果咱们不手动设置值它的默认值是-1,即为临时Cookie<br>  如果想删除一个cookie的话就给它设置为0<br>  如果给它设置为一个正数值,代表就是它的存活时间 <code>60 * 60 * 24 * 7</code><br>  如果是相同path和相同domain下相同的cookie name会覆盖</p>
-</li>
-</ul>
-<h3 id="Cookie的分类"><a href="#Cookie的分类" class="headerlink" title="Cookie的分类"></a>Cookie的分类</h3><ul>
-<li>会话级别的Cookie:默认的Cookie.关闭浏览器Cookie就会销毁.</li>
-<li>持久级别的Cookie:可以设置Cookie的有效时间.那么关闭浏览器Cookie还会存在. 手动销毁持久性<code>Cookie.setMaxAge(0)</code>(前提是有效路径必须一致)</li>
-</ul>
-<h3 id="示例-显示商品浏览记录"><a href="#示例-显示商品浏览记录" class="headerlink" title="示例:显示商品浏览记录"></a>示例:显示商品浏览记录</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 接收id:</span></span><br><span class="line">        String id = request.getParameter(<span class="string">"id"</span>);</span><br><span class="line">        <span class="comment">// 获得所有的Cookie的信息:</span></span><br><span class="line">        Cookie[] cookies = request.getCookies();</span><br><span class="line">        <span class="comment">// 判断是否是第一次:</span></span><br><span class="line">        Cookie cookie = CookieUtils.findCookie(cookies, <span class="string">"history"</span>);</span><br><span class="line">        <span class="keyword">if</span>(cookie == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">// 第一次浏览商品</span></span><br><span class="line">            Cookie c = <span class="keyword">new</span> Cookie(<span class="string">"history"</span>,id);</span><br><span class="line">            c.setPath(<span class="string">"/xxx"</span>);</span><br><span class="line">            c.setMaxAge(<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">7</span>);</span><br><span class="line">            response.addCookie(c);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 不是第一次浏览</span></span><br><span class="line">            <span class="comment">// 判断选择的商品是否已经在浏览记录中 2-1</span></span><br><span class="line">            String value = cookie.getValue();</span><br><span class="line">            String[] ids = value.split(<span class="string">"-"</span>);</span><br><span class="line">            <span class="comment">// 将数组变为集合：</span></span><br><span class="line">            LinkedList&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;String&gt;(Arrays.asList(ids));</span><br><span class="line">            <span class="keyword">if</span>(list.contains(id))&#123;</span><br><span class="line">                <span class="comment">// 之前浏览过该商品</span></span><br><span class="line">                list.remove(id); <span class="comment">// 1-2-3</span></span><br><span class="line">                list.addFirst(id);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 没有浏览过该商品.</span></span><br><span class="line">                <span class="keyword">if</span>(list.size() &gt;=<span class="number">3</span> )&#123;</span><br><span class="line">                    <span class="comment">// 超过3个</span></span><br><span class="line">                    list.removeLast();</span><br><span class="line">                    list.addFirst(id);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">// 没到3个.</span></span><br><span class="line">                    list.addFirst(id);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 将list中的元素取出,使用-连接上保存到Cookie,写回浏览器.</span></span><br><span class="line">            StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">            <span class="keyword">for</span>(String s:list)&#123;</span><br><span class="line">                sb.append(s).append(<span class="string">"-"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            String sValue = sb.toString().substring(<span class="number">0</span>,sb.length()-<span class="number">1</span>);</span><br><span class="line">            System.out.println(sValue);</span><br><span class="line">            <span class="comment">// 存入到Cookie中</span></span><br><span class="line">            Cookie c = <span class="keyword">new</span> Cookie(<span class="string">"history"</span>,sValue);</span><br><span class="line">            c.setPath(<span class="string">"/xxx"</span>);</span><br><span class="line">            c.setMaxAge(<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">7</span>);</span><br><span class="line">            response.addCookie(c);</span><br><span class="line">        &#125;</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/xxx/product_info.htm"</span>).forward(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><blockquote>
-<p>基于Cookie的JSESSIONID</p>
-<p>获得Session:<code>request.getSession();/request.getSession(boolean)</code></p>
-</blockquote>
-<h3 id="Cookie与Session的区别"><a href="#Cookie与Session的区别" class="headerlink" title="Cookie与Session的区别"></a>Cookie与Session的区别</h3><p>Cookie本身是有大小和个数的限制.大小一般不超过4KB, 个数的不超过20个,Session没有限制.Cookie的数据保存在客户端,Session数据保存在服务器端.Cookie被禁止了，默认session也不能使用</p>
-<h4 id="存储位置"><a href="#存储位置" class="headerlink" title="存储位置"></a>存储位置</h4><pre><code>Cookie存储在浏览器客户端
-Session存储在服务器内存中
-Cookie有大小限制
-Session是没有大小限制
-Cookie只能存储String
-Session可以存储object
-获取Cookie  newCookie(String String)
-获取Session req.getSession()
-Session是域对象
-Cookie不是域对象
-Session是依赖于Cookie
-</code></pre><h3 id="session作为域对象存取数据"><a href="#session作为域对象存取数据" class="headerlink" title="session作为域对象存取数据"></a>session作为域对象存取数据</h3><h4 id="session的创建和销毁"><a href="#session的创建和销毁" class="headerlink" title="session的创建和销毁"></a>session的创建和销毁</h4><ol>
-<li>创建:<blockquote>
-<p>服务器端第一次调用getSession()创建session.，以后调用getSession获得同一个</p>
-</blockquote>
-</li>
-<li>销毁:三种情况销毁session:<blockquote>
 <ol>
-<li>session过期. 默认过期时间为30分钟.<blockquote>
-<p>在Tomcat设置：所有的项目的session</p>
-<p>在某个项目中的web.xml设置：当前工程的所有session<br>给某个session对象设置：对应的session对象<br><code>setMaxInactiveInterval(int interval)</code></p>
-</blockquote>
-</li>
-<li>非正常关闭服务器.如果正常关闭session序列化到硬盘.</li>
-<li>手动调用session.invalidate();</li>
+<li>销毁：服务器关闭时</li>
 </ol>
+<blockquote>
+<p>Web容器调用destroy方法销毁Filter。destroy方法在Filter的生命周期中仅执行一次。在destroy方法中，可以释放过滤器使用的资源。</p>
 </blockquote>
-</li>
-</ol>
-<ul>
-<li><p>作用范围:多次请求.(一次会话)</p>
-<pre><code>==Servlet中的域对象：request,session,ServletContext==
-request:范围一次请求，转发时能够共享数据,一个请求对应一个
-session:一次会话（包含多次请求与响应），转发与重定向都能共享,一个用户对应一个
-ServletContext:一个项目都有效，包含多个会话
-共同的特点：存储数据
-`setAttribute()/getAttribute()/removeAttribute()`
-`Cookie, new Cookie(String,String)`
-`session,  setAttribute(String,Object)`
-</code></pre></li>
+<h2 id="FilterConfig类"><a href="#FilterConfig类" class="headerlink" title="FilterConfig类"></a>FilterConfig类</h2><p>在过滤器初始化时传入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    <span class="comment">// 获得当前的Filter的名称:</span></span><br><span class="line">    String filterName = filterConfig.getFilterName();</span><br><span class="line">    System.out.println(filterName);</span><br><span class="line">    <span class="comment">// 获得初始化参数:</span></span><br><span class="line">    String username = filterConfig.getInitParameter(<span class="string">"username"</span>);</span><br><span class="line">    String password = filterConfig.getInitParameter(<span class="string">"password"</span>);</span><br><span class="line">    System.out.println(username+<span class="string">"   "</span>+password);</span><br><span class="line">    <span class="comment">// 获得所有的初始化参数的名称:</span></span><br><span class="line">    Enumeration&lt;String&gt; en = filterConfig.getInitParameterNames();</span><br><span class="line">    <span class="keyword">while</span>(en.hasMoreElements())&#123;</span><br><span class="line">        String name = en.nextElement();</span><br><span class="line">        String value = filterConfig.getInitParameter(name);</span><br><span class="line">        System.out.println(name+<span class="string">"    "</span>+value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问题：配置Servlet服务器启动初始化，filter与Servlet的初始化顺序<br>Listener &gt; Filter &gt; Servlet，Listener的初始化最早，Filter次之。他俩的初始化都是在容器启动完成之前初始化的。Servlet没有初始化，原因是没有匹配的请求进来。如果想要servlet自动初始化，需要在指定的servlet中配置<code>&lt;load-on-startup&gt;</code>参数，没有此标签，默认启动时servlet不进行初始化。</p>
+</blockquote>
+<blockquote>
+<p>初始化的顺序跟Listener、Filter、Servlet在web.xml中的顺序无关，而多个Filter或多个Servlet的时候，谁的mapping在前面，谁先初始化。当请求资源匹配多个 filter-mapping 时，filter 拦截资源是按照 filter-mapping 配置节出现的顺序来依次调用 doFilter() 方法的。</p>
+</blockquote>
+<blockquote>
+<p>如果web.xml中配置了<code>&lt;context-param&gt;</code>，初始化顺序：context-param &gt; Listener &gt; Filter &gt; Servlet</p>
+</blockquote>
+<h2 id="FilterChain-过滤器链"><a href="#FilterChain-过滤器链" class="headerlink" title="FilterChain 过滤器链"></a>FilterChain 过滤器链</h2><blockquote>
+<p>过滤器链中的过滤器的执行的顺序与<code>&lt;filter-mapping&gt;</code>的配置顺序有关.</p>
+</blockquote>
+<p><img src="http://os4z8t7lb.bkt.clouddn.com/201803110738_240.png" alt=""></p>
+<blockquote>
+<p>在一个web应用中，可以开发编写多个Filter，这些Filter组合起来称之为一个Filter链。<br>web服务器根据Filter在web.xml文件中的注册顺序，决定先调用哪个Filter，当第一个Filter的doFilter方法被调用时，web服务器会创建一个代表Filter链的FilterChain对象传递给该方法。在doFilter方法中，开发人员如果调用了FilterChain对象的doFilter方法，则web服务器会检查FilterChain对象中是否还有filter，如果有，则调用第2个filter，如果没有，则调用目标资源。</p>
+</blockquote>
+<h2 id="过滤器的相关配置"><a href="#过滤器的相关配置" class="headerlink" title="过滤器的相关配置"></a>过滤器的相关配置</h2><h3 id="配置"><a href="#配置" class="headerlink" title=" 配置"></a><url-pattern> 配置</url-pattern></h3><ul>
+<li>完全路径匹配   以/开头 /demo.jsp</li>
+<li>目录匹配      以/开头以*结束</li>
+<li>扩展名匹配    不能以/开头，以<em>开始 如：</em>.jsp</li>
 </ul>
-<h3 id="Session总结"><a href="#Session总结" class="headerlink" title="Session总结"></a>Session总结</h3><pre><code>作用：域对象存储数据
-`setAttribute()/getAttribute()`
-创建：在第一次访问`(request.getSession())session`
-销毁：三种方式
-设置session生存时间，默认在tomcat中有配置  web.xml:
-</code></pre><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>30min<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br><span class="line">配置当前工程web.xml：</span><br><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>60<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<pre><code>配置单个session：`setMaxInActiveInterval(s)`
-范围：session：一次会话有效（多次请求响应）
-</code></pre>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title=" 配置"></a><dispatcher> 配置</dispatcher></h3><ul>
+<li>REQUEST   :默认值  &nbsp;&nbsp;&nbsp;&nbsp;如果目标资源是通过<code>RequestDispatcher</code>的<code>include()</code>或<code>forward()</code>方法访问时，那么该过滤器就不会被调用。</li>
+<li>FORWARD   ：转发 &nbsp;&nbsp;&nbsp;&nbsp;如果目标资源是通过<code>RequestDispatcher的include()</code>方法访问时，那么该过滤器将被调用</li>
+<li>INCLUDE   ：包含 &nbsp;&nbsp;&nbsp;&nbsp;如果目标资源是通过<code>RequestDispatcher</code>的<code>forward()</code>方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。</li>
+<li>ERROR     ：错误 &nbsp;&nbsp;&nbsp;&nbsp; 如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用</li>
+</ul>
+<h2 id="自动登录"><a href="#自动登录" class="headerlink" title="自动登录"></a>自动登录</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><pre><code>登录时的分析：
+    登录成功后利用Cookie记住用户名和密码
+    用户名和密码拼接
+过滤器的分析：
+    判断session中是否有用户的信息:
+    session中如果有:放行.
+    session中没有:
+    从Cookie中获取:
+    Cookie中没有:放行.
+    Cookie中有:
+        获取Cookie中存的用户名和密码到数据库查询.
+        没有查询到:放行.
+        查询到:将用户信息存入到session . 放行.
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><blockquote>
+<p>登录部分代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//登录成功</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//自动登录</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"true"</span>.equals(request.getParameter(<span class="string">"autologin"</span>))) &#123;<span class="comment">//自动登录选择框被选择</span></span><br><span class="line">        Encrypt encrypt = <span class="keyword">new</span> Encrypt();<span class="comment">//字符串编码工具类</span></span><br><span class="line">        String autologin = encrypt.encrypt(account) + <span class="string">"-"</span> + encrypt.encrypt(password);</span><br><span class="line">        Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"autologin"</span>, autologin);</span><br><span class="line">        cookie.setPath(request.getContextPath());</span><br><span class="line">        cookie.setMaxAge(<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>);</span><br><span class="line">        response.addCookie(cookie);</span><br><span class="line">    &#125;</span><br><span class="line">    request.getSession().setAttribute(<span class="string">"user"</span>, existUser);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>过滤器代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    HttpServletRequest req =(HttpServletRequest) request;</span><br><span class="line">    HttpSession session = req.getSession();</span><br><span class="line">    User user =(User) session.getAttribute(<span class="string">"user"</span>);</span><br><span class="line">    <span class="keyword">if</span>(user==<span class="keyword">null</span>) &#123;<span class="comment">//判断是否已经登录成功</span></span><br><span class="line">        Cookie[] cookies = req.getCookies();</span><br><span class="line">        Cookie cookie = CookieUtil.findCookie(cookies, <span class="string">"autologin"</span>);</span><br><span class="line">        <span class="keyword">if</span>(cookie!=<span class="keyword">null</span>) &#123;<span class="comment">//从cookie中获取保存的账户和密码</span></span><br><span class="line">            String str =cookie.getValue();</span><br><span class="line">            <span class="keyword">boolean</span> mFlag = str.matches(<span class="string">"([A-Z]+)-([A-Z]+)"</span>);</span><br><span class="line">            <span class="keyword">if</span>(mFlag) &#123;</span><br><span class="line">                String[] strs = str.split(<span class="string">"-"</span>);</span><br><span class="line">                Encrypt encrypt = <span class="keyword">new</span> Encrypt();</span><br><span class="line">                <span class="keyword">try</span> &#123;<span class="comment">//解码出账户和密码</span></span><br><span class="line">                    String username = encrypt.dencrypt(strs[<span class="number">0</span>]);</span><br><span class="line">                    String password = encrypt.dencrypt(strs[<span class="number">1</span>]);</span><br><span class="line">                    user = <span class="keyword">new</span> User();</span><br><span class="line">                    user.setUsername(username);</span><br><span class="line">                    user.setPassword(password);</span><br><span class="line">                    <span class="comment">//从数据库匹配用户名和密码</span></span><br><span class="line">                    User existUser = <span class="keyword">new</span> UserServiceImpl().login(user);</span><br><span class="line">                    <span class="keyword">if</span>(existUser!=<span class="keyword">null</span>) &#123;</span><br><span class="line">                        session.setAttribute(<span class="string">"user"</span>, existUser);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">chain.doFilter(req, response);</span><br></pre></td></tr></table></figure>
+<h2 id="通用网站的字符集编码过滤器：代码实现"><a href="#通用网站的字符集编码过滤器：代码实现" class="headerlink" title="通用网站的字符集编码过滤器：代码实现"></a>通用网站的字符集编码过滤器：代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHttpServletRequestWrapper</span> <span class="keyword">extends</span> <span class="title">HttpServletRequestWrapper</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HttpServletRequest request;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyHttpServletRequestWrapper</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(request);</span><br><span class="line">        <span class="keyword">this</span>.request = request;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getParameter</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 根据请求方式不同,去处理:</span></span><br><span class="line">        <span class="comment">// 获得请求方式:</span></span><br><span class="line">        String method = request.getMethod();</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"get"</span>.equalsIgnoreCase(method))&#123;</span><br><span class="line">            String value = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                value = <span class="keyword">new</span> String(request.getParameter(name).getBytes(<span class="string">"ISO-8859-1"</span>),<span class="string">"UTF-8"</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"post"</span>.equalsIgnoreCase(method))&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getParameter(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>过滤器使用装饰后的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    HttpServletRequest req = (HttpServletRequest) request;</span><br><span class="line">    MyHttpServletRequestWrapper myReq = <span class="keyword">new</span> MyHttpServletRequestWrapper(req);</span><br><span class="line">    chain.doFilter(myReq, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -470,7 +461,7 @@ ServletContext:一个项目都有效，包含多个会话
           
             <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
           
-            <a href="/tags/servlet/" rel="tag"><i class="fa fa-tag"></i> servlet</a>
+            <a href="/tags/Filter/" rel="tag"><i class="fa fa-tag"></i> Filter</a>
           
         </div>
       
@@ -483,8 +474,8 @@ ServletContext:一个项目都有效，包含多个会话
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/JavaWeb/JavaWeb-Servlet二/" rel="next" title="servlet 二">
-                <i class="fa fa-chevron-left"></i> servlet 二
+              <a href="/JavaWeb/JavaWeb-Ajax/" rel="next" title="Ajax">
+                <i class="fa fa-chevron-left"></i> Ajax
               </a>
             
           </div>
@@ -492,10 +483,6 @@ ServletContext:一个项目都有效，包含多个会话
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/JavaWeb/JavaWeb-jsp&El&JSTL/" rel="prev" title="jsp&EL&JSTL">
-                jsp&EL&JSTL <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -639,7 +626,7 @@ ServletContext:一个项目都有效，包含多个会话
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#会话技术"><span class="nav-number">1.</span> <span class="nav-text">会话技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie常用API"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cookie常用API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">Cookie的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-显示商品浏览记录"><span class="nav-number">1.1.3.</span> <span class="nav-text">示例:显示商品浏览记录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">1.2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie与Session的区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">Cookie与Session的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储位置"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">存储位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session作为域对象存取数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">session作为域对象存取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#session的创建和销毁"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">session的创建和销毁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session总结"><span class="nav-number">1.2.3.</span> <span class="nav-text">Session总结</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaWeb-Servlet过滤器Filter"><span class="nav-number">1.</span> <span class="nav-text">JavaWeb Servlet过滤器Filter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是过滤器"><span class="nav-number">1.1.</span> <span class="nav-text">什么是过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">过滤器生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FilterConfig类"><span class="nav-number">1.3.</span> <span class="nav-text">FilterConfig类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FilterChain-过滤器链"><span class="nav-number">1.4.</span> <span class="nav-text">FilterChain 过滤器链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器的相关配置"><span class="nav-number">1.5.</span> <span class="nav-text">过滤器的相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.5.1.</span> <span class="nav-text"> 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-1"><span class="nav-number">1.5.2.</span> <span class="nav-text"> 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动登录"><span class="nav-number">1.6.</span> <span class="nav-text">自动登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">1.6.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.6.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用网站的字符集编码过滤器：代码实现"><span class="nav-number">1.7.</span> <span class="nav-text">通用网站的字符集编码过滤器：代码实现</span></a></li></ol></li></ol></div>
             
 
           </div>
