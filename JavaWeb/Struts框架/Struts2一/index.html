@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_m-16x16-next.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,Struts," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Struts2的基本概述 基于MVC设计模式的web应用框架，作为控制器来建立模型与视图的数据交互 。简单的环境搭建和使用">
+<meta name="keywords" content="JavaWeb,Struts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts2一">
+<meta property="og:url" content="znvoid.tk/JavaWeb/Struts框架/Struts2一/index.html">
+<meta property="og:site_name" content="znBlog 个人博客">
+<meta property="og:description" content="Struts2的基本概述 基于MVC设计模式的web应用框架，作为控制器来建立模型与视图的数据交互 。简单的环境搭建和使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-24T12:55:30.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Struts2一">
+<meta name="twitter:description" content="Struts2的基本概述 基于MVC设计模式的web应用框架，作为控制器来建立模型与视图的数据交互 。简单的环境搭建和使用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="znvoid.tk/JavaWeb/Struts框架/Struts2一/"/>
+
+
+
+
+
+  <title>Struts2一 | znBlog 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/Struts框架/Struts2一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="znBlog 个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Struts2一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T09:20:33+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/Struts框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Struts框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Struts2的基本概述 基于MVC设计模式的web应用框架，作为控制器来建立模型与视图的数据交互 。简单的环境搭建和使用
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Struts2一"><a href="#Struts2一" class="headerlink" title="Struts2一"></a>Struts2一</h1><h2 id="框架的概述"><a href="#框架的概述" class="headerlink" title="框架的概述"></a>框架的概述</h2><blockquote>
+<p>用于解决或处理复杂的问题。</p>
+<blockquote>
+<p>优点：减少开发成本，缩短开发周期，有一定的标准，后期维护方便</p>
+</blockquote>
+</blockquote>
+<h2 id="常用的框架"><a href="#常用的框架" class="headerlink" title="常用的框架"></a>常用的框架</h2><ul>
+<li>SSH<br>  struts2 spring hibernate</li>
+<li>SSM<br>  springmvc spring mybatis</li>
+</ul>
+<h2 id="服务器的三层结构"><a href="#服务器的三层结构" class="headerlink" title="服务器的三层结构"></a>服务器的三层结构</h2><ul>
+<li><p>web层     跟页面交互</p>
+</li>
+<li><p>service层 处理业务逻辑</p>
+</li>
+<li><p>Dao层  数据库交互</p>
+</li>
+</ul>
+<h2 id="Struts框架"><a href="#Struts框架" class="headerlink" title="Struts框架"></a>Struts框架</h2><blockquote>
+<p>基于MVC设计模式的web应用框架，作为控制器来建立模型与视图的数据交互<br>Struts2=struts1 + webwork</p>
+</blockquote>
+<h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><ul>
+<li>拦截器</li>
+<li>action</li>
+<li>ognl表达式 与valueStack</li>
+</ul>
+<p><img src="" alt="Struts2结构"></p>
+<h3 id="简单入门使用"><a href="#简单入门使用" class="headerlink" title="简单入门使用"></a>简单入门使用</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li><p>导入相关的jar文件</p>
+</li>
+<li><p>在web.xml中配置一个Filter</p>
+</li>
+<li><p>struts.xml配置</p>
+</li>
+<li><p>创建action类完成逻辑</p>
+</li>
+</ol>
+<h4 id="相关的jar包"><a href="#相关的jar包" class="headerlink" title="相关的jar包"></a>相关的jar包</h4><blockquote>
+<p>13个jar包<br><img src="" alt="Struts的jar包图"></p>
+</blockquote>
+<h4 id="Filter配置"><a href="#Filter配置" class="headerlink" title="Filter配置"></a>Filter配置</h4><blockquote>
+<p>在web.xml文件中配置StrutsPrepareAndExecuteFilter</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 可以声明struts2框架常量值，不推荐</span></span><br><span class="line"><span class="comment">    &lt;init-param&gt;</span></span><br><span class="line"><span class="comment">        &lt;param-name&gt;struts.i18n.encoding&lt;/param-name&gt;</span></span><br><span class="line"><span class="comment">        &lt;param-value&gt;GBK&lt;/param-value&gt;</span></span><br><span class="line"><span class="comment">    &lt;/init-param&gt;</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="struts-xml文件"><a href="#struts-xml文件" class="headerlink" title="struts.xml文件"></a>struts.xml文件</h4><blockquote>
+<p>scr目录下,文件名是struts.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 声明常量 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.i18n.encoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span> <span class="comment">&lt;!-- 可以帮助我们解决post请求乱码问题 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;constant name="struts.action.extension" value="action"&gt;&lt;/constant&gt; --&gt;</span><span class="comment">&lt;!-- 指定访问strtsu2框架路径的扩展名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.devMode"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置这项后，它会提供更加详细报错信息，以及在struts.xml文件修改后不在需要重启服务器 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">        开启动态方法调用，调用action标签中为申明的方法，访问路径用!+方法名 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--全局result--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">global-results</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"url路径"</span> <span class="attr">clss</span>=<span class="string">"action类的全类名"</span> <span class="attr">method</span>=<span class="string">"要执行action类中的方法名"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"方法的返回值1"</span> <span class="attr">type</span>=<span class="string">"跳转的类型（重定向redirect或转发dispatcher）"</span>&gt;</span>跳转的路径<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"方法的返回值2"</span>&gt;</span>跳转的路径<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">actin</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--具体示例 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;action name="login" class="web.action.LoginAction" method="login"&gt;</span></span><br><span class="line"><span class="comment">            &lt;result name="success" type="redirect"&gt;/success.jsp&lt;/result&gt;</span></span><br><span class="line"><span class="comment">            &lt;result name="fail"&gt;/fail.jsp&lt;/result&gt;</span></span><br><span class="line"><span class="comment">        &lt;/action&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- &lt;action name="bookadd" class="web.action.BookAction" method="addBook"&gt;&lt;/action&gt; </span></span><br><span class="line"><span class="comment">        &lt;action name="bookupdate" class="web.action.BookAction" method="updateBook"&gt;&lt;/action&gt; </span></span><br><span class="line"><span class="comment">        &lt;action name="bookdel" class="web.action.BookAction" method="delBook"&gt;&lt;/action&gt; </span></span><br><span class="line"><span class="comment">        &lt;action name="bookfind" class="web.action.BookAction" method="findBook"&gt;&lt;/action&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- action类继承ActionSupport，以上操作可以简化，使用*通配置来操作 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;action name="*_*" class="web.action.&#123;1&#125;Action" method="&#123;2&#125;"&gt;&lt;/action&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="package标签"><a href="#package标签" class="headerlink" title="package标签"></a>package标签</h5><blockquote>
+<p>name 属性 定义包名，必须唯一<br>namespace 属性 和action标签的name属性联合使用来确定一个action的访问路径<br>extens 属性 指定继承那个包，一般值是struts-default<br>Abstuct属性   代表当前包是个抽象的</p>
+</blockquote>
+<h5 id="action标签"><a href="#action标签" class="headerlink" title="action标签"></a>action标签</h5><blockquote>
+<p>name 属性 与package标签的namespace属性联合使用来确定action的访问路径<br>class 属性 action类的全类名<br>method属性 指示当前的action类中的哪个方法执行</p>
+</blockquote>
+<h5 id="result标签"><a href="#result标签" class="headerlink" title="result标签"></a>result标签</h5><blockquote>
+<p>指示结果视图<br>name属性   与action类method方法的返回值对应<br>type属性   指定跳转方式，默认dispatcher</p>
+</blockquote>
+<h5 id="关于action配置中的class与method的默认值以及result中的name的默认值"><a href="#关于action配置中的class与method的默认值以及result中的name的默认值" class="headerlink" title="关于action配置中的class与method的默认值以及result中的name的默认值"></a>关于action配置中的class与method的默认值以及result中的name的默认值</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--可以这样配置，--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在strtus-default.xml文件中配置<br><code>&lt;default-clss-ref class=&quot;com.opensymphony.xwork2.ActionSupport&quot;/&gt;</code><br>查找不到指定的class及对应的method就会执行ActionSupport类中的execute方法。<br>在这个类的execute方法中默认返回的是”success”。<br>也就是说，result的name属性默认值是success,默认的跳转方式是请求转发 dispatcher</p>
+<h4 id="Action类"><a href="#Action类" class="headerlink" title="Action类"></a>Action类</h4><blockquote>
+<p>三种方式</p>
+<ul>
+<li>pojo类<br>普通的java类 ，已在Struts.xml文件中配置，无耦合但所有功能都有自己完成<br>获取请求参数<blockquote>
+<p>在类中设置成员变量(名字与请求参数名一致),提供set和get方法</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginAction</span></span>&#123;</span><br><span class="line">    <span class="comment">//根据struts.xml文件中的配置，路径url为package标签的namespace+对应的action标签的name。当请求URL路径为/login 执行</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//业务逻辑处理</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="comment">/*处理结果*/</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"success"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">"fail"</span>;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个类实现Action接口</li>
+</ul>
+<blockquote>
+<p>Action接口定义了五个常量和一个execute方法</p>
+<blockquote>
+<p>ERROR : 错误视图<br>INPUT: 它是struts2框架中interceptor中发现问题后会访问的一个视图<br>LOGIN:它是一个登录视图，可以在权限操作中使用<br>NONE:它代表的是null,什么都不做（也不会做跳转操作）<br>SUCCESS:这是一个成功视图</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>创建一个类继承ActionSupport类</li>
+</ul>
+<blockquote>
+<p>ActionSupport类也实现了Action接口<br>具有丰富的功能，如表单校验。。但耦合度高</p>
+</blockquote>
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><ol>
+<li><p>核心拦截器</p>
+</li>
+<li><p>struts.xml 匹配action</p>
+</li>
+<li><p>执行action类的方法中的业务逻辑</p>
+</li>
+<li>根据Action中方法的执行结果来选择来跳转页面Resutl视图</li>
+</ol>
+<h3 id="配置文件加载顺序"><a href="#配置文件加载顺序" class="headerlink" title="配置文件加载顺序"></a>配置文件加载顺序</h3><ol>
+<li>default.properties 文件，声明了框架的常量</li>
+<li>一批配置文件<ul>
+<li>struts-default.xml    声明 intercept result bean</li>
+<li>struts_plugin.xml     插件的配置声明</li>
+<li>struts.xml            工程使用框架的配置</li>
+</ul>
+</li>
+<li>自定义的struts.properties    定制常量</li>
+<li>自定义配置提供</li>
+<li>加载web.xml配置文件，框架在web.xml文件的相关配置</li>
+<li>bean的相关配置</li>
+</ol>
+<h3 id="常量配置"><a href="#常量配置" class="headerlink" title="常量配置"></a>常量配置</h3><ol>
+<li>在scr下的创建一个struts.properties文件</li>
+<li>在web.xml配置</li>
+<li>在struts.xml声明 推荐<br> <code>&lt;!-- 声明常量 --&gt;</code><br> <code>&lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;UTF-8&quot;&gt;&lt;/constant&gt;</code></li>
+</ol>
+<h3 id="数据的封装"><a href="#数据的封装" class="headerlink" title="数据的封装"></a>数据的封装</h3><blockquote>
+<p>两种方式</p>
+</blockquote>
+<ol>
+<li><p>属性驱动</p>
+<ul>
+<li>直接在action类中提供与请求参数匹配属性，提供get/set方法</li>
+<li><p>在action类中创始一个javaBean,对其提供get/set ，在请求时页面上要进行修改，例如user.usernameuser.password ,要使用ognl表达式</p>
+<p>  <code>username:&lt;input type=&quot;text&quot; name=&quot;user.username&quot;&gt;&lt;br&gt;</code><br>  <code>password:&lt;input type=&quot;password&quot; name=&quot;user.password&quot;&gt;&lt;br&gt;</code></p>
+<p>以上两种方式的优缺点:<br>第一种比较简单，在实际操作我们需要将action的属性在赋值给模型(javaBean)去操作<br>第二种:不需要在直接将值给javaBean过程，因为直接将数据封装到了javaBean中。它要求在页面上必须使用ognl表达式，就存在页面不通用问题。</p>
+</li>
+</ul>
+</li>
+<li>模型驱动<br> 1.让Action类要实现一个指定接口ModelDriven<br> 2.实例化模型对象(就是要new出来javaBean)<br> 3.重写getModel方法将实例化的模型返回。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginAction</span> <span class="keyword">implements</span> <span class="title">ModelDriven</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> User user = <span class="keyword">new</span> User();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 登录操作</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//登录逻辑</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Struts/" rel="tag"><i class="fa fa-tag"></i> Struts</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaWeb/JavaWeb-Filter/" rel="next" title="JavaWeb Servlet过滤器Filter">
+                <i class="fa fa-chevron-left"></i> JavaWeb Servlet过滤器Filter
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div class="overlay"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zn" />
+            
+              <p class="site-author-name" itemprop="name">zn</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+   
+        </div>
+
+        <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2194279655&auto=0&height=90"></iframe>
+        </div>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Struts2一"><span class="nav-number">1.</span> <span class="nav-text">Struts2一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#框架的概述"><span class="nav-number">1.1.</span> <span class="nav-text">框架的概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的框架"><span class="nav-number">1.2.</span> <span class="nav-text">常用的框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器的三层结构"><span class="nav-number">1.3.</span> <span class="nav-text">服务器的三层结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts框架"><span class="nav-number">1.4.</span> <span class="nav-text">Struts框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心"><span class="nav-number">1.4.1.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单入门使用"><span class="nav-number">1.4.2.</span> <span class="nav-text">简单入门使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关的jar包"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">相关的jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter配置"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Filter配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#struts-xml文件"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">struts.xml文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#package标签"><span class="nav-number">1.4.2.4.1.</span> <span class="nav-text">package标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#action标签"><span class="nav-number">1.4.2.4.2.</span> <span class="nav-text">action标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#result标签"><span class="nav-number">1.4.2.4.3.</span> <span class="nav-text">result标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于action配置中的class与method的默认值以及result中的name的默认值"><span class="nav-number">1.4.2.4.4.</span> <span class="nav-text">关于action配置中的class与method的默认值以及result中的name的默认值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Action类"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">Action类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行流程"><span class="nav-number">1.4.3.</span> <span class="nav-text">执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件加载顺序"><span class="nav-number">1.4.4.</span> <span class="nav-text">配置文件加载顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量配置"><span class="nav-number">1.4.5.</span> <span class="nav-text">常量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的封装"><span class="nav-number">1.4.6.</span> <span class="nav-text">数据的封装</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">znvoid</span>
+
+  
+</div>
+
+<div class="busuanzi-count"><script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user-circle-o"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
