@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_m-16x16-next.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,Hibernate," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="主键生成策略，自然主键、代理主键">
+<meta name="keywords" content="JavaWeb,Hibernate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate二">
+<meta property="og:url" content="znvoid.tk/JavaWeb/Hibernate框架/Hibernate二/index.html">
+<meta property="og:site_name" content="znBlog 个人博客">
+<meta property="og:description" content="主键生成策略，自然主键、代理主键">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-05T08:54:22.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hibernate二">
+<meta name="twitter:description" content="主键生成策略，自然主键、代理主键">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="znvoid.tk/JavaWeb/Hibernate框架/Hibernate二/"/>
+
+
+
+
+
+  <title>Hibernate二 | znBlog 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/Hibernate框架/Hibernate二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="znBlog 个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hibernate二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T15:57:35+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/Hibernate框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  主键生成策略，自然主键、代理主键
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h1><h2 id="主键生成策略"><a href="#主键生成策略" class="headerlink" title="主键生成策略"></a>主键生成策略</h2><blockquote>
+<p>然主键和代理主键</p>
+<blockquote>
+<p>自然主键：具有业务含义 字段 作为主键，比如：学号、身份证号<br>代理主键：不具有业务含义 字段作为主键（例如 自增 id），比如：mysql 自增主键，oracle 序列生成的主键、uuid()方法生成的唯一序列串<br>==<code>建议：企业开发中使用代理主键！</code>==</p>
+</blockquote>
+</blockquote>
+<p>在 hbm.xml 中可以设置的主键生成策略如下</p>
+<table>
+<thead>
+<tr>
+<th>主键生成器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>increment</td>
+<td>代理主键。由 hibernate 维护一个变量，每次生成主键时自动以递增。问题：如果有多个应用访问一个数据库，由于每个应用维护自己的主键，所以此时主键可能冲突。建议不采用。</td>
+</tr>
+<tr>
+<td>identity</td>
+<td>代理主键。由底层数据库生成表识符。条件是数据库支持自动增长数据类型。比如：mysql 的自增主键，oracle 不支持主键自动生成。如果数据库支持自增建议采用</td>
+</tr>
+<tr>
+<td>sequence</td>
+<td>代理主键。Hibernate 根据底层数据库序列生成标识符。条件是数据库支持序列。比如 oracle 的序列。如果数据库支持序列建议采用。</td>
+</tr>
+<tr>
+<td>native</td>
+<td>代理主键。根据底层数据库对自动来选择 identity、sequence、hilo由于生成主键策略的控制权由 hibernate 控制，所以不建议采用。</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>代理主键。Hibernate 采用 128 位的 UUID 算法来生成标识符。该算法能够在网络环境中生成唯一的字符串标识符。此策略可以保证生成主键的唯一性，并且提供了最好的数据库插入性能和数据库平台的无关性。建议采用。</td>
+</tr>
+<tr>
+<td>assigned</td>
+<td>自然主键。由 java 程序负责生成标识符。不建议采用。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="对象的状态"><a href="#对象的状态" class="headerlink" title="对象的状态"></a>对象的状态</h2><h3 id="持久化类类三种状态介绍"><a href="#持久化类类三种状态介绍" class="headerlink" title="持久化类类三种状态介绍"></a>持久化类类三种状态介绍</h3><ol>
+<li>瞬时态：也叫做临时态或自由态，它一般指我们 new 出来的对象，它不存在 OID,与 hibernate session 无关联，在数据库中也无记录。它使用完成后，会被 jvm 直接回收掉，它只是用于信息携带。简单说：无 OID 与数据库中的信息无关联，不在 session 管理范围内。</li>
+<li>持久态：在 hibernate session 管理范围内，它具有持久化标识 OID 它的特点，在事务未提交前一直是持久态，当它发生改变时，hibernate 是可以检测到的。简单说：有 OID 由 session 管理，在数据库中有可能有，也有可有没有。</li>
+<li>托管态：也叫做游离态或离线态，它是指持久态对象失去了与 session 的关联，托管态对象它存在 OID,在数据库中有可能存在，也有可能不存在。对于托管态对象，它发生改变时 hibernet 不能检测到。</li>
+</ol>
+<h3 id="类三种状态切换"><a href="#类三种状态切换" class="headerlink" title="类三种状态切换"></a>类三种状态切换</h3><p><img src="" alt="图三"></p>
+<ol>
+<li>瞬时态(new 出来的)<br> 瞬时——持久 save saveOrUpdate<br> 瞬时—–脱管(游离) 手动设置 oid</li>
+<li><p>.持久态 它是由 session 管理<br> 持久——-瞬时 delete() 被删除后持久化对象不在建议使用<br> 持久—–脱管 注意:session 它的缓存就是所说的一级缓存<br> evict(清除一级缓存 中指定的一个对象)<br> clear(清空一级缓存)<br> close(关闭，清空一级缓存)</p>
+</li>
+<li><p>脱管态 （它是无法直接获取）<br> 脱管—–瞬时 直接将 oid 删除<br> 脱管—-持久 update saveOrUpdate lock(过时)</p>
+</li>
+</ol>
+<h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h2><blockquote>
+<p>Hibernate 的一级缓存就是指 session 缓存</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> ActionQueue actionQueue;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> StatefulPersistenceContext persistenceConteext;</span><br></pre></td></tr></table></figure>
+<p>actionQueue 它是一个行列队列，它主要记录 crud 操作的相关信息<br>persistenceContext 它是持久化上下文，它其实是真正缓存。</p>
+<p>在 session 中定义了一系列的集合来存储数据，它们构成 session 缓存。<br>只要 session 没有关闭，它就会一直存在。</p>
+<p>当我们通过 hibernate 中的 session 提供的一些 API 例如 save get update 等进行操作时，就会将持久化对象保存到 session 中，当下一次在去查询缓存中具有的对象(OID 值来判断)，就不会去从数据库查询，而是直接从缓存中获取。<br>Hibernate 的一级缓存存在的目的就是为了减少对数据库访问。</p>
+<p>在 hibernate 中还有一个二级缓存，它是 SessionFactory 级别缓存。</p>
+<h3 id="演示代码"><a href="#演示代码" class="headerlink" title="演示代码"></a>演示代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Configuration configure = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">SessionFactory sessionFactory = configure.buildSessionFactory();</span><br><span class="line">Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line">session.beginTransaction();</span><br><span class="line"><span class="comment">//查询到后会将c存储到一级缓存中</span></span><br><span class="line">Customer c = session.get(Customer.class, <span class="number">1</span>);</span><br><span class="line"><span class="comment">//会从一级缓存中查询，而不会向数据库发送sql</span></span><br><span class="line">Customer cc = session.get(Customer.class, <span class="number">1</span>);</span><br><span class="line">System.out.println(c==cc);</span><br><span class="line">session.getTransaction().commit();</span><br><span class="line">session.close();</span><br><span class="line">sessionFactory.close();</span><br></pre></td></tr></table></figure>
+<h3 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h3><p>clear 清空一级缓存.<br>evict 清空一级缓存中指定的一个对象。<br>refresh 重新查询数据库，用数据库中信息来更新一级缓存与快照</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Configuration configure = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">    SessionFactory sessionFactory = configure.buildSessionFactory();</span><br><span class="line">    Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line">    session.beginTransaction();</span><br><span class="line"></span><br><span class="line">    List&lt;Customer&gt; list =session.createQuery(<span class="string">"form Customer"</span>);</span><br><span class="line">    session.clear();<span class="comment">//清空一级缓存</span></span><br><span class="line">    <span class="comment">//会先从session一级缓存中获取，如果不存在才会从数据库中获取</span></span><br><span class="line">    Customer c =session.get(Customer.class,<span class="number">1</span>);</span><br><span class="line">    session.evict(c);<span class="comment">//从一级缓存中删除一个指定的对象</span></span><br><span class="line">    Customer cc =session.get(Customer.class,<span class="number">1</span>);</span><br><span class="line">    cc.setName(<span class="string">"kkk"</span>)</span><br><span class="line">    session.refresh(cc);<span class="comment">//重新查询数据库，用数据库中的信息更新一级缓存与快照</span></span><br><span class="line"></span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">    session.close();</span><br><span class="line">    sessionFactory.close();</span><br></pre></td></tr></table></figure>
+<h2 id="持久化对象自动更新数据库"><a href="#持久化对象自动更新数据库" class="headerlink" title="持久化对象自动更新数据库"></a>持久化对象自动更新数据库</h2><blockquote>
+<p>当事务提交，session关闭，向数据库发送请求时，会判断一级缓存中的数据是否与快照区的一致，如果不一致，就会发送sql语句。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Configuration configure = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">    SessionFactory sessionFactory = configure.buildSessionFactory();</span><br><span class="line">    Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line">    session.beginTransaction();</span><br><span class="line"></span><br><span class="line">    Customer c = session.get(Customer.class, <span class="number">1</span>);</span><br><span class="line">    c.setName(<span class="string">"tom"</span>);<span class="comment">//修改持久化对象修改属性</span></span><br><span class="line"></span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">    session.close();</span><br><span class="line">    sessionFactory.close();</span><br></pre></td></tr></table></figure>
+<h2 id="Hibernate映射关系"><a href="#Hibernate映射关系" class="headerlink" title="Hibernate映射关系"></a>Hibernate映射关系</h2><blockquote>
+<p>Hibernate框架基于ORM设计思想，它将关系型数据库中的表与我们java中的类进行映射，一个对象就对应着表中的一条记录，而表中的字段对应着类中的属性</p>
+</blockquote>
+<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><ol>
+<li>唯一外键对应:在任意一方添加外键来描述对应关系</li>
+<li>主键对应：一方的主键作为另一方的主键</li>
+</ol>
+<h3 id="一对多-多对一"><a href="#一对多-多对一" class="headerlink" title="一对多(多对一)"></a>一对多(多对一)</h3><blockquote>
+<p>在多的一方添加外键来描述关联关系</p>
+</blockquote>
+<ol>
+<li><p>实体类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//订单---多的一方</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Order</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Double total;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="comment">//描述订单属于某个客户</span></span><br><span class="line">    <span class="keyword">private</span> Customer customer;</span><br><span class="line">    <span class="comment">//.....</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//客户-----一的一方</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">//客户可以有多个订单</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;Order&gt; orders = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="comment">//.....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Order.hbm.xml</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.xx.domain.Customer"</span> <span class="attr">column</span>=<span class="string">"customer_id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Customer.hbm.xml</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"orders"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"customer_id"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"com.xx.domain.Order"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Customer customer = <span class="keyword">new</span> Customer();</span><br><span class="line">customer.setName(<span class="string">"tom"</span>);</span><br><span class="line"></span><br><span class="line">Order o1= <span class="keyword">new</span> Order();</span><br><span class="line">Order o2= <span class="keyword">new</span> Order();</span><br><span class="line">o1.setTotal(<span class="number">100</span>d);</span><br><span class="line">o2.setTotal(<span class="number">200</span>d);</span><br><span class="line"></span><br><span class="line">o1.setAddress(<span class="string">"北京"</span>);</span><br><span class="line">o2.setAddress(<span class="string">"上海"</span>);</span><br><span class="line"></span><br><span class="line">o1.setCustomer(customer);</span><br><span class="line">o2.setCustomer(customer);</span><br><span class="line">customer.getOrders().add(o1);</span><br><span class="line">customer.getOrders().add(o2);</span><br><span class="line"></span><br><span class="line">session.save(customer);</span><br><span class="line">session.save(o1);</span><br><span class="line">session.save(o2);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><blockquote>
+<p>通过一张中间表来描述其对应关系</p>
+</blockquote>
+<h3 id="级联"><a href="#级联" class="headerlink" title="级联"></a>级联</h3><blockquote>
+<p>保存订单时保存客户，需要在订单的hbm配置文件中修改<br>设置cascade=save-update 那么在保存订单时就可以自动将客户保存</p>
+</blockquote>
+<h3 id="双向关联维护"><a href="#双向关联维护" class="headerlink" title="双向关联维护"></a>双向关联维护</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inverse属性来设置，双向关联时由哪一方来维护表与表之间的关系</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"orders"</span> <span class="attr">inverse</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>nverse它的值如果为true代表，由对方来维护外键。<br>Inverse它的值如果为false代表，由本方来维护外键。<br>关于inverse的取值:<br>    外键在哪一个表中，我们就让哪一方来维护外键。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Hibernate/" rel="tag"><i class="fa fa-tag"></i> Hibernate</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaWeb/Hibernate框架/Hibernate一/" rel="next" title="Hibernate一">
+                <i class="fa fa-chevron-left"></i> Hibernate一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaWeb/Sping框架/Spring一/" rel="prev" title="Spring一">
+                Spring一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div class="overlay"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zn" />
+            
+              <p class="site-author-name" itemprop="name">zn</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+   
+        </div>
+
+        <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2194279655&auto=0&height=90"></iframe>
+        </div>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate"><span class="nav-number">1.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键生成策略"><span class="nav-number">1.1.</span> <span class="nav-text">主键生成策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的状态"><span class="nav-number">1.2.</span> <span class="nav-text">对象的状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#持久化类类三种状态介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">持久化类类三种状态介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类三种状态切换"><span class="nav-number">1.2.2.</span> <span class="nav-text">类三种状态切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一级缓存"><span class="nav-number">1.3.</span> <span class="nav-text">一级缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#演示代码"><span class="nav-number">1.3.1.</span> <span class="nav-text">演示代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用API"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久化对象自动更新数据库"><span class="nav-number">1.4.</span> <span class="nav-text">持久化对象自动更新数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate映射关系"><span class="nav-number">1.5.</span> <span class="nav-text">Hibernate映射关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一"><span class="nav-number">1.5.1.</span> <span class="nav-text">一对一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对多-多对一"><span class="nav-number">1.5.2.</span> <span class="nav-text">一对多(多对一)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多对多"><span class="nav-number">1.5.3.</span> <span class="nav-text">多对多</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#级联"><span class="nav-number">1.5.4.</span> <span class="nav-text">级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向关联维护"><span class="nav-number">1.5.5.</span> <span class="nav-text">双向关联维护</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">znvoid</span>
+
+  
+</div>
+
+<div class="busuanzi-count"><script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user-circle-o"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

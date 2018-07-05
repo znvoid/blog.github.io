@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="znBlog 个人博客">
 <meta property="og:description" content="面向对象 封装 继承 多态">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T01:20:14.902Z">
+<meta property="og:updated_time" content="2018-07-02T08:51:49.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaSE加强">
 <meta name="twitter:description" content="面向对象 封装 继承 多态">
@@ -370,20 +370,19 @@
         <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h3><blockquote>
 <p>修饰成员变量和方法 内部类</p>
 </blockquote>
-<p>####特点：</p>
-<ul>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
 <li>随着类的加载而加载</li>
 <li>优先于对象存在</li>
 <li>被类的所有对象共享</li>
 <li>可以被类名调用</li>
-<li>优缺点：<ul>
+<li>优缺点<ul>
 <li>优点:<ul>
 <li>对象共享数据，节省空间</li>
 <li>被类名直接调用</li>
 </ul>
 </li>
-<li>缺点: <ul>
-<li>访问有局限性    </li>
+<li>缺点:<ul>
+<li>访问有局限性</li>
 </ul>
 </li>
 </ul>
@@ -392,45 +391,34 @@
 <h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><blockquote>
 <p>在java中，使用{}括起来的代码被称为代码块</p>
 </blockquote>
-<p>####分类</p>
-<p>#####局部代码块</p>
-<blockquote>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="局部代码块"><a href="#局部代码块" class="headerlink" title="局部代码块"></a>局部代码块</h5><blockquote>
 <p>在方法中出现，控制变量生命周期，及早释放，提高内存利用率</p>
 </blockquote>
-<p>#####构造代码块</p>
-<blockquote>
+<h5 id="构造代码块"><a href="#构造代码块" class="headerlink" title="构造代码块"></a>构造代码块</h5><blockquote>
 <p>在类中方法外出现，抽取构造方法中的共性，每次创建对象都会执行，并且在构造方法前执行</p>
 </blockquote>
-<p>#####静态代码块</p>
-<blockquote>
-<p>在类中方法外出现，并加上static修饰；用于给类进行初始化，在加载的时候就执行，并且只执行一次。</p>
+<h5 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h5><blockquote>
+<p>在类中方法外出现，并加上static修饰；用于给类进行初始化，在加载的时候就执行，并且只执行一次。<br>一般用于加载驱动</p>
 </blockquote>
-<blockquote>
-<p>一般用于加载驱动</p>
-</blockquote>
-<p>#####同步代码块</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><blockquote>
+<h5 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h5><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><blockquote>
 <p>多个类有共同的成员变量和方法，抽取到另一个类中（父类）在让多个类继承父类</p>
 </blockquote>
-<h3 id="格式："><a href="#格式：" class="headerlink" title="格式："></a>格式：</h3><pre><code>class 子类 extends 父类 {}
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><pre><code>class 子类 extends 父类 {}
 </code></pre><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
 <li>在Java中，类只支持单继承，不允许多继承，也就是说一个类只能有一个直接父类,但多个类可以继承一个父类</li>
 <li>在Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类</li>
-<li><p>在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类</p>
+<li>在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类</li>
+</ul>
 <h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><blockquote>
-<p>子类只能获取父类的非私有成员</p>
-<p>super 可以获取父类的成员变量和成员方法，用法与 this 相似</p>
+<p>子类只能获取父类的非私有成员<br>super 可以获取父类的成员变量和成员方法，用法与 this 相似</p>
 </blockquote>
 <h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><blockquote>
-<p>当父类方法不能完成满足子类使用</p>
-<p>用注解 @Override：方法重写，说明下面的方法是重写父类的方法</p>
+<p>当父类方法不能完成满足子类使用<br>用注解 @Override：方法重写，说明下面的方法是重写父类的方法</p>
 </blockquote>
 <pre><code>注意事项：
      不能继承父类私有成员
      权限修饰符必须大于等于
-</code></pre></li>
-</ul>
-<h3 id="继承中构造方法的执行顺序"><a href="#继承中构造方法的执行顺序" class="headerlink" title="继承中构造方法的执行顺序"></a>继承中构造方法的执行顺序</h3><pre><code>A:super(实参列表);语句 在子类的构造方法中使用,用来调用父类中的构造方法(具体哪一个由传递的参数决定),并且只能在构造方法第一行使用
+</code></pre><h3 id="继承中构造方法的执行顺序"><a href="#继承中构造方法的执行顺序" class="headerlink" title="继承中构造方法的执行顺序"></a>继承中构造方法的执行顺序</h3><pre><code>A:super(实参列表);语句 在子类的构造方法中使用,用来调用父类中的构造方法(具体哪一个由传递的参数决定),并且只能在构造方法第一行使用
 B:this(实参列表); 语句  在类的构造方法中使用,用来调用本类中的其它构造方法(具体哪一个由传递的参数决定),并且只能在构造方法的第一行使用
 </code></pre><h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><pre><code>没有变量引用的对象
 当方法只调用一次时使用
@@ -450,14 +438,14 @@ B:this(实参列表); 语句  在类的构造方法中使用,用来调用本类�
 static 修饰的方法不会被继承
 </code></pre><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><pre><code>处理单一继承的局限性
 比抽象类还抽象的类，接口里所有的方法都是抽象方法，接口和类的关系是实现 implements
-</code></pre><h4 id="定义格式："><a href="#定义格式：" class="headerlink" title="定义格式："></a>定义格式：</h4><pre><code>public interface 接口名 {
+</code></pre><h4 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h4><pre><code>public interface 接口名 {
     抽象方法1;
     抽象方法2;
 }
 </code></pre><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><pre><code>class 类 implements 接口 {
     重写接口中方法
-} 
-</code></pre><h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><pre><code>只能有抽象方法
+}
+</code></pre><h4 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h4><pre><code>只能有抽象方法
 方法只能使用pulic abstract 修饰符 默认使用 可省略
 只能有常量
 常量只能使用pulic static fianl 修饰符 默认使用 可省略
@@ -467,11 +455,11 @@ static 修饰的方法不会被继承
 </code></pre><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><pre><code>打破继承的局限性
 对外提供规则
 降低了程序的耦合性
-</code></pre><h5 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h5><pre><code>1.共性：
+</code></pre><h5 id="接口和抽象区别"><a href="#接口和抽象区别" class="headerlink" title="接口和抽象区别"></a>接口和抽象区别</h5><pre><code>1.共性：
 不断的进行抽取，抽取出抽象的，没有具体实现的方法,都不能实例化（不能创建对象）
-2.区别    与类的关系
+2.区别与类的关系
     类与接口是实现关系，而且是多实现，一个类可以实现多个接口，类与抽象类是继承关系，Java中的继承是单一继承，多层继承，一个类只能继承一个父类，但是可以有爷爷类
-   成员
+    成员
     a.成员变量
         抽象类可以有成员变量，也可以有常量
         接口只能有常量，默认修饰符public static final
@@ -491,7 +479,7 @@ static 修饰的方法不会被继承
 动态绑定
     运行期方法调用是根据其具体类
 优点 可维护性 可扩展性
-</code></pre><h4 id="包："><a href="#包：" class="headerlink" title="包："></a>包：</h4><pre><code>多层结构
+</code></pre><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><pre><code>多层结构
 不同包下文件名可相同 
 必须在第一行声明
 
@@ -514,7 +502,7 @@ static 修饰的方法不会被继承
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>√      </td>
+<td>√</td>
 </tr>
 <tr>
 <td>同一包中(子类与无关类)</td>
@@ -525,11 +513,11 @@ static 修饰的方法不会被继承
 <tr>
 <td>不同包的子类</td>
 <td>√</td>
-<td>√        </td>
+<td>√</td>
 </tr>
 <tr>
 <td>不同包中的无关类</td>
-<td>√    </td>
+<td>√</td>
 </tr>
 </tbody>
 </table>
@@ -577,21 +565,21 @@ static 修饰的方法不会被继承
 <td>Y</td>
 <td></td>
 <td>Y</td>
-<td>　</td>
+<td></td>
 </tr>
 <tr>
 <td>static</td>
 <td>　</td>
 <td>Y</td>
 <td>Y</td>
-<td>　</td>
+<td></td>
 </tr>
 <tr>
 <td>final</td>
 <td>Y</td>
 <td>Y</td>
 <td>Y</td>
-<td>　</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -603,7 +591,7 @@ static 修饰的方法不会被继承
 
 外部类.内部类 对象名 = new 外部类().new 内部类();
 </code></pre><h4 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h4><blockquote>
-<p>在方法内，出了方法就无法使用   </p>
+<p>在方法内，出了方法就无法使用</p>
 </blockquote>
 <h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><pre><code>可以看做没有名字的局部内部类
 格式
@@ -616,18 +604,17 @@ static 修饰的方法不会被继承
 <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><blockquote>
 <p>类层次结构的根类</p>
 </blockquote>
-<p>###方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">toString()</span><br><span class="line">equals(Object obj)</span><br></pre></td></tr></table></figure>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">toString()</span><br><span class="line">equals(Object obj)</span><br></pre></td></tr></table></figure>
 <h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><blockquote>
 <p>不能被实例化 包含一些有用的字段和方法</p>
 </blockquote>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arraycopy(Object src, <span class="keyword">int</span> srcPos, Object dest, <span class="keyword">int</span> destPos, <span class="keyword">int</span> length)</span><br><span class="line">从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">currentTimeMillis() </span><br><span class="line">          返回以毫秒为单位的当前时间</span><br><span class="line">          </span><br><span class="line">exit(<span class="keyword">int</span> status) </span><br><span class="line">          终止当前正在运行的 Java 虚拟机</span><br></pre></td></tr></table></figure>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arraycopy(Object src, <span class="keyword">int</span> srcPos, Object dest, <span class="keyword">int</span> destPos, <span class="keyword">int</span> length)</span><br><span class="line">从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。</span><br><span class="line"></span><br><span class="line">currentTimeMillis()</span><br><span class="line">          返回以毫秒为单位的当前时间</span><br><span class="line"></span><br><span class="line">exit(<span class="keyword">int</span> status)</span><br><span class="line">          终止当前正在运行的 Java 虚拟机</span><br></pre></td></tr></table></figure>
 <h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><blockquote>
 <p>表示特定的瞬间，精确到毫秒</p>
 </blockquote>
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code>Date()  创建当前系统时间的Date对象
 Date(long date) 创建指定时间的Date对象
-</code></pre><h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><pre><code>    setTime(long time)
+</code></pre><h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h3><pre><code>    setTime(long time)
     long getTime()
 大部分方法已过时 Calendar类代替
 </code></pre><h3 id="DateFormat"><a href="#DateFormat" class="headerlink" title="DateFormat"></a>DateFormat</h3><blockquote>
@@ -635,10 +622,10 @@ Date(long date) 创建指定时间的Date对象
 </blockquote>
 <h3 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h3><h4 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code>SimpleDateFormat() 默认模式创建对象
 SimpleDateFormat(String pattern)指定模式创建对象
-</code></pre><h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h4><pre><code>Date parse(String text)解析字符串的文本，生成 Date。
-String format(Date date) 
+</code></pre><h4 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h4><pre><code>Date parse(String text)解析字符串的文本，生成 Date。
+String format(Date date)
  将给定的 Date 格式化为日期/时间字符串。
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  例：</span><br><span class="line">      SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH:mm:ss"</span>);</span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">String s = sdf.format(date)</span><br><span class="line">-----------------</span><br><span class="line">String now = <span class="string">"2000-01-01"</span>；</span><br><span class="line">SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">Date d2 = sdf.parse(now);</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">    SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH:mm:ss"</span>);</span><br><span class="line">    Date date = <span class="keyword">new</span> Date();</span><br><span class="line">    String s = sdf.format(date)</span><br><span class="line">    -----------------</span><br><span class="line">    String now = <span class="string">"2000-01-01"</span>；</span><br><span class="line">    SimpleDateFormatsdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">    Date d2 = sdf.parse(now);</span><br></pre></td></tr></table></figure>
 <h2 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h2><pre><code>抽象类 已知实现子类GregorianCalendar
 Calendar c = Calendar.getInstance();
 c.get(Calendar.DAY_OF_MONTH )
@@ -651,29 +638,30 @@ Pattern
 Matcher
 
 
-字符 
-x 字符 x 
-\\ 反斜线字符 
-字符类 
-[abc] a、b 或 c（简单类） 
-[^abc] 任何字符，除了 a、b 或 c（否定） 
+字符
+x 字符 x
+\\ 反斜线字符
+字符类
+[abc] a、b 或 c（简单类）
+[^abc] 任何字符，除了 a、b 或 c（否定）
 [a-zA-Z] a 到 z 或 A 到 Z，两头的字母包括在内（范围）
-预定义字符类 
-. 任何字符（与行结束符可能匹配也可能不匹配） 
-\d 数字：[0-9] 
-\D 非数字： [^0-9] 
-\s 空白字符：[ \t\n\x0B\f\r] 
-\S 非空白字符：[^\s] 
-\w 单词字符：[a-zA-Z_0-9] 
-\W 非单词字符：[^\w] 
-数量词 
-X? X，一次或一次也没有 
-X* X，零次或多次 
-X+ X，一次或多次 
-X{n} X，恰好 n 次 
-X{n,} X，至少 n 次 
-X{n,m} X，至少 n 次，但是不超过 m 次 
-</code></pre><h1 id="集合Collection"><a href="#集合Collection" class="headerlink" title="集合Collection"></a>集合Collection</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="接口Collection-层次结构的根"><a href="#接口Collection-层次结构的根" class="headerlink" title="接口Collection 层次结构的根"></a>接口Collection<e> 层次结构的根</e></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+预定义字符类
+. 任何字符（与行结束符可能匹配也可能不匹配）
+\d 数字：[0-9]
+\D 非数字： [^0-9]
+\s 空白字符：[ \t\n\x0B\f\r]
+\S 非空白字符：[^\s]
+\w 单词字符：[a-zA-Z_0-9]
+\W 非单词字符：[^\w]
+数量词
+X? X，一次或一次也没有
+X* X，零次或多次
+X+ X，一次或多次
+X{n} X，恰好 n 次
+X{n,} X，至少 n 次
+X{n,m} X，至少 n 次，但是不超过 m 次
+</code></pre><hr>
+<h1 id="集合Collection"><a href="#集合Collection" class="headerlink" title="集合Collection"></a>集合Collection</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="接口Collection-lt-E-gt-层次结构的根"><a href="#接口Collection-lt-E-gt-层次结构的根" class="headerlink" title="接口Collection&lt;E&gt; 层次结构的根"></a>接口<code>Collection&lt;E&gt;</code> 层次结构的根</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><pre><code>1、toArray() 把集合变成数组，然后遍历数组
 2、iterator() 迭代器对象，通过迭代器对象迭代集合
     Iterator 类
@@ -709,31 +697,16 @@ X{n,m} X，至少 n 次，但是不超过 m 次
 </code></pre><h3 id="泛型上下限"><a href="#泛型上下限" class="headerlink" title="泛型上下限"></a>泛型上下限</h3><pre><code>? extends 类名1           泛型上限 
 ？ super  类名2           泛型下限
 </code></pre><h2 id="常见数据结构"><a href="#常见数据结构" class="headerlink" title="常见数据结构"></a>常见数据结构</h2><h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><blockquote>
-<p>长度一旦定义就不能改变</p>
-</blockquote>
-<blockquote>
-<p>有整数索引</p>
-</blockquote>
-<blockquote>
-<p>只能存储同一种类型的元素</p>
-</blockquote>
-<blockquote>
-<p>即可以存储基本数据类型也可以存储引用数据类型</p>
-</blockquote>
-<blockquote>
-<p>查找快 增删慢    </p>
+<p>长度一旦定义就不能改变<br>有整数索引<br>只能存储同一种类型的元素<br>即可以存储基本数据类型也可以存储引用数据类型<br>查找快 增删慢</p>
 </blockquote>
 <h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><blockquote>
-<p>由链子连接起来的一堆节点</p>
-</blockquote>
-<blockquote>
-<p>特点:查询慢 增删快</p>
+<p>由链子连接起来的一堆节点<br>特点:查询慢 增删快</p>
 </blockquote>
 <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><blockquote>
-<p>先进后出       </p>
+<p>先进后出</p>
 </blockquote>
 <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><blockquote>
-<p>先进先出    </p>
+<p>先进先出</p>
 </blockquote>
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre><code>有序 存储顺序有序
 索引
@@ -758,39 +731,36 @@ X{n,m} X，至少 n 次，但是不超过 m 次
 </code></pre><h3 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h3><blockquote>
 <p>集合工具类</p>
 </blockquote>
-<h4 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list,T key)</span>   <span class="comment">//二分查找指定元素的下标,注意list必须排序完毕</span></span></span><br><span class="line"><span class="function">       </span></span><br><span class="line"><span class="function"><span class="title">copy</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; dest, List&lt;? extends T&gt; src)</span>  <span class="comment">//  把源列表数据覆盖到目标列表，注意目标列表的长度至少必须等于源列表</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">fill</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; list, T obj)</span>  <span class="comment">//使用指定元素替换指定列表中的所有元素 </span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">shuffle</span><span class="params">(List&lt;?&gt; list)</span>    <span class="comment">//使用默认随机源对指定列表进行置换。</span></span></span><br><span class="line"><span class="function">       </span></span><br><span class="line"><span class="function"><span class="title">sort</span><span class="params">(List&lt;T&gt; list)</span>      <span class="comment">//根据元素的自然顺序 对指定列表按升序进行排序。   </span></span></span><br><span class="line"><span class="function">   </span></span><br><span class="line"><span class="function"><span class="title">swap</span><span class="params">(List&lt;?&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>     <span class="comment">//在指定列表的指定位置处交换元素。</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="方法-4"><a href="#方法-4" class="headerlink" title="方法"></a>方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list,T key)</span>   <span class="comment">//二分查找指定元素的下标,注意list必须排序完毕</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">copy</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; dest, List&lt;? extends T&gt; src)</span>  <span class="comment">//  把源列表数据覆盖到目标列表，注意目标列表的长度至少必须等于源列表</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">fill</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; list, T obj)</span>  <span class="comment">//使用指定元素替换指定列表中的所有元素</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">shuffle</span><span class="params">(List&lt;?&gt; list)</span>    <span class="comment">//使用默认随机源对指定列表进行置换。</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">sort</span><span class="params">(List&lt;T&gt; list)</span>      <span class="comment">//根据元素的自然顺序 对指定列表按升序进行排序。</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">swap</span><span class="params">(List&lt;?&gt; list, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span>     <span class="comment">//在指定列表的指定位置处交换元素。</span></span></span><br></pre></td></tr></table></figure>
 <h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><blockquote>
-<p>将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。    </p>
+<p>将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。</p>
 </blockquote>
 <h2 id="与Collextion的区别"><a href="#与Collextion的区别" class="headerlink" title="与Collextion的区别"></a>与Collextion的区别</h2><blockquote>
-<p>Map : 双列集合 通常处理有对应关系的数据 key是不可重复的</p>
-</blockquote>
-<blockquote>
-<p>Collection: 单列集合，有不同子类体系</p>
+<p>Map : 双列集合 通常处理有对应关系的数据 key是不可重复的<br>Collection: 单列集合，有不同子类体系</p>
 </blockquote>
 <h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><ol>
-<li><p>增</p>
+<li>增</li>
+</ol>
 <blockquote>
 <p>put(key ,value)</p>
 </blockquote>
-</li>
-<li><p>删</p>
-<blockquote>
-<p>clear()     清除所有</p>
-<p> remove(Object e) 移除</p>
-</blockquote>
-</li>
-<li><p>查</p>
-<blockquote>
-<p>  get(Object key)</p>
-</blockquote>
-</li>
+<ol start="2">
+<li>删</li>
 </ol>
+<blockquote>
+<p>clear()     清除所有<br>remove(Object e) 移除</p>
+</blockquote>
+<ol start="3">
+<li>查</li>
+</ol>
+<blockquote>
+<p>get(Object key)</p>
+</blockquote>
+<hr>
 <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><blockquote>
 <p>包含错误的类型、原因、位置</p>
 </blockquote>
-<p>##体系结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">Throwable--&gt;Error</span><br><span class="line">Throwable--&gt;Exception</span><br></pre></td></tr></table></figure>
+<h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">Throwable--&gt;Error</span><br><span class="line">Throwable--&gt;Exception</span><br></pre></td></tr></table></figure>
 <h2 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h2><ol>
 <li>出现异常未处理 jvm帮我们处理 控制台打印异常信息并终止程序</li>
 <li><p>捕获处理</p>
@@ -799,38 +769,44 @@ X{n,m} X，至少 n 次，但是不超过 m 次
 
 try{
       可能出现问题的代码
- }catch(异常类 异常){        
+ }catch(异常类 异常){
  }
 </code></pre></blockquote>
 </li>
 <li><p>抛出去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   方法（） throws 异常类 &#123;&#125;</span><br><span class="line">新</span><br><span class="line">    try(FileWriter fw = new FileWriter(&quot;a.txt&quot;))&#123;//自动关流</span><br><span class="line">        fw.write(&quot;&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="异常种类"><a href="#异常种类" class="headerlink" title="异常种类"></a>异常种类</h2><p>###运行时异常</p>
-<blockquote>
-<p>RuntimeException 的子类，在运行时期的异常          </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   方法（） <span class="keyword">throws</span> 异常类 &#123;&#125;</span><br><span class="line">新</span><br><span class="line">    <span class="keyword">try</span>(FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">"a.txt"</span>))&#123;<span class="comment">//自动关流</span></span><br><span class="line">        fw.write(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常种类"><a href="#异常种类" class="headerlink" title="异常种类"></a>异常种类</h2><h3 id="运行时异常"><a href="#运行时异常" class="headerlink" title="运行时异常"></a>运行时异常</h3><blockquote>
+<p>RuntimeException 的子类，在运行时期的异常</p>
 </blockquote>
 <h3 id="编译时异常"><a href="#编译时异常" class="headerlink" title="编译时异常"></a>编译时异常</h3><blockquote>
 <p>Exception子类RuntimeException子类非编译时期必须处理</p>
 </blockquote>
+<hr>
 <h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1><h2 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h2><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File(File parent,String child)</span><br><span class="line">File(String path)</span><br><span class="line">File(String parent,String child)</span><br></pre></td></tr></table></figure>
-<h3 id="方法-4"><a href="#方法-4" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creatNewFile() <span class="comment">//创建文件</span></span><br><span class="line">mkdir()     <span class="comment">//创建文件夹</span></span><br><span class="line">mkdirs()</span><br><span class="line">delete() <span class="comment">//删除文件，</span></span><br><span class="line">isAbsolute() 路径是否是绝对路径</span><br></pre></td></tr></table></figure>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="标准输入输出流"><a href="#标准输入输出流" class="headerlink" title="标准输入输出流"></a>标准输入输出流</h3><blockquote>
-<p>System.in</p>
-</blockquote>
-<blockquote>
-<p>System.out</p>
+<h3 id="方法-5"><a href="#方法-5" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creatNewFile() <span class="comment">//创建文件</span></span><br><span class="line">mkdir()     <span class="comment">//创建文件夹</span></span><br><span class="line">mkdirs()</span><br><span class="line">delete() <span class="comment">//删除文件，</span></span><br><span class="line">isAbsolute() 路径是否是绝对路径</span><br></pre></td></tr></table></figure>
+<h2 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h2><h3 id="标准输入输出流"><a href="#标准输入输出流" class="headerlink" title="标准输入输出流"></a>标准输入输出流</h3><blockquote>
+<p>System.in<br>System.out</p>
 </blockquote>
 <h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><blockquote>
-<p>把字节流转换为字符流<br>    outputStreamWriter<br>    inputStreamReader</p>
+<p>把字节流转换为字符流</p>
 </blockquote>
-<h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><blockquote>
-<p>打印流添加输出数据的功能，使它们能够方便地打印各种数据值表示形式.<br>    字符打印流    PrintWriter<br>    void print(String str): 输出任意类型的数据，<br>    void println(String str): 输出任意类型的数据，自动写入换行操作</p>
+<pre><code>outputStreamWriter
+inputStreamReader
+</code></pre><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><blockquote>
+<p>打印流添加输出数据的功能，使它们能够方便地打印各种数据值表示形式.</p>
 </blockquote>
-<h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><blockquote>
-<p>用于从流中读取对象的<br>    ObjectInputStream称为 反序列化流,利用输入流从文件中读取对象<br>    ObjectOutputStream 称为 序列化流,利用输出流向文件中写入对象<br>    特点：用于操作对象。可以将对象写入到文件中，也可以从文件中读取对象。</p>
+<pre><code>字符打印流  PrintWriter
+void print(String str): 输出任意类型的数据，
+void println(String str): 输出任意类型的数据，自动写入换行操作
+</code></pre><h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><blockquote>
+<p>用于从流中读取对象的</p>
 </blockquote>
+<pre><code>ObjectInputStream称为 反序列化流,利用输入流从文件中读取对象
+ObjectOutputStream 称为 序列化流,利用输出流向文件中写入对象
+特点：用于操作对象。可以将对象写入到文件中，也可以从文件中读取对象。
+</code></pre><hr>
 <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="进程：一个应用程序在内存中执行区域"><a href="#进程：一个应用程序在内存中执行区域" class="headerlink" title="进程：一个应用程序在内存中执行区域"></a>进程：一个应用程序在内存中执行区域</h3><h3 id="线程：进程中的一个执行控制单元"><a href="#线程：进程中的一个执行控制单元" class="headerlink" title="线程：进程中的一个执行控制单元"></a>线程：进程中的一个执行控制单元</h3><blockquote>
 <p>一个进程可以有多个线程</p>
 </blockquote>
@@ -842,13 +818,15 @@ try{
 创建对象
 启动 start()
 </code></pre><blockquote>
-<p> 方式二</p>
-<pre><code>实现Runnable 接口
-</code></pre></blockquote>
-<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><blockquote>
-<p>设备之间的数据通讯<br>    Socket</p>
+<p>方式二</p>
 </blockquote>
-<h2 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h2><pre><code>ip
+<pre><code>实现Runnable 接口
+</code></pre><hr>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><blockquote>
+<p>设备之间的数据通讯</p>
+</blockquote>
+<pre><code>Socket
+</code></pre><h2 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h2><pre><code>ip
     网络设备的标识
 端口
     用于标识进程的逻辑地址
@@ -858,10 +836,11 @@ try{
    InetAddress address =InetAddress.getByName(&quot;itheima&quot;);//通过主机名获取InetAddress
 
     InetAddress address =InetAddress.getLocalHost();//本地主机InetAddress
-</code></pre><h2 id="Udp"><a href="#Udp" class="headerlink" title="Udp"></a>Udp</h2><h3 id="发送过程"><a href="#发送过程" class="headerlink" title="发送过程"></a>发送过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建Socket对象</span></span><br><span class="line"> DatagramSocket ds =<span class="keyword">new</span> DategramSocket();<span class="comment">//创建socket对象随机分配端口</span></span><br><span class="line"> <span class="comment">//DatagramSocket ds =new DategramSocket(1000);指定端口</span></span><br><span class="line"> <span class="comment">//创建数据并打包</span></span><br><span class="line"> <span class="comment">//DatagramPacket 数据包类</span></span><br><span class="line"> <span class="keyword">byte</span>[] bys;<span class="comment">//数据</span></span><br><span class="line"> InetAddress addr = InetAddress.getByName(<span class="string">""</span>);<span class="comment">//ip地址</span></span><br><span class="line"> <span class="keyword">int</span> port ;<span class="comment">//端口</span></span><br><span class="line"> DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(bys,bys.length,addr,port);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 发送数据</span></span><br><span class="line"> ds.send(dp);</span><br><span class="line"> <span class="comment">//关闭资源</span></span><br><span class="line"> ds.close();</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Udp"><a href="#Udp" class="headerlink" title="Udp"></a>Udp</h2><h3 id="发送过程"><a href="#发送过程" class="headerlink" title="发送过程"></a>发送过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建Socket对象</span></span><br><span class="line"> DatagramSocket ds =<span class="keyword">new</span> DategramSocket();<span class="comment">//创建socket对象随机分配端口</span></span><br><span class="line"> <span class="comment">//DatagramSocket ds =new DategramSocket(1000);指定端口</span></span><br><span class="line"> <span class="comment">//创建数据并打包</span></span><br><span class="line"> <span class="comment">//DatagramPacket 数据包类</span></span><br><span class="line"> <span class="keyword">byte</span>[] bys;<span class="comment">//数据</span></span><br><span class="line"> InetAddress addr = InetAddress.getByName(<span class="string">""</span>);<span class="comment">//ip地址</span></span><br><span class="line"> <span class="keyword">int</span> port ;<span class="comment">//端口</span></span><br><span class="line"> DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(bys,bys.length,addr,port);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送数据</span></span><br><span class="line"> ds.send(dp);</span><br><span class="line"> <span class="comment">//关闭资源</span></span><br><span class="line"> ds.close();</span><br></pre></td></tr></table></figure>
 <h3 id="接收过程"><a href="#接收过程" class="headerlink" title="接收过程"></a>接收过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建Socket对象</span></span><br><span class="line"> DatagramSocket ds =<span class="keyword">new</span> DategramSocket(<span class="number">1000</span>);<span class="comment">//指定端口</span></span><br><span class="line"><span class="comment">//接收数据</span></span><br><span class="line"><span class="keyword">byte</span>[] bys = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">DatagramPacket dp = <span class="keyword">new</span> DatagrmPacket(bys,bys.length);</span><br><span class="line">ds.receive(dp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//拆分数据</span></span><br><span class="line">InetAddress addr =dp.getAddress();</span><br><span class="line"><span class="keyword">int</span> length =dp.getLength();<span class="comment">//数据长度</span></span><br><span class="line"><span class="comment">//byte[] data =dp.getData();//数据会在bys 中</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭资源</span></span><br><span class="line">ds.close();</span><br></pre></td></tr></table></figure>
 <h2 id="Tcp"><a href="#Tcp" class="headerlink" title="Tcp"></a>Tcp</h2><h3 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//创建socket对象</span></span><br><span class="line"> Socket socket = <span class="keyword">new</span> Socket(InetAddres.getByName(<span class="string">""</span>),<span class="number">10086</span>);</span><br><span class="line"><span class="comment">// 获取输出流对象</span></span><br><span class="line">OutputSteam os socket.getOutputStream();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送数据</span></span><br><span class="line">  os.write(<span class="string">""</span>);</span><br><span class="line"> <span class="comment">//关闭资源</span></span><br><span class="line"> socket.close();</span><br></pre></td></tr></table></figure>
 <h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> ServerSocket ss = <span class="keyword">new</span> ServerSocket(<span class="number">10086</span>);</span><br><span class="line"> <span class="comment">//监听</span></span><br><span class="line">Socket socket = ss.accept();</span><br><span class="line"><span class="comment">//获得输入流</span></span><br><span class="line">InputStream is =socket.getInputStream();</span><br><span class="line"><span class="keyword">byte</span>[] bs = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len =is.read(bs);</span><br><span class="line"></span><br><span class="line">is.close();</span><br></pre></td></tr></table></figure>
+<hr>
 <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><blockquote>
 <p>运行过程中获取对象，对象中的成员</p>
 </blockquote>
@@ -879,7 +858,7 @@ field.get(o) //获取o对象上的field字段的值
 field.setAccessible(true) //设置反射取消java访问检查
 field.set(o,值) //给o对象上的field字段设值
 </code></pre><h2 id="获取成员方法"><a href="#获取成员方法" class="headerlink" title="获取成员方法"></a>获取成员方法</h2><pre><code>Method m = clz.getMethod(&quot;method&quot;,形参类型);
-m.Invoke(o,实参); 调用方法 
+m.Invoke(o,实参); 调用方法
 </code></pre><h2 id="内省技术"><a href="#内省技术" class="headerlink" title="内省技术"></a>内省技术</h2><blockquote>
 <p>内省是基于反射,获取类中的属性和get/set方法</p>
 <blockquote>
@@ -1026,7 +1005,7 @@ pd.getWriteMethod() //setxx()方法
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1037,7 +1016,7 @@ pd.getWriteMethod() //setxx()方法
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1048,7 +1027,7 @@ pd.getWriteMethod() //setxx()方法
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1088,7 +1067,7 @@ pd.getWriteMethod() //setxx()方法
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-关键字"><span class="nav-number">1.1.1.</span> <span class="nav-text">static 关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式："><span class="nav-number">1.2.1.</span> <span class="nav-text">格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重写"><span class="nav-number">1.2.4.</span> <span class="nav-text">方法重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承中构造方法的执行顺序"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承中构造方法的执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名对象"><span class="nav-number">1.2.6.</span> <span class="nav-text">匿名对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#final关键字"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">final关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.2.7.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.2.8.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义格式："><span class="nav-number">1.2.8.1.</span> <span class="nav-text">定义格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类与接口关系"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">类与接口关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.8.5.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#接口和抽象类的区别"><span class="nav-number">1.2.8.5.1.</span> <span class="nav-text">接口和抽象类的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">1.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">包：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">1.3.1.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类"><span class="nav-number">1.3.2.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#成员内部类"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部内部类"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名内部类"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">2.1.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System"><span class="nav-number">2.2.</span> <span class="nav-text">System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.3.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DateFormat"><span class="nav-number">2.3.3.</span> <span class="nav-text">DateFormat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat"><span class="nav-number">2.3.4.</span> <span class="nav-text">SimpleDateFormat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数-1"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-2"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar"><span class="nav-number">2.4.</span> <span class="nav-text">Calendar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装类"><span class="nav-number">2.5.</span> <span class="nav-text">包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合Collection"><span class="nav-number">3.</span> <span class="nav-text">集合Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口Collection-层次结构的根"><span class="nav-number">3.1.1.</span> <span class="nav-text">接口Collection 层次结构的根</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强for循环"><span class="nav-number">3.1.3.</span> <span class="nav-text">增强for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发修改异常"><span class="nav-number">3.1.4.</span> <span class="nav-text">并发修改异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类名上的泛型"><span class="nav-number">3.1.5.</span> <span class="nav-text">类名上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法上的泛型"><span class="nav-number">3.1.6.</span> <span class="nav-text">方法上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型上下限"><span class="nav-number">3.1.7.</span> <span class="nav-text">泛型上下限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据结构"><span class="nav-number">3.2.</span> <span class="nav-text">常见数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组："><span class="nav-number">3.2.1.</span> <span class="nav-text">数组：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">3.2.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">3.2.3.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">3.2.4.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">3.3.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">3.3.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections"><span class="nav-number">3.3.2.</span> <span class="nav-text">Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-3"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">4.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#与Collextion的区别"><span class="nav-number">4.1.</span> <span class="nav-text">与Collextion的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用功能"><span class="nav-number">4.2.</span> <span class="nav-text">常用功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#处理方式"><span class="nav-number">5.1.</span> <span class="nav-text">处理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常种类"><span class="nav-number">5.2.</span> <span class="nav-text">异常种类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译时异常"><span class="nav-number">5.2.1.</span> <span class="nav-text">编译时异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO流"><span class="nav-number">6.</span> <span class="nav-text">IO流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#File类"><span class="nav-number">6.1.</span> <span class="nav-text">File类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">6.1.1.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-4"><span class="nav-number">6.1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">6.2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准输入输出流"><span class="nav-number">6.2.1.</span> <span class="nav-text">标准输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流"><span class="nav-number">6.2.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印流"><span class="nav-number">6.2.3.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象流"><span class="nav-number">6.2.4.</span> <span class="nav-text">对象流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">7.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">7.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程：一个应用程序在内存中执行区域"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程：一个应用程序在内存中执行区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程：进程中的一个执行控制单元"><span class="nav-number">7.1.2.</span> <span class="nav-text">线程：进程中的一个执行控制单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程实现"><span class="nav-number">7.1.3.</span> <span class="nav-text">多线程实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三要素"><span class="nav-number">8.1.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InerAddress"><span class="nav-number">8.2.</span> <span class="nav-text">InerAddress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Udp"><span class="nav-number">8.3.</span> <span class="nav-text">Udp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送过程"><span class="nav-number">8.3.1.</span> <span class="nav-text">发送过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收过程"><span class="nav-number">8.3.2.</span> <span class="nav-text">接收过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tcp"><span class="nav-number">8.4.</span> <span class="nav-text">Tcp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送"><span class="nav-number">8.4.1.</span> <span class="nav-text">发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收"><span class="nav-number">8.4.2.</span> <span class="nav-text">接收</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射"><span class="nav-number">9.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取字节码对象"><span class="nav-number">9.1.</span> <span class="nav-text">获取字节码对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取构造方法"><span class="nav-number">9.2.</span> <span class="nav-text">获取构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">9.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员字段"><span class="nav-number">9.4.</span> <span class="nav-text">获取成员字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员方法"><span class="nav-number">9.5.</span> <span class="nav-text">获取成员方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内省技术"><span class="nav-number">9.6.</span> <span class="nav-text">内省技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean"><span class="nav-number">9.6.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introspector"><span class="nav-number">9.6.2.</span> <span class="nav-text">Introspector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanInfo类"><span class="nav-number">9.6.3.</span> <span class="nav-text">BeanInfo类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PropertyDescriptor类"><span class="nav-number">9.6.4.</span> <span class="nav-text">PropertyDescriptor类</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-关键字"><span class="nav-number">1.1.1.</span> <span class="nav-text">static 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">特点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#局部代码块"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">局部代码块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造代码块"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">构造代码块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态代码块"><span class="nav-number">1.1.2.1.3.</span> <span class="nav-text">静态代码块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同步代码块"><span class="nav-number">1.1.2.1.4.</span> <span class="nav-text">同步代码块</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重写"><span class="nav-number">1.2.4.</span> <span class="nav-text">方法重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承中构造方法的执行顺序"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承中构造方法的执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名对象"><span class="nav-number">1.2.6.</span> <span class="nav-text">匿名对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#final关键字"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">final关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.2.7.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.2.8.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义格式"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">定义格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类的特点"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">抽象类的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类与接口关系"><span class="nav-number">1.2.8.4.</span> <span class="nav-text">类与接口关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.8.5.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#接口和抽象区别"><span class="nav-number">1.2.8.5.1.</span> <span class="nav-text">接口和抽象区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">1.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包"><span class="nav-number">1.3.1.</span> <span class="nav-text">包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">1.3.2.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类"><span class="nav-number">1.3.3.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#成员内部类"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部内部类"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名内部类"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object"><span class="nav-number">2.1.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System"><span class="nav-number">2.2.</span> <span class="nav-text">System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.3.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DateFormat"><span class="nav-number">2.3.3.</span> <span class="nav-text">DateFormat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleDateFormat"><span class="nav-number">2.3.4.</span> <span class="nav-text">SimpleDateFormat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数-1"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar"><span class="nav-number">2.4.</span> <span class="nav-text">Calendar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装类"><span class="nav-number">2.5.</span> <span class="nav-text">包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合Collection"><span class="nav-number">3.</span> <span class="nav-text">集合Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口Collection-lt-E-gt-层次结构的根"><span class="nav-number">3.1.1.</span> <span class="nav-text">接口Collection&lt;E&gt; 层次结构的根</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强for循环"><span class="nav-number">3.1.3.</span> <span class="nav-text">增强for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发修改异常"><span class="nav-number">3.1.4.</span> <span class="nav-text">并发修改异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类名上的泛型"><span class="nav-number">3.1.5.</span> <span class="nav-text">类名上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法上的泛型"><span class="nav-number">3.1.6.</span> <span class="nav-text">方法上的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型上下限"><span class="nav-number">3.1.7.</span> <span class="nav-text">泛型上下限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据结构"><span class="nav-number">3.2.</span> <span class="nav-text">常见数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组："><span class="nav-number">3.2.1.</span> <span class="nav-text">数组：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">3.2.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">3.2.3.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">3.2.4.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">3.3.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">3.3.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections"><span class="nav-number">3.3.2.</span> <span class="nav-text">Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-4"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">4.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#与Collextion的区别"><span class="nav-number">4.1.</span> <span class="nav-text">与Collextion的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用功能"><span class="nav-number">4.2.</span> <span class="nav-text">常用功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">5.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理方式"><span class="nav-number">5.2.</span> <span class="nav-text">处理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常种类"><span class="nav-number">5.3.</span> <span class="nav-text">异常种类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时异常"><span class="nav-number">5.3.1.</span> <span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译时异常"><span class="nav-number">5.3.2.</span> <span class="nav-text">编译时异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO流"><span class="nav-number">6.</span> <span class="nav-text">IO流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#File类"><span class="nav-number">6.1.</span> <span class="nav-text">File类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">6.1.1.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-5"><span class="nav-number">6.1.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类-1"><span class="nav-number">6.2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准输入输出流"><span class="nav-number">6.2.1.</span> <span class="nav-text">标准输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流"><span class="nav-number">6.2.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印流"><span class="nav-number">6.2.3.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象流"><span class="nav-number">6.2.4.</span> <span class="nav-text">对象流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">7.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">7.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程：一个应用程序在内存中执行区域"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程：一个应用程序在内存中执行区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程：进程中的一个执行控制单元"><span class="nav-number">7.1.2.</span> <span class="nav-text">线程：进程中的一个执行控制单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程实现"><span class="nav-number">7.1.3.</span> <span class="nav-text">多线程实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三要素"><span class="nav-number">8.1.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InerAddress"><span class="nav-number">8.2.</span> <span class="nav-text">InerAddress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Udp"><span class="nav-number">8.3.</span> <span class="nav-text">Udp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送过程"><span class="nav-number">8.3.1.</span> <span class="nav-text">发送过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收过程"><span class="nav-number">8.3.2.</span> <span class="nav-text">接收过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tcp"><span class="nav-number">8.4.</span> <span class="nav-text">Tcp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送"><span class="nav-number">8.4.1.</span> <span class="nav-text">发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收"><span class="nav-number">8.4.2.</span> <span class="nav-text">接收</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射"><span class="nav-number">9.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取字节码对象"><span class="nav-number">9.1.</span> <span class="nav-text">获取字节码对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取构造方法"><span class="nav-number">9.2.</span> <span class="nav-text">获取构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">9.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员字段"><span class="nav-number">9.4.</span> <span class="nav-text">获取成员字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取成员方法"><span class="nav-number">9.5.</span> <span class="nav-text">获取成员方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内省技术"><span class="nav-number">9.6.</span> <span class="nav-text">内省技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean"><span class="nav-number">9.6.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introspector"><span class="nav-number">9.6.2.</span> <span class="nav-text">Introspector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanInfo类"><span class="nav-number">9.6.3.</span> <span class="nav-text">BeanInfo类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PropertyDescriptor类"><span class="nav-number">9.6.4.</span> <span class="nav-text">PropertyDescriptor类</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

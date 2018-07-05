@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_m-16x16-next.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,Spring一," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Spring 是一个开源框架,一个分层的 JavaSE/EEfull-stack(一站式) 轻量级开源框架,spring的体系结构，快速入门">
+<meta name="keywords" content="JavaWeb,Spring一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring一">
+<meta property="og:url" content="znvoid.tk/JavaWeb/Sping框架/Spring一/index.html">
+<meta property="og:site_name" content="znBlog 个人博客">
+<meta property="og:description" content="Spring 是一个开源框架,一个分层的 JavaSE/EEfull-stack(一站式) 轻量级开源框架,spring的体系结构，快速入门">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/05/PV5jun.png">
+<meta property="og:image" content="znvoid.tk/JavaWeb/Sping框架/Spring一/spring/2.png">
+<meta property="og:image" content="znvoid.tk/JavaWeb/Sping框架/Spring一/spring/4.png">
+<meta property="og:updated_time" content="2018-07-05T08:56:30.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring一">
+<meta name="twitter:description" content="Spring 是一个开源框架,一个分层的 JavaSE/EEfull-stack(一站式) 轻量级开源框架,spring的体系结构，快速入门">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/07/05/PV5jun.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="znvoid.tk/JavaWeb/Sping框架/Spring一/"/>
+
+
+
+
+
+  <title>Spring一 | znBlog 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="znvoid.tk/JavaWeb/Sping框架/Spring一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="znBlog 个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T09:13:58+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/Sping框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Sping框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Spring 是一个开源框架,一个分层的 JavaSE/EEfull-stack(一站式) 轻量级开源框架,spring的体系结构，快速入门
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><blockquote>
+<p>Spring 是一个开源框架,一个分层的 JavaSE/EEfull-stack(一站式) 轻量级开源框架</p>
+</blockquote>
+<h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><p><img src="https://s1.ax1x.com/2018/07/05/PV5jun.png" alt="1"></p>
+<blockquote>
+<p>核心容器</p>
+</blockquote>
+<ol>
+<li>Core 和 Beans 模块提供了 Spring 最基础的功能，提供 IoC 和依赖注入特性。这里的基础概念是 BeanFactory，它提供对 Factory 模式的经典实现来消除对程序性单例模式的需要，并真正地允许你从程序逻辑中分离出依赖关系和配置。</li>
+<li>Context 模块基于 Core 和 Beans 来构建，它提供了用一种框架风格的方式来访问对象，有些像 JNDI 注册表。Context 封装包继承了 beans 包的功能，还增加了国际化（I18N）,事件传播，资源装载，以及透明创建上下文，例如通过 servlet 容器，以及对大量 JavaEE 特性的支持，如 EJB、JMX。核心接口是 ApplicationContext。</li>
+<li>Expression Language，表达式语言模块，提供了在运行期间查询和操作对象图的强大能力。支持访问和修改属性值，方法调用，支持访问及修改数组、容器和索引器，命名变量，支持算数和逻辑运算，支持从 Spring 容器获取 Bean，它也支持列表投影、选择和一般的列表聚合等。</li>
+</ol>
+<blockquote>
+<p>数据访问/ 集成部分(Data Access/Integration)</p>
+</blockquote>
+<ol>
+<li>JDBC 模块，提供对 JDBC 的抽象，它可消除冗长的 JDBC 编码和解析数据库厂商特有的错误代码。</li>
+<li>ORM 模块，提供了常用的”对象/关系”映射 API 的集成层。 其中包括 JPA、JDO、Hibernate和 iBatis 。利用 ORM 封装包，可以混合使用所有 Spring 提供的特性进行”对象/关系”映射，如简单声明性 事务管理 </li>
+<li>OXM 模块，提供一个支持 Object 和 XML 进行映射的抽象层，其中包括 JAXB、Castor、XMLBeans、JiBX 和 XStream。</li>
+<li>JMS 模块，提供一套”消息生产者、消费者”模板用于更加简单的使用 JMS，JMS 用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。</li>
+<li>Transaction 模块，支持程序通过简单声明性 事务管理，只要是 Spring 管理对象都能得到Spring 管理事务的好处，即使是 POJO，也可以为他们提供事务</li>
+</ol>
+<blockquote>
+<p>Web</p>
+</blockquote>
+<ol>
+<li>Web-Socket 模块， WebSocket protocol 是 HTML5 一种新的协议。它实现了浏览器与服务器全双工通信，spring 支持 webSocket 通信。</li>
+<li>Web 模块，提供了基础的 web 功能。例如多文件上传、集成 IoC 容器、远程过程访问、以及 Web Service 支持，并提供一个 RestTemplate 类来提供方便的 Restful services 访问</li>
+<li>Web-Servlet 模块，提供了 Web 应用的 Model-View-Controller（MVC）实现。Spring MVC框架提供了基于注解的请求资源注入、更简单的数据绑定、数据验证等及一套非常易用的JSP 标签，完全无缝与 Spring 其他技术协作。</li>
+<li>Web-Portlet 模块，提供了在 Portlet 环境下的 MVC 实现</li>
+</ol>
+<blockquote>
+<p>AOP</p>
+</blockquote>
+<ol>
+<li>AOP 模块，提供了符合 AOP 联盟规范的面向方面的编程实现，让你可以定义如方法拦截器和切入点，从逻辑上讲，可以减弱代码的功能耦合，清晰的被分离开。而且，利用源码级的元数据功能，还可以将各种行为信息合并到你的代码中 。</li>
+<li>Aspects 模块，提供了对 AspectJ 的集成。</li>
+<li>Instrumentation 模块， 提供一些类级的工具支持和 ClassLoader 级的实现，可以在一些特定的应用服务器中使用</li>
+</ol>
+<blockquote>
+<p>Test</p>
+</blockquote>
+<ol>
+<li>Test 模块，提供对使用 JUnit 和 TestNG 来测试 Spring 组件的支持，它提供一致的ApplicationContexts 并缓存这些上下文，它还能提供一些 mock 对象，使得你可以独立的测试代码。</li>
+</ol>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>方便解耦，简化开发<br> Spring 就是一个大工厂，可以将所有对象创建和依赖关系维护，交给 Spring 管理</li>
+<li>AOP 编程的支持<br> Spring 提供面向切面编程，可以方便的实现对程序进行权限拦截、运行监控等功能</li>
+<li>声明式事务的支持<br> 只需要通过配置就可以完成对事务的管理，而无需手动编程</li>
+<li>方便程序的测试<br> Spring 对 Junit4 支持，可以通过注解方便的测试 Spring 程序</li>
+<li>方便集成各种优秀框架<br> Spring 不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz 等）的直接支持</li>
+<li>降低 JavaEE API 的使用难度<br> Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等），都提供了封装，使这些 API 应用难度大大降低</li>
+</ol>
+<h2 id="IOC与DI"><a href="#IOC与DI" class="headerlink" title="IOC与DI"></a>IOC与DI</h2><blockquote>
+<p>IOC inversion of Controller 控制反转。在程序中所说的 IOC 其实简单说，就是原来由我们自己实例化的对象交给 spring 容器来实始化</p>
+</blockquote>
+<blockquote>
+<p>DI:dependency injection 依赖注入在 spring 框架负责创建 Bean 对象时，动态将依赖对象注入到 Bean 组件</p>
+</blockquote>
+<h3 id="spring开发环境搭建"><a href="#spring开发环境搭建" class="headerlink" title="spring开发环境搭建"></a>spring开发环境搭建</h3><blockquote>
+<p>在spring开发中，根据不同的情况来导入不同的 jar 包</p>
+</blockquote>
+<pre><code>commons-logging-1.2.jar
+log4j-1.2.16.jar
+spring-aop-4.2.4.RELEASE.jar
+spring-beans-4.2.4.RELEASE.jar
+spring-context-4.2.4.RELEASE.jar
+spring-core-4.2.4.RELEASE.jar
+spring-expression-4.2.4.RELEASE.jar
+spring-test-4.2.4.RELEASE.jar
+</code></pre><blockquote>
+<p>配置文件</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- &lt;bean id="userService" class="com.znvoid.domain.UserServiceImpl"&gt;</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">	&lt;/bean&gt;</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	&lt;bean id="user" class="com.znvoid.domain.User"&gt;</span></span><br><span class="line"><span class="comment">		&lt;property name="username" value="tom"/&gt;</span></span><br><span class="line"><span class="comment">		&lt;property name="password" value="123"/&gt;</span></span><br><span class="line"><span class="comment">	&lt;/bean&gt; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 下面的配置作用是指定spring扫描的包,它包含了context:annotation-config的功能，所以在开发中一般就不需要在配置上面的 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;context:component-scan base-package="com.znvoid.domain" /&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bean-获取与实例化"><a href="#Bean-获取与实例化" class="headerlink" title="Bean 获取与实例化"></a>Bean 获取与实例化</h3><p><img src="./spring/2.png" alt="2"></p>
+<p>ApplicationContext 它是扩展 BeanFactory 接口。<br>BeanFactory 它采取延迟加载的方案，只有真正在 getBean 时才会实例化 Bean<br>在开发中我们一般使用的是 ApplicationContext,真正使用的是其实现类,<br>FileSystemXmlAppliCationContext 根据文件路径获取<br>ClassPathXmlApplicationContext 根据类路径获取<br>AppliCationContext它会在配置文件加载时，就会初始化Bean,并且ApplicationContext<br>它 提 供 不 同 的 应 用 层 的 Context 实 现 。 例 如 在 web 开 发 中 可 以 使 用<br>WebApplicationContext.</p>
+<h3 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h3><blockquote>
+<p>在 bean 声明时它有一个 scope 属性，它是用于描述 bean 的作用域</p>
+</blockquote>
+<ul>
+<li>singleton:单例 代表在 spring ioc 容器中只有一个 Bean 实例 (默认的 scope)</li>
+<li>prototype 多例 每一次从 spring 容器中获取时，都会返回一个新的实例</li>
+<li>request 用在 web 开发中，将 bean 对象 request.setAttribute()存储到 request 域中</li>
+<li>session 用在 web 开发中，将 bean 对象 session.setAttribute()存储到 session 域中</li>
+</ul>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><img src="./spring/4.png" alt="3/4"></p>
+<ol>
+<li>instantiate bean 对象实例化</li>
+<li>populate properties 封装属性</li>
+<li>如果 Bean 实现 BeanNameAware 执行 setBeanName</li>
+<li>如果 Bean 实现 BeanFactoryAwar 或 ApplicationContextAwar 设置工厂setBeanFactory 或上下文对象 setApplicationContext</li>
+<li>如果存在类实现 BeanPostProcess(后处理 Bean),执行 postProcessBeforeInitialization</li>
+<li>如果 Bean 实现 InitializingBean 执行 afterPropertiesSet</li>
+<li>调用自定义的 init-method 方法</li>
+<li>如果存在类实现 BeanPostProcessor(处理 Bean),执行 postProcessAfterInitialization</li>
+<li>执行业务处理</li>
+<li>如果 Bean 实现 DisposableBean 执行 destroy</li>
+<li>调用自定义的 destroy-method</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bean类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanLifeCycle</span> <span class="keyword">implements</span> <span class="title">BeanNameAware</span>, <span class="title">ApplicationContextAware</span>, <span class="title">InitializingBean</span>, <span class="title">DisposableBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BeanLifeCycle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第一步:实例化BeanLifeCycle对象"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义功能</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第九步:自定义功能add....."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第二步:属性name的注入"</span> + name);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBeanName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第三步:得到bean的id或name值:"</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"第四步:得到ApplicationContext对象:"</span> + applicationContext);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第六步:属性注入完成后"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myInit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第七步:自定义的init方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"第十步:执行destroy方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第十一步:执行自定义的销毁方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//BeanPostProcess实现，配置后对所有的bean有效</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanPostProcess</span> <span class="keyword">implements</span> <span class="title">BeanPostProcessor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第五步:beanPostProcessor的before方法"</span>);</span><br><span class="line">        System.out.println(<span class="string">"处理的bean是"</span> + bean + <span class="string">" 它的名称是"</span> + beanName);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessAfterInitialization</span><span class="params">(<span class="keyword">final</span> Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"第八步:beanPostProcessor的after方法"</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">    ClassPathXmlApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">    BeanLifeCycle beanLife = (BeanLifeCycle) applicationContext.getBean(<span class="string">"beanLifeCycle"</span>);</span><br><span class="line">    beanLife.add();</span><br><span class="line">    applicationContext.close();</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"beanLifeCycle"</span> <span class="attr">class</span>=<span class="string">"com.znvoid.domain.BeanLifeCycle"</span> <span class="attr">init-method</span>=<span class="string">"myInit"</span> <span class="attr">destroy-method</span>=<span class="string">"myDestroy"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"world"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.znvoid.utils.MyBeanPostProcess"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h3><blockquote>
+<p>在 spring 中 bean 的属性注入有两种</p>
+</blockquote>
+<h4 id="构造方法注入"><a href="#构造方法注入" class="headerlink" title="构造方法注入"></a>构造方法注入</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beann</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="set方法注入"><a href="#set方法注入" class="headerlink" title="set方法注入"></a>set方法注入</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SPEL"><a href="#SPEL" class="headerlink" title="SPEL"></a>SPEL</h2><blockquote>
+<p>在 spring3.0 以后的版本提供,格式：#{表达式}</p>
+</blockquote>
+<h2 id="注解开发"><a href="#注解开发" class="headerlink" title="注解开发"></a>注解开发</h2><blockquote>
+<p><code>&lt;context:annotation-config /&gt;</code>,它代表的是可以使用 spring 的注解<br><code>&lt;context:component-scan base-package=&quot;包名&quot;&gt;</code>指定spring扫描的包，包含了 <code>&lt;context:annotation-config /&gt;</code></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- &lt;context:annotation-config /&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 下面的配置作用是指定spring扫描的包,它包含了context:annotation-config的功能，所以在开发中一般就不需要在配置上面的 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.znvoid"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="bean注册"><a href="#bean注册" class="headerlink" title="bean注册"></a>bean注册</h3><blockquote>
+<p>使用@Component在类上<br>三个衍生的注解<br>@Rpository 用于 DAO 层<br>@Service 用于 service 层<br>@Controller 用于表现层<br>注意功能相同只是便于阅读</p>
+</blockquote>
+<pre><code>@Component(&quot;user&quot;)
+public class User {}
+</code></pre><h3 id="属性注解注入"><a href="#属性注解注入" class="headerlink" title="属性注解注入"></a>属性注解注入</h3><ol>
+<li><p>简单属性注解注入</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"tom"</span>)</span><br><span class="line"><span class="keyword">private</span> String name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复杂属性的注解注入</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> Iuser user;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意可以在属性上也可以在set方法上，在属性上时不用提供set方法</p>
+<h3 id="其他注解"><a href="#其他注解" class="headerlink" title="其他注解"></a>其他注解</h3><ol>
+<li>@Scope   描述bean的作用域</li>
+<li>@PostConstruct  自定义的初始化方法</li>
+<li>@PreDestory  自定义销毁方法，只对scope为sigleton有效</li>
+</ol>
+<h2 id="spring整合Junit4测试"><a href="#spring整合Junit4测试" class="headerlink" title="spring整合Junit4测试"></a>spring整合Junit4测试</h2><ol>
+<li>导入jar包<br> spring-test-xxx.jar</li>
+<li>添加注释<br> @RunWith(SpringJUnit4ClassRunner.class) // spring整合junit4<br> @ContextConfiguration(locations = “classpath:applicationContext.xml”) // 指spring配置文件位置<br> public class IOCTest {</li>
+<li>使用<br> @Autowired<br> private User user;<br> @Test<br> public void test2() {<pre><code>system.out.println(user.getUsername);
+</code></pre> }</li>
+</ol>
+<h2 id="web开发中的应用"><a href="#web开发中的应用" class="headerlink" title="web开发中的应用"></a>web开发中的应用</h2><ol>
+<li>在 web 项目中要使用 spring 需要导入一个 jar 包<br> spring-web-xxx.jar</li>
+<li><p>在web.xml文件中配置Listener</p>
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;listener&gt;
+</code></pre></li>
+<li><p>我们还需要在 web.xml 文件中配置 applicationContext.xml 文件的位置默认情况下会在 WEB-INF 目录 下查找 applicationContext.xmls如果 applicationContext.xml 文件不是在默认位置，我们可以在 web.xml 文件中配置</p>
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:aplicatinContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Spring一/" rel="tag"><i class="fa fa-tag"></i> Spring一</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaWeb/Hibernate框架/Hibernate二/" rel="next" title="Hibernate二">
+                <i class="fa fa-chevron-left"></i> Hibernate二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div class="overlay"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zn" />
+            
+              <p class="site-author-name" itemprop="name">zn</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+   
+        </div>
+
+        <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2194279655&auto=0&height=90"></iframe>
+        </div>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC与DI"><span class="nav-number">1.3.</span> <span class="nav-text">IOC与DI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spring开发环境搭建"><span class="nav-number">1.3.1.</span> <span class="nav-text">spring开发环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean-获取与实例化"><span class="nav-number">1.3.2.</span> <span class="nav-text">Bean 获取与实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean的作用域"><span class="nav-number">1.3.3.</span> <span class="nav-text">bean的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-number">1.3.4.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性注入"><span class="nav-number">1.3.5.</span> <span class="nav-text">属性注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法注入"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">构造方法注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set方法注入"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">set方法注入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPEL"><span class="nav-number">1.4.</span> <span class="nav-text">SPEL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解开发"><span class="nav-number">1.5.</span> <span class="nav-text">注解开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean注册"><span class="nav-number">1.5.1.</span> <span class="nav-text">bean注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性注解注入"><span class="nav-number">1.5.2.</span> <span class="nav-text">属性注解注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他注解"><span class="nav-number">1.5.3.</span> <span class="nav-text">其他注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring整合Junit4测试"><span class="nav-number">1.6.</span> <span class="nav-text">spring整合Junit4测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web开发中的应用"><span class="nav-number">1.7.</span> <span class="nav-text">web开发中的应用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">znvoid</span>
+
+  
+</div>
+
+<div class="busuanzi-count"><script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user-circle-o"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span><i class="fa fa-eye"></i></span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
